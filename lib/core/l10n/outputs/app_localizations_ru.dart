@@ -77,4 +77,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get intro3card4body => 'Сигналы о достижении целей';
+
+  @override
+  String get welcome => 'Добро пожаловать в Fundoo';
+
+  @override
+  String get welcomeBody => 'Войдите в свою учетную запись или создайте новую';
 }

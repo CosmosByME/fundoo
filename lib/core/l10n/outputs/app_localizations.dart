@@ -231,6 +231,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Goal signals'**
   String get intro3card4body;
+
+  /// No description provided for @welcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to Fundoo'**
+  String get welcome;
+
+  /// No description provided for @welcomeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in to your account or create a new one'**
+  String get welcomeBody;
 }
 
 class _AppLocalizationsDelegate

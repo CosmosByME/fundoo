@@ -76,4 +76,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get intro3card4body => 'Goal signals';
+
+  @override
+  String get welcome => 'Welcome to Fundoo';
+
+  @override
+  String get welcomeBody => 'Log in to your account or create a new one';
 }

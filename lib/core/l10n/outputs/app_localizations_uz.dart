@@ -76,4 +76,10 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get intro3card4body => 'Maqsad signallari';
+
+  @override
+  String get welcome => 'Fundoo\'ga xush kelibsiz';
+
+  @override
+  String get welcomeBody => 'Hisobingizga kiring yoki yangi hisob yarating';
 }

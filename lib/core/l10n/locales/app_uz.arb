@@ -20,5 +20,7 @@
     "intro3card3header" : "O'yinlar",
     "intro3card3body" : "O'yin orqali moliya o'rganing",
     "intro3card4header" : "Eslatmalar",
-    "intro3card4body" : "Maqsad signallari"
+    "intro3card4body" : "Maqsad signallari",
+    "welcome": "Fundoo'ga xush kelibsiz",
+    "welcomeBody": "Hisobingizga kiring yoki yangi hisob yarating"
 }

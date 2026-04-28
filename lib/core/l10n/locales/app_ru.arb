@@ -20,5 +20,7 @@
     "intro3card3header" : "Игры",
     "intro3card3body" : "Играя, вы узнаете о финансах",
     "intro3card4header" : "Напоминания",
-    "intro3card4body" : "Сигналы о достижении целей"
+    "intro3card4body" : "Сигналы о достижении целей",
+    "welcome": "Добро пожаловать в Fundoo",
+    "welcomeBody": "Войдите в свою учетную запись или создайте новую"
 }

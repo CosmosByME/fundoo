@@ -20,5 +20,7 @@
     "intro3card3header" : "Games",
     "intro3card3body" : "Learn about finance through games",
     "intro3card4header" : "Reminders",
-    "intro3card4body" : "Goal signals"
+    "intro3card4body" : "Goal signals",
+    "welcome": "Welcome to Fundoo",
+    "welcomeBody": "Log in to your account or create a new one"
 }
