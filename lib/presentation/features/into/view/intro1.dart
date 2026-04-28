@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fundoo/presentation/features/into/view/widgets/card.dart';
 
+import '../../../../core/l10n/l10n.dart';
 import '../../../../core/services/svg_service.dart';
 
 class IntroOne extends StatelessWidget {
@@ -14,7 +15,7 @@ class IntroOne extends StatelessWidget {
         children: [
           SvgService().logo(150, 150),
           Text(
-            "Moliyaviy erkinlikka qadam qo'ying",
+            context.l10n.intro1Header,
             style: TextStyle(
               fontSize: 28,
               color: Color(0xFF0F172A),
@@ -25,7 +26,7 @@ class IntroOne extends StatelessWidget {
           ),
           SizedBox(height: 15),
           Text(
-            "Fundoo — orzularingizni real moliyaviy maqsadlarga aylantiruvchi aqlli hamroh.",
+            context.l10n.intro1Body,
             style: TextStyle(
               fontSize: 13,
               color: Color(0xFF64748B),
@@ -37,17 +38,17 @@ class IntroOne extends StatelessWidget {
           SizedBox(height: 15),
           IntroOneCard(
             icon: "🎯",
-            text: "Shaxsiy moliyaviy maqsadlar belgilang va kuzating",
+            text: context.l10n.intro1card1
           ),
           SizedBox(height: 12),
           IntroOneCard(
             icon: "📊",
-            text: "Daromad va xarajatlaringizni tahlil qiling",
+            text: context.l10n.intro1card2,
           ),
           SizedBox(height: 12),
           IntroOneCard(
             icon: "🏆",
-            text: "Moliyaviy savodxonligingizni oshiring",
+            text: context.l10n.intro1card3,
           ),
         ],
       ),

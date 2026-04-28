@@ -38,6 +38,7 @@ class IntroNotifier extends ChangeNotifier {
     final newLocale = await localeSelectingDialog(context);
     if (newLocale != null && context.mounted) {
       context.locale.value = newLocale;
+      notifyListeners();
     }
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fundoo/presentation/features/into/view/widgets/card3.dart';
 
+import '../../../../core/l10n/l10n.dart';
+
 class IntroThree extends StatelessWidget {
   const IntroThree({super.key});
 
@@ -45,7 +47,7 @@ class IntroThree extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Text(
-            "Sizni nima kutadi?",
+            context.l10n.intro3Header,
             style: TextStyle(
               fontSize: 28,
               color: Color(0xFF0F172A),
@@ -56,7 +58,7 @@ class IntroThree extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Text(
-            "Fundoo bilan moliyaviy hayotingizni to'liq nazorat qiling",
+            context.l10n.intro3Body,
             style: TextStyle(
               fontSize: 13,
               color: Color(0xFF64748B),
@@ -78,23 +80,23 @@ class IntroThree extends StatelessWidget {
               children: [
                 IntroThreeCard(
                   icon: "📈",
-                  main: "Tahlil",
-                  text: "Xarajat va daromad taqsimoti",
+                  main: context.l10n.intro3card1header,
+                  text: context.l10n.intro3card1body,
                 ),
                 IntroThreeCard(
                   icon: "🎯",
-                  main: "Maqsadlar",
-                  text: "Aniq reja bilan oldinga boring",
+                  main: context.l10n.intro3card2header,
+                  text: context.l10n.intro3card2body,
                 ),
                 IntroThreeCard(
                   icon: "🎮",
-                  main: "O'yinlar",
-                  text: "O'yin orqali moliya o'rganing",
+                  main: context.l10n.intro3card3header,
+                  text: context.l10n.intro3card3body,
                 ),
                 IntroThreeCard(
                   icon: "🔔",
-                  main: "Eslatmalar",
-                  text: "Maqsad signallari",
+                  main: context.l10n.intro3card4header,
+                  text: context.l10n.intro3card4body,
                 ),
               ],
             ),

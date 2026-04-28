@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/l10n/l10n.dart';
+
 class IntroTwo extends StatelessWidget {
   const IntroTwo({super.key});
 
@@ -54,7 +56,7 @@ class IntroTwo extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Text(
-            "Tejash odatini shakllantiring",
+            context.l10n.intro2Header,
             style: TextStyle(
               fontSize: 28,
               color: Color(0xFF0F172A),
@@ -65,7 +67,7 @@ class IntroTwo extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Text(
-            "Har kuni ozgina tejash — vaqt o'tishi bilan katta natijalarga olib keladi. Maqsadlaringizni belgilang.",
+            context.l10n.intro2Body,
             style: TextStyle(
               fontSize: 13,
               color: Color(0xFF64748B),
