@@ -14,10 +14,11 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
-        child: TweenAnimationBuilder<int>(
-          tween: Tween(begin: 150, end: 200),
-          duration: Duration(milliseconds: 300),
+        child: TweenAnimationBuilder<double>(
+          tween: Tween(begin: 200, end: 250),
+          duration: Duration(milliseconds: 400),
           builder: (context, value, child) {
             return SvgService().logo(value.toDouble(), value.toDouble());
           },

@@ -42,9 +42,7 @@ class Intro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = InheritedIntro.of(context).notifier;
-    return ListenableBuilder(
-      listenable: state,
-      builder: (context, _) => Scaffold(
+    return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -88,10 +86,12 @@ class Intro extends StatelessWidget {
           children: [
             Expanded(
               child: PageView(
+
                 controller: state.pageController,
                 children: [IntroOne(), IntroTwo(), IntroThree()],
                 onPageChanged: (index) {
                   state.setPage(index);
+
                 },
               ),
             ),
@@ -128,7 +128,6 @@ class Intro extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }
