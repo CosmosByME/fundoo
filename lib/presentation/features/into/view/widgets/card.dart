@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class SplashOneCard extends StatelessWidget {
+class IntroOneCard extends StatelessWidget {
   final String icon;
   final String text;
 
-  const SplashOneCard({super.key, required this.icon, required this.text});
+  const IntroOneCard({super.key, required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {

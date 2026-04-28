@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fundoo/presentation/features/splash/view/widggets/card.dart';
+import 'package:fundoo/presentation/features/into/view/widgets/card.dart';
 
 import '../../../../core/services/svg_service.dart';
 
-class SplashOne extends StatelessWidget {
-  const SplashOne({super.key});
+class IntroOne extends StatelessWidget {
+  const IntroOne({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,17 +35,17 @@ class SplashOne extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 15),
-          SplashOneCard(
+          IntroOneCard(
             icon: "🎯",
             text: "Shaxsiy moliyaviy maqsadlar belgilang va kuzating",
           ),
           SizedBox(height: 12),
-          SplashOneCard(
+          IntroOneCard(
             icon: "📊",
             text: "Daromad va xarajatlaringizni tahlil qiling",
           ),
           SizedBox(height: 12),
-          SplashOneCard(
+          IntroOneCard(
             icon: "🏆",
             text: "Moliyaviy savodxonligingizni oshiring",
           ),

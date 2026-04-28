@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fundoo/presentation/features/splash/view/widggets/card.dart';
 
-import '../../../../core/services/svg_service.dart';
-
-class SplashTwo extends StatelessWidget {
-  const SplashTwo({super.key});
+class IntroTwo extends StatelessWidget {
+  const IntroTwo({super.key});
 
   @override
   Widget build(BuildContext context) {

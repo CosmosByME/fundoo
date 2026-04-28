@@ -1,0 +1,79 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for English (`en`).
+class AppLocalizationsEn extends AppLocalizations {
+  AppLocalizationsEn([String locale = 'en']) : super(locale);
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get app_language => 'App Language';
+
+  @override
+  String get skip => 'Skip';
+
+  @override
+  String get intro1Header => 'Take a Step Towards Financial Freedom';
+
+  @override
+  String get intro1Body =>
+      'Fundoo — your smart companion that turns your dreams into real financial goals.';
+
+  @override
+  String get intro2Header => 'Form the Habit of Saving';
+
+  @override
+  String get intro2Body =>
+      'Saving a little every day — over time, it leads to big results. Set your financial goals.';
+
+  @override
+  String get intro3Header => 'Track Your Financial Goals';
+
+  @override
+  String get intro3Body =>
+      'With Fundoo, you can take full control of your financial lifestyle';
+
+  @override
+  String get getStarted => 'Get Started';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get intro1card1 => 'Set and track your personal financial goals';
+
+  @override
+  String get intro1card2 => 'Analyze your income and expenses';
+
+  @override
+  String get intro1card3 => 'Improve your financial literacy';
+
+  @override
+  String get intro3card1header => 'Analysis';
+
+  @override
+  String get intro3card1body => 'Expense and income distribution';
+
+  @override
+  String get intro3card2header => 'Goals';
+
+  @override
+  String get intro3card2body => 'Move forward with a clear plan';
+
+  @override
+  String get intro3card3header => 'Games';
+
+  @override
+  String get intro3card3body => 'Learn about finance through games';
+
+  @override
+  String get intro3card4header => 'Reminders';
+
+  @override
+  String get intro3card4body => 'Goal signals';
+}

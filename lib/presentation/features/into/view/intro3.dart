@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fundoo/presentation/features/splash/view/widggets/card.dart';
-import 'package:fundoo/presentation/features/splash/view/widggets/card3.dart';
+import 'package:fundoo/presentation/features/into/view/widgets/card3.dart';
 
-import '../../../../core/services/svg_service.dart';
-
-class SplashThree extends StatelessWidget {
-  const SplashThree({super.key});
+class IntroThree extends StatelessWidget {
+  const IntroThree({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +11,7 @@ class SplashThree extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(flex: 1,child: SizedBox()),
+          Expanded(flex: 1, child: SizedBox()),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -79,22 +76,22 @@ class SplashThree extends StatelessWidget {
                 childAspectRatio: 1.7,
               ),
               children: [
-                SplashThreeCard(
+                IntroThreeCard(
                   icon: "📈",
                   main: "Tahlil",
                   text: "Xarajat va daromad taqsimoti",
                 ),
-                SplashThreeCard(
+                IntroThreeCard(
                   icon: "🎯",
                   main: "Maqsadlar",
                   text: "Aniq reja bilan oldinga boring",
                 ),
-                SplashThreeCard(
+                IntroThreeCard(
                   icon: "🎮",
                   main: "O'yinlar",
                   text: "O'yin orqali moliya o'rganing",
                 ),
-                SplashThreeCard(
+                IntroThreeCard(
                   icon: "🔔",
                   main: "Eslatmalar",
                   text: "Maqsad signallari",
