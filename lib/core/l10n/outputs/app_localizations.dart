@@ -243,6 +243,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Log in to your account or create a new one'**
   String get welcomeBody;
+
+  /// No description provided for @createAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Account'**
+  String get createAccount;
+
+  /// No description provided for @logIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Log In'**
+  String get logIn;
 }
 
 class _AppLocalizationsDelegate

@@ -83,4 +83,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get welcomeBody => 'Войдите в свою учетную запись или создайте новую';
+
+  @override
+  String get createAccount => 'Создать аккаунт';
+
+  @override
+  String get logIn => 'Войти';
 }

@@ -82,4 +82,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get welcomeBody => 'Log in to your account or create a new one';
+
+  @override
+  String get createAccount => 'Create Account';
+
+  @override
+  String get logIn => 'Log In';
 }

@@ -22,5 +22,7 @@
     "intro3card4header" : "Eslatmalar",
     "intro3card4body" : "Maqsad signallari",
     "welcome": "Fundoo'ga xush kelibsiz",
-    "welcomeBody": "Hisobingizga kiring yoki yangi hisob yarating"
+    "welcomeBody": "Hisobingizga kiring yoki yangi hisob yarating",
+    "createAccount": "Hisob yaratish",
+    "logIn": "Kirish"
 }

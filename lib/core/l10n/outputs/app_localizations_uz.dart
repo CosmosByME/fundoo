@@ -82,4 +82,10 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get welcomeBody => 'Hisobingizga kiring yoki yangi hisob yarating';
+
+  @override
+  String get createAccount => 'Hisob yaratish';
+
+  @override
+  String get logIn => 'Kirish';
 }
