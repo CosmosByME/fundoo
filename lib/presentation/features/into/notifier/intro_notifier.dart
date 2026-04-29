@@ -30,7 +30,7 @@ class IntroNotifier extends ChangeNotifier {
   Future<void> finishIntro(BuildContext context) async {
     await setIntroSeen();
     if (context.mounted) {
-      context.go("/home");
+      context.go("/auth");
     }
   }
 

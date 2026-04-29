@@ -24,5 +24,16 @@
     "welcome": "Fundoo'ga xush kelibsiz",
     "welcomeBody": "Hisobingizga kiring yoki yangi hisob yarating",
     "createAccount": "Hisob yaratish",
-    "logIn": "Kirish"
+    "logIn": "Kirish",
+    "enter": "Kirish",
+    "enterPhone": "Telefon raqamingizni kiriting",
+    "onlyUzb": "Faqat O'zbekiston telefon raqamlari (+998)",
+    "sendCode": "Kod yuborish",
+    "noAccount": "Hisobingiz yo'qmi? ",
+    "haveAccount": "Hisobingiz bormi? ",
+    "signUp": "Ro'yxatdan o'tish",
+    "verification": "Tasdiqlash",
+    "verificationBody": "Telefon raqamingizga yuborilgan 6 xonali kodni kiriting",
+    "resendCode": "Kod yuborishni qayta yuborish",
+    "verify": "Tasdiqlash"
 }

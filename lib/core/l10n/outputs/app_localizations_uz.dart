@@ -88,4 +88,38 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get logIn => 'Kirish';
+
+  @override
+  String get enter => 'Kirish';
+
+  @override
+  String get enterPhone => 'Telefon raqamingizni kiriting';
+
+  @override
+  String get onlyUzb => 'Faqat O\'zbekiston telefon raqamlari (+998)';
+
+  @override
+  String get sendCode => 'Kod yuborish';
+
+  @override
+  String get noAccount => 'Hisobingiz yo\'qmi? ';
+
+  @override
+  String get haveAccount => 'Hisobingiz bormi? ';
+
+  @override
+  String get signUp => 'Ro\'yxatdan o\'tish';
+
+  @override
+  String get verification => 'Tasdiqlash';
+
+  @override
+  String get verificationBody =>
+      'Telefon raqamingizga yuborilgan 6 xonali kodni kiriting';
+
+  @override
+  String get resendCode => 'Kod yuborishni qayta yuborish';
+
+  @override
+  String get verify => 'Tasdiqlash';
 }

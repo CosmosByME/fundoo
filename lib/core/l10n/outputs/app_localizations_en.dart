@@ -88,4 +88,38 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get logIn => 'Log In';
+
+  @override
+  String get enter => 'Log In';
+
+  @override
+  String get enterPhone => 'Enter your phone number';
+
+  @override
+  String get onlyUzb => 'Only Uzbekistan phone numbers (+998)';
+
+  @override
+  String get sendCode => 'Send Code';
+
+  @override
+  String get noAccount => 'Don\'t have an account? ';
+
+  @override
+  String get haveAccount => 'Already have an account? ';
+
+  @override
+  String get signUp => 'Sign Up';
+
+  @override
+  String get verification => 'Verification';
+
+  @override
+  String get verificationBody =>
+      'Enter the 6-digit code sent to your phone number';
+
+  @override
+  String get resendCode => 'Resend Code';
+
+  @override
+  String get verify => 'Verify';
 }

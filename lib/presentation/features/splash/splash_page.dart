@@ -27,7 +27,7 @@ class _SplashPageState extends State<SplashPage> {
 
             if (isSeen) {
               if (context.mounted) {
-                context.go("/home");
+                context.go("/auth");
               }
             } else {
               if (context.mounted) {

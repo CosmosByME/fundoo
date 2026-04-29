@@ -89,4 +89,38 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get logIn => 'Войти';
+
+  @override
+  String get enter => 'Войти';
+
+  @override
+  String get enterPhone => 'Введите свой номер телефона';
+
+  @override
+  String get onlyUzb => 'Только телефонные номера Узбекистана (+998)';
+
+  @override
+  String get sendCode => 'Отправить код';
+
+  @override
+  String get noAccount => 'У вас нет аккаунта? ';
+
+  @override
+  String get haveAccount => 'Уже есть аккаунт? ';
+
+  @override
+  String get signUp => 'Зарегистрироваться';
+
+  @override
+  String get verification => 'Подтверждение';
+
+  @override
+  String get verificationBody =>
+      'Введите 6-значный код, отправленный на ваш номер телефона';
+
+  @override
+  String get resendCode => 'Отправить код повторно';
+
+  @override
+  String get verify => 'Подтвердить';
 }

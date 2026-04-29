@@ -255,6 +255,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Log In'**
   String get logIn;
+
+  /// No description provided for @enter.
+  ///
+  /// In en, this message translates to:
+  /// **'Log In'**
+  String get enter;
+
+  /// No description provided for @enterPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your phone number'**
+  String get enterPhone;
+
+  /// No description provided for @onlyUzb.
+  ///
+  /// In en, this message translates to:
+  /// **'Only Uzbekistan phone numbers (+998)'**
+  String get onlyUzb;
+
+  /// No description provided for @sendCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Code'**
+  String get sendCode;
+
+  /// No description provided for @noAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account? '**
+  String get noAccount;
+
+  /// No description provided for @haveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account? '**
+  String get haveAccount;
+
+  /// No description provided for @signUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Up'**
+  String get signUp;
+
+  /// No description provided for @verification.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification'**
+  String get verification;
+
+  /// No description provided for @verificationBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the 6-digit code sent to your phone number'**
+  String get verificationBody;
+
+  /// No description provided for @resendCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend Code'**
+  String get resendCode;
+
+  /// No description provided for @verify.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify'**
+  String get verify;
 }
 
 class _AppLocalizationsDelegate

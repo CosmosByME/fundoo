@@ -24,5 +24,16 @@
     "welcome": "Welcome to Fundoo",
     "welcomeBody": "Log in to your account or create a new one",
     "createAccount": "Create Account",
-    "logIn": "Log In"
+    "logIn": "Log In",
+    "enter": "Log In",
+    "enterPhone": "Enter your phone number",
+    "onlyUzb": "Only Uzbekistan phone numbers (+998)",
+    "sendCode": "Send Code",
+    "noAccount": "Don't have an account? ",
+    "haveAccount": "Already have an account? ",
+    "signUp": "Sign Up",
+    "verification": "Verification",
+    "verificationBody": "Enter the 6-digit code sent to your phone number",
+    "resendCode": "Resend Code",
+    "verify": "Verify"
 }
