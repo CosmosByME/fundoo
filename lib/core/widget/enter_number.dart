@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../l10n/l10n.dart';
 
@@ -26,6 +27,11 @@ class _EnterNumberFieldState extends State<EnterNumberField> {
     super.dispose();
   }
 
+  final maskFormatter = MaskTextInputFormatter(
+    mask: '## ### ## ##',
+    filter: {"#": RegExp(r'[0-9]')},
+  );
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -44,7 +50,10 @@ class _EnterNumberFieldState extends State<EnterNumberField> {
           child: Row(
             children: [
               SizedBox(width: 15),
-              Text(' +998', style: TextStyle(fontSize: 16, color: Color(0xFF0F172A)),),
+              Text(
+                ' +998',
+                style: TextStyle(fontSize: 16, color: Color(0xFF0F172A)),
+              ),
               SizedBox(width: 10),
               Container(
                 width: 2,
@@ -61,6 +70,7 @@ class _EnterNumberFieldState extends State<EnterNumberField> {
                     hintText: "00 000 00 00",
                     hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
                   ),
+                  inputFormatters: [maskFormatter],
                 ),
               ),
             ],

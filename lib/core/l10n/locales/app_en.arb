@@ -35,5 +35,16 @@
     "verification": "Verification",
     "verificationBody": "Enter the 6-digit code sent to your phone number",
     "resendCode": "Resend Code",
-    "verify": "Verify"
+    "verify": "Verify",
+    "register": "Register",
+    "askingPhone": "Enter your phone number. We will send a verification code to it.",
+    "personalInfo": "Personal Information",
+    "askingInfo": "Please fill in the following fields to create an account.",
+    "fullName": "Full Name",
+    "userName": "User Name",
+    "age": "Age",
+    "continuing": "Continue",
+    "profilePicture": "Profile Picture",
+    "optional": "Optional",
+    "uploadLaterInfo": "You can upload a photo later"
 }

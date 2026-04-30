@@ -29,7 +29,19 @@ final router = GoRouter(
             ),
           ],
         ),
-        GoRoute(path: '/sign-up', builder: (context, state) => SignUpPage()),
+        GoRoute(
+          path: '/sign-up',
+          builder: (context, state) => SignUpPage(),
+          routes: [
+            GoRoute(
+              path: '/otp/:number',
+              builder: (context, state) {
+                final id = state.pathParameters['number'] ?? '';
+                return SmsVerificationPage(phoneNumber: id);
+              },
+            ),
+          ],
+        ),
       ],
     ),
   ],

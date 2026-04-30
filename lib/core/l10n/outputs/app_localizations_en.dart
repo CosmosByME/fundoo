@@ -122,4 +122,39 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get verify => 'Verify';
+
+  @override
+  String get register => 'Register';
+
+  @override
+  String get askingPhone =>
+      'Enter your phone number. We will send a verification code to it.';
+
+  @override
+  String get personalInfo => 'Personal Information';
+
+  @override
+  String get askingInfo =>
+      'Please fill in the following fields to create an account.';
+
+  @override
+  String get fullName => 'Full Name';
+
+  @override
+  String get userName => 'User Name';
+
+  @override
+  String get age => 'Age';
+
+  @override
+  String get continuing => 'Continue';
+
+  @override
+  String get profilePicture => 'Profile Picture';
+
+  @override
+  String get optional => 'Optional';
+
+  @override
+  String get uploadLaterInfo => 'You can upload a photo later';
 }

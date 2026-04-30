@@ -35,5 +35,16 @@
     "verification": "Tasdiqlash",
     "verificationBody": "Telefon raqamingizga yuborilgan 6 xonali kodni kiriting",
     "resendCode": "Kod yuborishni qayta yuborish",
-    "verify": "Tasdiqlash"
+    "verify": "Tasdiqlash",
+    "register": "Ro'yxatdan o'tish",
+    "askingPhone": "Telefon raqamingizni kiriting. Unga tasdiqlash kodi yuboramiz.",
+    "personalInfo": "Malumotlaingiz",
+    "askingInfo": "Hisob ochish uchun quyidagi ma'lumotlarni kiriting.",
+    "fullName": "To'liq ism",
+    "userName": "Foydalanuvchi nomi",
+    "age": "Yosh",
+    "continuing": "Davom etish",
+    "profilePicture": "Profil rasmi",
+    "optional": "ixtiyoriy",
+    "uploadLaterInfo": "Rasmni keyinroq ham yuklashingiz mumkin"
 }

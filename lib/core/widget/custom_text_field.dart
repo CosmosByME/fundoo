@@ -1,21 +1,35 @@
 import 'package:flutter/material.dart';
 
-
-class EnterNumberField extends StatefulWidget {
+class CustomTextField extends StatefulWidget {
+  final String? hint;
+  final String? label;
+  final TextInputType? keyboardType;
   final TextEditingController _controller;
 
-  const EnterNumberField({super.key, controller}) : _controller = controller;
+  const CustomTextField({
+    super.key,
+    this.hint,
+    this.label,
+    this.keyboardType,
+    required controller,
+  }) : _controller = controller;
 
   @override
-  State<EnterNumberField> createState() => _EnterNumberFieldState();
+  State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
-class _EnterNumberFieldState extends State<EnterNumberField> {
+class _CustomTextFieldState extends State<CustomTextField> {
   late TextEditingController controller;
+  late String? hint;
+  late String? label;
+  late TextInputType? keyboardType;
 
   @override
   void initState() {
     controller = widget._controller;
+    hint = widget.hint;
+    label = widget.label;
+    keyboardType = widget.keyboardType;
     super.initState();
   }
 
@@ -27,24 +41,38 @@ class _EnterNumberFieldState extends State<EnterNumberField> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 53,
-      margin: EdgeInsets.symmetric(vertical: 10),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(13),
-        border: Border.all(color: Colors.grey.shade300, width: 2),
-      ),
-      child: TextField(
-        controller: controller,
-        keyboardType: TextInputType.text,
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          hintText: "00 000 00 00",
-          hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (label != null)
+          Text(
+            label!,
+            style: TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF64748B),
+            ),
+          ),
+        Container(
+          width: double.infinity,
+          height: 53,
+          margin: EdgeInsets.symmetric(vertical: 10),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(13),
+            border: Border.all(color: Colors.grey.shade300, width: 2),
+          ),
+          child: TextField(
+            controller: controller,
+            keyboardType: keyboardType ?? TextInputType.text,
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: hint,
+              hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 }

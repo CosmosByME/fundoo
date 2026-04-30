@@ -123,4 +123,39 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get verify => 'Подтвердить';
+
+  @override
+  String get register => 'Зарегистрироваться';
+
+  @override
+  String get askingPhone =>
+      'Введите свой номер телефона. На него будет отправлен код подтверждения.';
+
+  @override
+  String get personalInfo => 'Личная информация';
+
+  @override
+  String get askingInfo =>
+      'Для создания учетной записи, пожалуйста, заполните следующие поля.';
+
+  @override
+  String get fullName => 'Полное имя';
+
+  @override
+  String get userName => 'Имя пользователя';
+
+  @override
+  String get age => 'Возраст';
+
+  @override
+  String get continuing => 'Продолжить';
+
+  @override
+  String get profilePicture => 'Фото профиля';
+
+  @override
+  String get optional => 'необязательно';
+
+  @override
+  String get uploadLaterInfo => 'Вы можете загрузить фото позже';
 }

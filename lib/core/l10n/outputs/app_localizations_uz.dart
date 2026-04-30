@@ -122,4 +122,39 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get verify => 'Tasdiqlash';
+
+  @override
+  String get register => 'Ro\'yxatdan o\'tish';
+
+  @override
+  String get askingPhone =>
+      'Telefon raqamingizni kiriting. Unga tasdiqlash kodi yuboramiz.';
+
+  @override
+  String get personalInfo => 'Malumotlaingiz';
+
+  @override
+  String get askingInfo =>
+      'Hisob ochish uchun quyidagi ma\'lumotlarni kiriting.';
+
+  @override
+  String get fullName => 'To\'liq ism';
+
+  @override
+  String get userName => 'Foydalanuvchi nomi';
+
+  @override
+  String get age => 'Yosh';
+
+  @override
+  String get continuing => 'Davom etish';
+
+  @override
+  String get profilePicture => 'Profil rasmi';
+
+  @override
+  String get optional => 'ixtiyoriy';
+
+  @override
+  String get uploadLaterInfo => 'Rasmni keyinroq ham yuklashingiz mumkin';
 }

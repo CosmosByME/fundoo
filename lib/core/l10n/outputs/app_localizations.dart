@@ -321,6 +321,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Verify'**
   String get verify;
+
+  /// No description provided for @register.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get register;
+
+  /// No description provided for @askingPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your phone number. We will send a verification code to it.'**
+  String get askingPhone;
+
+  /// No description provided for @personalInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal Information'**
+  String get personalInfo;
+
+  /// No description provided for @askingInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Please fill in the following fields to create an account.'**
+  String get askingInfo;
+
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fullName;
+
+  /// No description provided for @userName.
+  ///
+  /// In en, this message translates to:
+  /// **'User Name'**
+  String get userName;
+
+  /// No description provided for @age.
+  ///
+  /// In en, this message translates to:
+  /// **'Age'**
+  String get age;
+
+  /// No description provided for @continuing.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continuing;
+
+  /// No description provided for @profilePicture.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Picture'**
+  String get profilePicture;
+
+  /// No description provided for @optional.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional'**
+  String get optional;
+
+  /// No description provided for @uploadLaterInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'You can upload a photo later'**
+  String get uploadLaterInfo;
 }
 
 class _AppLocalizationsDelegate

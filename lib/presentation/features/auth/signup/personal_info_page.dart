@@ -4,19 +4,31 @@ import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/core/widget/custom_text_field.dart';
 import 'package:go_router/go_router.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class PersonalInfoPage extends StatefulWidget {
+  const PersonalInfoPage({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<PersonalInfoPage> createState() => _PersonalInfoPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
-  final TextEditingController _phoneController = TextEditingController();
+class _PersonalInfoPageState extends State<PersonalInfoPage> {
+  late final TextEditingController _nameController;
+  late final TextEditingController _userNameController;
+  late final TextEditingController _ageController;
+
+  @override
+  initState() {
+    super.initState();
+    _nameController = TextEditingController();
+    _userNameController = TextEditingController();
+    _ageController = TextEditingController();
+  }
 
   @override
   void dispose() {
-    _phoneController.dispose();
+    _nameController.dispose();
+    _userNameController.dispose();
+    _ageController.dispose();
     super.dispose();
   }
 
@@ -32,7 +44,7 @@ class _SignUpPageState extends State<SignUpPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              context.l10n.register,
+              context.l10n.personalInfo,
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -41,15 +53,19 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
             SizedBox(height: 10),
             Text(
-              context.l10n.askingPhone,
+              context.l10n.askingInfo,
               style: TextStyle(color: Colors.grey),
             ),
             SizedBox(height: 30),
-            CustomTextField(controller: _phoneController),
+            CustomTextField(controller: _nameController, label: context.l10n.fullName, hint: "Lola Toirxonova",),
+            SizedBox(height: 15),
+            CustomTextField(controller: _userNameController, label: context.l10n.userName, hint: "@lola_toirxonova",),
+            SizedBox(height: 15),
+            CustomTextField(controller: _ageController, label: context.l10n.age, hint: "25", keyboardType: TextInputType.number),
             const SizedBox(height: 35),
             CustomButton(
               onPressed: () {
-                context.go('/auth/sign-up/otp/${_phoneController.text}');
+                context.go('/auth/sign-up/otp');
               },
               backgroundColor: Color(0xFF2563EB),
               child: Text(
