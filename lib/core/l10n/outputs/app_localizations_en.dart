@@ -157,4 +157,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get uploadLaterInfo => 'You can upload a photo later';
+
+  @override
+  String get doneHeader => 'Let\'s set your first goal';
+
+  @override
+  String get doneBody =>
+      'Fundoo helps you save money and achieve what matters most to you.';
+
+  @override
+  String get setGoal => 'Set Goal';
 }

@@ -46,5 +46,8 @@
     "continuing": "Continue",
     "profilePicture": "Profile Picture",
     "optional": "Optional",
-    "uploadLaterInfo": "You can upload a photo later"
+    "uploadLaterInfo": "You can upload a photo later",
+    "doneHeader": "Let's set your first goal",
+    "doneBody": "Fundoo helps you save money and achieve what matters most to you.",
+    "setGoal": "Set Goal"
 }

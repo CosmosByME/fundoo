@@ -1,35 +1,35 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fundoo/core/l10n/l10n.dart';
-import 'package:fundoo/core/widget/custom_button.dart';
-import 'package:fundoo/core/widget/otp_field.dart';
+import 'package:fundoo/core/widget/custom_text_field.dart';
 import 'package:go_router/go_router.dart';
 
-class SmsVerificationSignUpPage extends StatefulWidget {
-  final String phoneNumber;
-  const SmsVerificationSignUpPage({super.key, required this.phoneNumber});
+import '../../../../core/l10n/l10n.dart';
+import '../../../../core/widget/custom_button.dart';
+import '../../../../core/widget/enter_number.dart';
+
+class NameOfGoal extends StatefulWidget {
+  const NameOfGoal({super.key});
 
   @override
-  State<SmsVerificationSignUpPage> createState() => _SmsVerificationSignUpPageState();
+  State<NameOfGoal> createState() => _NameOfGoalState();
 }
 
-class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
-  late String phoneNumber;
-  int otp = 123;
-  late final TextEditingController _codeController;
+class _NameOfGoalState extends State<NameOfGoal> {
+  late final TextEditingController _goalNameController;
 
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
-    phoneNumber = widget.phoneNumber;
-    _codeController = TextEditingController();
-    _codeController.addListener(() => setState(() {}));
+    _goalNameController = TextEditingController();
   }
 
   @override
   void dispose() {
-    _codeController.dispose();
+    _goalNameController.dispose();
     super.dispose();
   }
+
 
 
   @override
@@ -42,20 +42,11 @@ class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              width: 8,
-              height: 8,
-              decoration: BoxDecoration(
-                color: Color(0xFF3B82F6),
-                shape: BoxShape.circle,
-              ),
-            ),
-            SizedBox(width: 6),
-            Container(
               width: 22,
               height: 8,
               decoration: BoxDecoration(
                 color: Color(0xFF3B82F6),
-                borderRadius: BorderRadius.circular(4),
+                shape: BoxShape.circle,
               ),
             ),
             SizedBox(width: 6),
@@ -65,6 +56,24 @@ class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
               decoration: BoxDecoration(
                 color: Color(0xFFE2E8F0),
                 shape: BoxShape.circle,
+              ),
+            ),
+            SizedBox(width: 6),
+            Container(
+              width: 8,
+              height: 8,
+              decoration: BoxDecoration(
+                color: Color(0xFFE2E8F0),
+                borderRadius: BorderRadius.circular(4),
+              ),
+            ),
+            SizedBox(width: 6),
+            Container(
+              width: 8,
+              height: 8,
+              decoration: BoxDecoration(
+                color: Color(0xFFE2E8F0),
+                borderRadius: BorderRadius.circular(4),
               ),
             ),
           ],
@@ -77,7 +86,7 @@ class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              context.l10n.verification,
+              context.l10n.enter,
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -86,25 +95,19 @@ class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
             ),
             SizedBox(height: 10),
             Text(
-              context.l10n.verificationBody,
+              context.l10n.enterPhone,
               style: TextStyle(color: Colors.grey),
             ),
-            SizedBox(height: 10),
-            Text(phoneNumber,
-              style: TextStyle(color: Color(0xFF0F172A), fontWeight: FontWeight.w700),
-            ),
             SizedBox(height: 30),
-            OtpField(
-              controller: _codeController,
-            ),
+            CustomTextField(controller: _goalNameController, label: "",),
             const SizedBox(height: 35),
             CustomButton(
-              onPressed: _codeController.text.length == 6 ? () {
-                context.go('/auth/sign-up/otp/$phoneNumber/personal-info');
-              } : null,
+              onPressed: () {
+
+              },
               backgroundColor: Color(0xFF2563EB),
               child: Text(
-                context.l10n.enter,
+                context.l10n.next,
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w700,
@@ -113,6 +116,21 @@ class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
               ),
             ),
             const SizedBox(height: 10),
+            Container(
+              alignment: Alignment.center,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(context.l10n.noAccount, style: TextStyle(color: Colors.grey),),
+                  TextButton(
+                    onPressed: () {
+                      context.go('/auth/sign-up');
+                    },
+                    child: Text(context.l10n.createAccount, style: TextStyle(color: Color(0xFF2563EB)),),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),

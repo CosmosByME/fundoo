@@ -38,7 +38,7 @@
     "verify": "Tasdiqlash",
     "register": "Ro'yxatdan o'tish",
     "askingPhone": "Telefon raqamingizni kiriting. Unga tasdiqlash kodi yuboramiz.",
-    "personalInfo": "Malumotlaingiz",
+    "personalInfo": "Malumotlaringiz",
     "askingInfo": "Hisob ochish uchun quyidagi ma'lumotlarni kiriting.",
     "fullName": "To'liq ism",
     "userName": "Foydalanuvchi nomi",
@@ -46,5 +46,8 @@
     "continuing": "Davom etish",
     "profilePicture": "Profil rasmi",
     "optional": "ixtiyoriy",
-    "uploadLaterInfo": "Rasmni keyinroq ham yuklashingiz mumkin"
+    "uploadLaterInfo": "Rasmni keyinroq ham yuklashingiz mumkin",
+    "doneHeader": "Birinchi maqsadingizni qo'yaylik",
+    "doneBody": "Fundoo sizga pulni tejashga va siz uchun eng muhim bo'lgan narsalarga erishishga yordam beradi.",
+    "setGoal": "Maqsadni belgilash"
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
+  final int? maxLength;
+  final int? maxLines;
   final String? hint;
   final String? label;
   final TextInputType? keyboardType;
@@ -12,6 +14,7 @@ class CustomTextField extends StatefulWidget {
     this.label,
     this.keyboardType,
     required controller,
+    this.maxLines, this.maxLength,
   }) : _controller = controller;
 
   @override
@@ -48,28 +51,23 @@ class _CustomTextFieldState extends State<CustomTextField> {
           Text(
             label!,
             style: TextStyle(
-              fontSize: 11,
-              fontWeight: FontWeight.w500,
+              fontSize: 12,
+              fontWeight: FontWeight.w700,
               color: Color(0xFF64748B),
             ),
           ),
-        Container(
-          width: double.infinity,
-          height: 53,
-          margin: EdgeInsets.symmetric(vertical: 10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(13),
-            border: Border.all(color: Colors.grey.shade300, width: 2),
-          ),
-          child: TextField(
-            controller: controller,
-            keyboardType: keyboardType ?? TextInputType.text,
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: hint,
-              hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
+        TextField(
+          maxLines: widget.maxLines,
+          maxLength: widget.maxLength,
+          controller: controller,
+          keyboardType: keyboardType ?? TextInputType.text,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: Color(0xFFE2E8F0), width: 2),
             ),
+            hintText: hint,
+            hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
           ),
         ),
       ],

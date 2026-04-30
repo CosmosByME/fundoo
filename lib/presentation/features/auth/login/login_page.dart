@@ -74,7 +74,9 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   Text(context.l10n.noAccount, style: TextStyle(color: Colors.grey),),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.go('/auth/sign-up');
+                    },
                     child: Text(context.l10n.createAccount, style: TextStyle(color: Color(0xFF2563EB)),),
                   )
                 ],

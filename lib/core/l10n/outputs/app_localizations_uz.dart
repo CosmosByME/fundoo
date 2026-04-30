@@ -131,7 +131,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Telefon raqamingizni kiriting. Unga tasdiqlash kodi yuboramiz.';
 
   @override
-  String get personalInfo => 'Malumotlaingiz';
+  String get personalInfo => 'Malumotlaringiz';
 
   @override
   String get askingInfo =>
@@ -157,4 +157,14 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get uploadLaterInfo => 'Rasmni keyinroq ham yuklashingiz mumkin';
+
+  @override
+  String get doneHeader => 'Birinchi maqsadingizni qo\'yaylik';
+
+  @override
+  String get doneBody =>
+      'Fundoo sizga pulni tejashga va siz uchun eng muhim bo\'lgan narsalarga erishishga yordam beradi.';
+
+  @override
+  String get setGoal => 'Maqsadni belgilash';
 }

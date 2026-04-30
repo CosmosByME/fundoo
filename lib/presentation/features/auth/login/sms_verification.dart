@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 
 class SmsVerificationPage extends StatefulWidget {
   final String phoneNumber;
+
   const SmsVerificationPage({super.key, required this.phoneNumber});
 
   @override
@@ -14,31 +15,28 @@ class SmsVerificationPage extends StatefulWidget {
 
 class _SmsVerificationPageState extends State<SmsVerificationPage> {
   late String phoneNumber;
-  bool isFilled = false;
   int otp = 123;
-  late final TextEditingController _phoneController;
+  late final TextEditingController _codeController;
 
   @override
   void initState() {
     super.initState();
     phoneNumber = widget.phoneNumber;
-    _phoneController = TextEditingController(text: phoneNumber);
+    _codeController = TextEditingController();
+    _codeController.addListener(() => setState(() {}));
   }
 
   @override
   void dispose() {
-    _phoneController.dispose();
+    _codeController.dispose();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-      ),
+      appBar: AppBar(backgroundColor: Colors.white),
       body: Padding(
         padding: EdgeInsetsGeometry.all(20),
         child: Column(
@@ -59,18 +57,22 @@ class _SmsVerificationPageState extends State<SmsVerificationPage> {
               style: TextStyle(color: Colors.grey),
             ),
             SizedBox(height: 10),
-            Text(phoneNumber,
-              style: TextStyle(color: Color(0xFF0F172A), fontWeight: FontWeight.w700),
+            Text(
+              phoneNumber,
+              style: TextStyle(
+                color: Color(0xFF0F172A),
+                fontWeight: FontWeight.w700,
+              ),
             ),
             SizedBox(height: 30),
-            OtpField(
-              controller: _phoneController,
-            ),
+            OtpField(controller: _codeController),
             const SizedBox(height: 35),
             CustomButton(
-              onPressed: isFilled ? () {
-                context.go('/home');
-              } : null,
+              onPressed: _codeController.text.length == 6
+                  ? () {
+                      context.go('/home');
+                    }
+                  : null,
               backgroundColor: Color(0xFF2563EB),
               child: Text(
                 context.l10n.enter,

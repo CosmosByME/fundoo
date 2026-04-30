@@ -387,6 +387,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You can upload a photo later'**
   String get uploadLaterInfo;
+
+  /// No description provided for @doneHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s set your first goal'**
+  String get doneHeader;
+
+  /// No description provided for @doneBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Fundoo helps you save money and achieve what matters most to you.'**
+  String get doneBody;
+
+  /// No description provided for @setGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Goal'**
+  String get setGoal;
 }
 
 class _AppLocalizationsDelegate

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/core/widget/custom_text_field.dart';
+import 'package:fundoo/core/widget/enter_number.dart';
 import 'package:go_router/go_router.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -24,7 +25,40 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(backgroundColor: Colors.white),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 22,
+              height: 8,
+              decoration: BoxDecoration(
+                color: Color(0xFF3B82F6),
+                borderRadius: BorderRadius.circular(4),
+              ),
+            ),
+            SizedBox(width: 6),
+            Container(
+              width: 8,
+              height: 8,
+              decoration: BoxDecoration(
+                color: Color(0xFFE2E8F0),
+                shape: BoxShape.circle,
+              ),
+            ),
+            SizedBox(width: 6),
+            Container(
+              width: 8,
+              height: 8,
+              decoration: BoxDecoration(
+                color: Color(0xFFE2E8F0),
+                shape: BoxShape.circle,
+              ),
+            ),
+          ],
+        ),
+      ),
       body: Padding(
         padding: EdgeInsetsGeometry.all(20),
         child: Column(
@@ -45,7 +79,7 @@ class _SignUpPageState extends State<SignUpPage> {
               style: TextStyle(color: Colors.grey),
             ),
             SizedBox(height: 30),
-            CustomTextField(controller: _phoneController),
+            EnterNumberField(controller: _phoneController),
             const SizedBox(height: 35),
             CustomButton(
               onPressed: () {
@@ -68,13 +102,15 @@ class _SignUpPageState extends State<SignUpPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    context.l10n.noAccount,
+                    context.l10n.haveAccount,
                     style: TextStyle(color: Colors.grey),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.go('/auth/log-in');
+                    },
                     child: Text(
-                      context.l10n.createAccount,
+                      context.l10n.logIn,
                       style: TextStyle(color: Color(0xFF2563EB)),
                     ),
                   ),

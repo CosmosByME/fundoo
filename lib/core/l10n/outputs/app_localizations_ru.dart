@@ -158,4 +158,14 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get uploadLaterInfo => 'Вы можете загрузить фото позже';
+
+  @override
+  String get doneHeader => 'Давайте установим вашу первую цель';
+
+  @override
+  String get doneBody =>
+      'Fundoo помогает вам экономить деньги и достигать того, что для вас важнее всего.';
+
+  @override
+  String get setGoal => 'Установить цель';
 }
