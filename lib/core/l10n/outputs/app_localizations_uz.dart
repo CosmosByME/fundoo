@@ -167,4 +167,86 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get setGoal => 'Maqsadni belgilash';
+
+  @override
+  String get whatGoal => 'Orzuingiz nima? ✨';
+
+  @override
+  String get goalBody => 'Nimaga erishmoqchi ekanligingizni ayting.';
+
+  @override
+  String get writeGoal => 'Maqadingizni yozing';
+
+  @override
+  String get howMuch => 'Sizga qancha pul kerak? 💰';
+
+  @override
+  String get howMuchBody =>
+      'Orzuingizga erishish uchun zarur bo\'lgan miqdorni belgilang.';
+
+  @override
+  String get amount => 'Maqsad miqdori (so\'m)';
+
+  @override
+  String get goalSum => 'Maqsadli summa';
+
+  @override
+  String get howMuchYouHave => 'Qancha tejab qo\'ydingiz? 🏦';
+
+  @override
+  String get howMuchYouHaveBody =>
+      'Hozirda mavjud bo\'lgan miqdorni qo\'shing.';
+
+  @override
+  String get currentAmount => 'Joriy miqdor (so\'m)';
+
+  @override
+  String get currentSum => 'Joriy tejamlar';
+
+  @override
+  String get balanceChangingInfo =>
+      'Siz ushbu balansni istalgan vaqtda yangilashingiz mumkin.';
+
+  @override
+  String get whenGoal => 'Qachon erishmoqchisiz? 📅';
+
+  @override
+  String get whenGoalBody =>
+      'Maqsadingizga erishish uchun vaqt oralig\'ini tanlang.';
+
+  @override
+  String get month => 'oy';
+
+  @override
+  String get dateSelect => 'Maqsadli sanani ko\'rsating';
+
+  @override
+  String dateInfo(int sum) {
+    return 'Har oyda $sum so\'m tejasangiz maqsadingizga erishasiz.';
+  }
+
+  @override
+  String get planIsReady => 'Sizning rejangiz tayyor!';
+
+  @override
+  String get planIsReadyBody =>
+      'Maqsadingizga erishish uchun barcha ma\'lumotlar kiritildi.';
+
+  @override
+  String get goal => 'Maqsad';
+
+  @override
+  String get currentBalance => 'Joriy balans';
+
+  @override
+  String get duration => 'Muddat';
+
+  @override
+  String get monthlySaving => 'Oylik tejash miqdori';
+
+  @override
+  String get saveEveryMonth => 'Har oy shu miqdorni tejang';
+
+  @override
+  String get goToFundoo => 'Fundoo\'ga o\'tish';
 }

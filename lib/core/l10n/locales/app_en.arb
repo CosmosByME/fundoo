@@ -49,5 +49,38 @@
     "uploadLaterInfo": "You can upload a photo later",
     "doneHeader": "Let's set your first goal",
     "doneBody": "Fundoo helps you save money and achieve what matters most to you.",
-    "setGoal": "Set Goal"
+    "setGoal": "Set Goal",
+    "whatGoal": "What is your goal? ✨",
+    "goalBody": "Tell us what you want to achieve.",
+    "writeGoal": "Write your goal",
+    "howMuch": "How much money do you need? 💰",
+    "howMuchBody": "Set the amount needed to achieve your goal.",
+    "amount": "Goal amount (sum)",
+    "goalSum": "Goal sum",
+    "howMuchYouHave": "How much have you saved? 🏦",
+    "howMuchYouHaveBody": "Add the amount you currently have.",
+    "currentAmount": "Current amount (sum)",
+    "currentSum": "Current savings",
+    "balanceChangingInfo": "You can update this balance at any time.",
+    "whenGoal": "When do you want to achieve your goal? 📅",
+    "whenGoalBody": "Choose the time frame for achieving your goal.",
+    "month": "month",
+    "dateSelect": "Select your goal date",
+    "dateInfo": "Every month you will save {sum} sum.",
+    "@dateInfo": {
+        "placeholders": {
+            "sum": {
+                "type": "int"
+            }
+        }
+    },
+    "planIsReady": "Your plan is ready!",
+    "planIsReadyBody": "All necessary information for achieving your goal has been entered.",
+    "goal": "Goal",
+    "goalSum": "Goal sum",
+    "currentBalance": "Current balance",
+    "duration": "Duration",
+    "monthlySaving": "Monthly saving amount",
+    "saveEveryMonth": "Save this amount every month",
+    "goToFundoo": "Go to Fundoo"
 }

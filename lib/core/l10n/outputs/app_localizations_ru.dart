@@ -168,4 +168,85 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get setGoal => 'Установить цель';
+
+  @override
+  String get whatGoal => 'Какая у вас цель? ✨';
+
+  @override
+  String get goalBody => 'Расскажите, чего вы хотите достичь.';
+
+  @override
+  String get writeGoal => 'Запишите свою цель';
+
+  @override
+  String get howMuch => 'Сколько вам нужно денег? 💰';
+
+  @override
+  String get howMuchBody =>
+      'Определите сумму, необходимую для достижения вашей цели.';
+
+  @override
+  String get amount => 'Сумма цели (сум)';
+
+  @override
+  String get goalSum => 'Целевая сумма';
+
+  @override
+  String get howMuchYouHave => 'Сколько вы уже сэкономили? 🏦';
+
+  @override
+  String get howMuchYouHaveBody => 'Добавьте сумму, которая у вас уже есть.';
+
+  @override
+  String get currentAmount => 'Текущая сумма (сум)';
+
+  @override
+  String get currentSum => 'Текущая сумма';
+
+  @override
+  String get balanceChangingInfo =>
+      'Вы можете изменить этот баланс в любое время.';
+
+  @override
+  String get whenGoal => 'Когда вы хотите достичь цели? 📅';
+
+  @override
+  String get whenGoalBody =>
+      'Выберите временной интервал для достижения вашей цели.';
+
+  @override
+  String get month => 'месяц';
+
+  @override
+  String get dateSelect => 'Укажите целевую дату';
+
+  @override
+  String dateInfo(int sum) {
+    return 'Каждый месяц вы будете экономить $sum сум.';
+  }
+
+  @override
+  String get planIsReady => 'Ваш план готов!';
+
+  @override
+  String get planIsReadyBody =>
+      'Для достижения вашей цели были введены все необходимые данные.';
+
+  @override
+  String get goal => 'Цель';
+
+  @override
+  String get currentBalance => 'Текущий баланс';
+
+  @override
+  String get duration => 'Срок';
+
+  @override
+  String get monthlySaving => 'Ежемесячная сумма для экономии';
+
+  @override
+  String get saveEveryMonth => 'Экономьте эту сумму каждый месяц';
+
+  @override
+  String get goToFundoo => 'Перейти в Fundoo';
 }

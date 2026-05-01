@@ -405,6 +405,156 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Set Goal'**
   String get setGoal;
+
+  /// No description provided for @whatGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'What is your goal? ✨'**
+  String get whatGoal;
+
+  /// No description provided for @goalBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell us what you want to achieve.'**
+  String get goalBody;
+
+  /// No description provided for @writeGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Write your goal'**
+  String get writeGoal;
+
+  /// No description provided for @howMuch.
+  ///
+  /// In en, this message translates to:
+  /// **'How much money do you need? 💰'**
+  String get howMuch;
+
+  /// No description provided for @howMuchBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Set the amount needed to achieve your goal.'**
+  String get howMuchBody;
+
+  /// No description provided for @amount.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal amount (sum)'**
+  String get amount;
+
+  /// No description provided for @goalSum.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal sum'**
+  String get goalSum;
+
+  /// No description provided for @howMuchYouHave.
+  ///
+  /// In en, this message translates to:
+  /// **'How much have you saved? 🏦'**
+  String get howMuchYouHave;
+
+  /// No description provided for @howMuchYouHaveBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Add the amount you currently have.'**
+  String get howMuchYouHaveBody;
+
+  /// No description provided for @currentAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Current amount (sum)'**
+  String get currentAmount;
+
+  /// No description provided for @currentSum.
+  ///
+  /// In en, this message translates to:
+  /// **'Current savings'**
+  String get currentSum;
+
+  /// No description provided for @balanceChangingInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'You can update this balance at any time.'**
+  String get balanceChangingInfo;
+
+  /// No description provided for @whenGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'When do you want to achieve your goal? 📅'**
+  String get whenGoal;
+
+  /// No description provided for @whenGoalBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the time frame for achieving your goal.'**
+  String get whenGoalBody;
+
+  /// No description provided for @month.
+  ///
+  /// In en, this message translates to:
+  /// **'month'**
+  String get month;
+
+  /// No description provided for @dateSelect.
+  ///
+  /// In en, this message translates to:
+  /// **'Select your goal date'**
+  String get dateSelect;
+
+  /// No description provided for @dateInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Every month you will save {sum} sum.'**
+  String dateInfo(int sum);
+
+  /// No description provided for @planIsReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Your plan is ready!'**
+  String get planIsReady;
+
+  /// No description provided for @planIsReadyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'All necessary information for achieving your goal has been entered.'**
+  String get planIsReadyBody;
+
+  /// No description provided for @goal.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal'**
+  String get goal;
+
+  /// No description provided for @currentBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Current balance'**
+  String get currentBalance;
+
+  /// No description provided for @duration.
+  ///
+  /// In en, this message translates to:
+  /// **'Duration'**
+  String get duration;
+
+  /// No description provided for @monthlySaving.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly saving amount'**
+  String get monthlySaving;
+
+  /// No description provided for @saveEveryMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Save this amount every month'**
+  String get saveEveryMonth;
+
+  /// No description provided for @goToFundoo.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to Fundoo'**
+  String get goToFundoo;
 }
 
 class _AppLocalizationsDelegate

@@ -167,4 +167,82 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get setGoal => 'Set Goal';
+
+  @override
+  String get whatGoal => 'What is your goal? ✨';
+
+  @override
+  String get goalBody => 'Tell us what you want to achieve.';
+
+  @override
+  String get writeGoal => 'Write your goal';
+
+  @override
+  String get howMuch => 'How much money do you need? 💰';
+
+  @override
+  String get howMuchBody => 'Set the amount needed to achieve your goal.';
+
+  @override
+  String get amount => 'Goal amount (sum)';
+
+  @override
+  String get goalSum => 'Goal sum';
+
+  @override
+  String get howMuchYouHave => 'How much have you saved? 🏦';
+
+  @override
+  String get howMuchYouHaveBody => 'Add the amount you currently have.';
+
+  @override
+  String get currentAmount => 'Current amount (sum)';
+
+  @override
+  String get currentSum => 'Current savings';
+
+  @override
+  String get balanceChangingInfo => 'You can update this balance at any time.';
+
+  @override
+  String get whenGoal => 'When do you want to achieve your goal? 📅';
+
+  @override
+  String get whenGoalBody => 'Choose the time frame for achieving your goal.';
+
+  @override
+  String get month => 'month';
+
+  @override
+  String get dateSelect => 'Select your goal date';
+
+  @override
+  String dateInfo(int sum) {
+    return 'Every month you will save $sum sum.';
+  }
+
+  @override
+  String get planIsReady => 'Your plan is ready!';
+
+  @override
+  String get planIsReadyBody =>
+      'All necessary information for achieving your goal has been entered.';
+
+  @override
+  String get goal => 'Goal';
+
+  @override
+  String get currentBalance => 'Current balance';
+
+  @override
+  String get duration => 'Duration';
+
+  @override
+  String get monthlySaving => 'Monthly saving amount';
+
+  @override
+  String get saveEveryMonth => 'Save this amount every month';
+
+  @override
+  String get goToFundoo => 'Go to Fundoo';
 }

@@ -49,5 +49,38 @@
     "uploadLaterInfo": "Rasmni keyinroq ham yuklashingiz mumkin",
     "doneHeader": "Birinchi maqsadingizni qo'yaylik",
     "doneBody": "Fundoo sizga pulni tejashga va siz uchun eng muhim bo'lgan narsalarga erishishga yordam beradi.",
-    "setGoal": "Maqsadni belgilash"
+    "setGoal": "Maqsadni belgilash",
+    "whatGoal": "Orzuingiz nima? ✨",
+    "goalBody": "Nimaga erishmoqchi ekanligingizni ayting.",
+    "writeGoal": "Maqadingizni yozing",
+    "howMuch": "Sizga qancha pul kerak? 💰",
+    "howMuchBody": "Orzuingizga erishish uchun zarur bo'lgan miqdorni belgilang.",
+    "amount": "Maqsad miqdori (so'm)",
+    "goalSum": "Maqsadli summa",
+    "howMuchYouHave": "Qancha tejab qo'ydingiz? 🏦",
+    "howMuchYouHaveBody": "Hozirda mavjud bo'lgan miqdorni qo'shing.",
+    "currentAmount": "Joriy miqdor (so'm)",
+    "currentSum": "Joriy tejamlar",
+    "balanceChangingInfo": "Siz ushbu balansni istalgan vaqtda yangilashingiz mumkin.",
+    "whenGoal": "Qachon erishmoqchisiz? 📅",
+    "whenGoalBody": "Maqsadingizga erishish uchun vaqt oralig'ini tanlang.",
+    "month": "oy",
+    "dateSelect": "Maqsadli sanani ko'rsating",
+    "dateInfo": "Har oyda {sum} so'm tejasangiz maqsadingizga erishasiz.",
+    "@dateInfo": {
+        "placeholders": {
+            "sum": {
+                "type": "int"
+            }
+        }
+    },
+    "planIsReady": "Sizning rejangiz tayyor!",
+    "planIsReadyBody": "Maqsadingizga erishish uchun barcha ma'lumotlar kiritildi.",
+    "goal": "Maqsad",
+    "goalSum": "Maqsadli summa",
+    "currentBalance": "Joriy balans",
+    "duration": "Muddat",
+    "monthlySaving": "Oylik tejash miqdori",
+    "saveEveryMonth": "Har oy shu miqdorni tejang",
+    "goToFundoo": "Fundoo'ga o'tish"
 }
