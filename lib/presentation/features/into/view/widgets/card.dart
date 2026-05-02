@@ -21,7 +21,7 @@ class IntroOneCard extends StatelessWidget {
               icon,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Expanded(
               child: Text(
                 text,

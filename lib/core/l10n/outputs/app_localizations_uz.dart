@@ -248,5 +248,5 @@ class AppLocalizationsUz extends AppLocalizations {
   String get saveEveryMonth => 'Har oy shu miqdorni tejang';
 
   @override
-  String get goToFundoo => 'Fundoo\'ga o\'tish';
+  String get goToFundoo => 'Fundoo\'ga o\'tish 🚀';
 }

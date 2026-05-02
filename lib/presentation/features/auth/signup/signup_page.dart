@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
-import 'package:fundoo/core/widget/custom_text_field.dart';
 import 'package:fundoo/core/widget/enter_number.dart';
 import 'package:go_router/go_router.dart';
 
@@ -38,7 +37,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 borderRadius: BorderRadius.circular(4),
               ),
             ),
-            SizedBox(width: 6),
+            const SizedBox(width: 6),
             Container(
               width: 8,
               height: 8,
@@ -47,7 +46,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 shape: BoxShape.circle,
               ),
             ),
-            SizedBox(width: 6),
+            const SizedBox(width: 6),
             Container(
               width: 8,
               height: 8,
@@ -73,12 +72,12 @@ class _SignUpPageState extends State<SignUpPage> {
                 color: Color(0xFF0F172A),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               context.l10n.askingPhone,
               style: TextStyle(color: Colors.grey),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             EnterNumberField(controller: _phoneController),
             const SizedBox(height: 35),
             CustomButton(

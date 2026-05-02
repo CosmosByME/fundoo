@@ -248,5 +248,5 @@ class AppLocalizationsRu extends AppLocalizations {
   String get saveEveryMonth => 'Экономьте эту сумму каждый месяц';
 
   @override
-  String get goToFundoo => 'Перейти в Fundoo';
+  String get goToFundoo => 'Перейти в Fundoo 🚀';
 }

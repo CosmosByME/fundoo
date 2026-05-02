@@ -24,7 +24,7 @@ class IntroOne extends StatelessWidget {
             maxLines: 2,
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Text(
             context.l10n.intro1Body,
             style: TextStyle(
@@ -35,17 +35,17 @@ class IntroOne extends StatelessWidget {
             maxLines: 3,
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           IntroOneCard(
             icon: "🎯",
             text: context.l10n.intro1card1
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           IntroOneCard(
             icon: "📊",
             text: context.l10n.intro1card2,
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           IntroOneCard(
             icon: "🏆",
             text: context.l10n.intro1card3,

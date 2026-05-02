@@ -553,7 +553,7 @@ abstract class AppLocalizations {
   /// No description provided for @goToFundoo.
   ///
   /// In en, this message translates to:
-  /// **'Go to Fundoo'**
+  /// **'Go to Fundoo 🚀'**
   String get goToFundoo;
 }
 

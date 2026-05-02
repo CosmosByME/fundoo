@@ -51,12 +51,12 @@ class _SmsVerificationPageState extends State<SmsVerificationPage> {
                 color: Color(0xFF0F172A),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               context.l10n.verificationBody,
               style: TextStyle(color: Colors.grey),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               phoneNumber,
               style: TextStyle(
@@ -64,13 +64,13 @@ class _SmsVerificationPageState extends State<SmsVerificationPage> {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             OtpField(controller: _codeController),
             const SizedBox(height: 35),
             CustomButton(
               onPressed: _codeController.text.length == 6
                   ? () {
-                      context.go('/home');
+                      context.go('/main-page');
                     }
                   : null,
               backgroundColor: Color(0xFF2563EB),

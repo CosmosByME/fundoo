@@ -42,12 +42,12 @@ class _LoginPageState extends State<LoginPage> {
                 color: Color(0xFF0F172A),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               context.l10n.enterPhone,
               style: TextStyle(color: Colors.grey),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             EnterNumberField(
               controller: _phoneController,
             ),

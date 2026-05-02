@@ -13,7 +13,7 @@ class IntroThree extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(flex: 1, child: SizedBox()),
+          Expanded(flex: 1, child: const SizedBox()),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -25,7 +25,7 @@ class IntroThree extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
               ),
-              SizedBox(width: 6),
+              const SizedBox(width: 6),
               Container(
                 width: 8,
                 height: 8,
@@ -34,7 +34,7 @@ class IntroThree extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
               ),
-              SizedBox(width: 6),
+              const SizedBox(width: 6),
               Container(
                 width: 22,
                 height: 8,
@@ -45,7 +45,7 @@ class IntroThree extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Text(
             context.l10n.intro3Header,
             style: TextStyle(
@@ -56,7 +56,7 @@ class IntroThree extends StatelessWidget {
             maxLines: 2,
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             context.l10n.intro3Body,
             style: TextStyle(
@@ -67,7 +67,7 @@ class IntroThree extends StatelessWidget {
             maxLines: 3,
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Expanded(
             flex: 2,
             child: GridView(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
+import 'package:go_router/go_router.dart';
 
 class DonePage extends StatelessWidget {
   const DonePage({super.key});
@@ -39,7 +40,7 @@ class DonePage extends StatelessWidget {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xFF22C55E).withOpacity(0.5),
+                          color: Color(0xFF22C55E).withValues(alpha: 0.5),
                           blurRadius: 20,
                           offset: Offset(0, 10),
                         ),
@@ -47,7 +48,7 @@ class DonePage extends StatelessWidget {
                     ),
                     child: Text("🎯", style: TextStyle(fontSize: 58)),
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   Text(
                     context.l10n.doneHeader,
                     style: TextStyle(
@@ -57,16 +58,18 @@ class DonePage extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     context.l10n.doneBody,
                     style: TextStyle(color: Color(0xFF475569)),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   CustomButton(
                     backgroundColor: Color(0xFF22C55E),
-                    onPressed: (){},
+                    onPressed: (){
+                      context.go('/name-of-goal');
+                    },
                     child: Text(
                       context.l10n.setGoal,
                       style: TextStyle(

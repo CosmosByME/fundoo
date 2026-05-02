@@ -22,7 +22,7 @@ class IntroTwo extends StatelessWidget {
             ),
             child: Text("💰", style: TextStyle(fontSize: 100)),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -34,7 +34,7 @@ class IntroTwo extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
               ),
-              SizedBox(width: 6),
+              const SizedBox(width: 6),
               Container(
                 width: 22,
                 height: 8,
@@ -43,7 +43,7 @@ class IntroTwo extends StatelessWidget {
                   borderRadius: BorderRadius.circular(4),
                 ),
               ),
-              SizedBox(width: 6),
+              const SizedBox(width: 6),
               Container(
                 width: 8,
                 height: 8,
@@ -54,7 +54,7 @@ class IntroTwo extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Text(
             context.l10n.intro2Header,
             style: TextStyle(
@@ -65,7 +65,7 @@ class IntroTwo extends StatelessWidget {
             maxLines: 2,
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             context.l10n.intro2Body,
             style: TextStyle(

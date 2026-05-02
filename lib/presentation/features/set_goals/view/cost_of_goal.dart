@@ -1,35 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:fundoo/core/l10n/l10n.dart';
-import 'package:fundoo/core/widget/custom_button.dart';
-import 'package:fundoo/core/widget/otp_field.dart';
+import 'package:fundoo/core/widget/custom_text_field.dart';
+import 'package:fundoo/core/widget/goal_money_banner.dart';
+import 'package:fundoo/presentation/features/set_goals/module/inherited_goal.dart';
 import 'package:go_router/go_router.dart';
 
-class SmsVerificationSignUpPage extends StatefulWidget {
-  final String phoneNumber;
-  const SmsVerificationSignUpPage({super.key, required this.phoneNumber});
+import '../../../../core/l10n/l10n.dart';
+import '../../../../core/widget/custom_button.dart';
+
+class CostOfGoal extends StatefulWidget {
+  const CostOfGoal({super.key});
 
   @override
-  State<SmsVerificationSignUpPage> createState() => _SmsVerificationSignUpPageState();
+  State<CostOfGoal> createState() => _CostOfGoalState();
 }
 
-class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
-  late String phoneNumber;
-  int otp = 123;
-  late final TextEditingController _codeController;
+class _CostOfGoalState extends State<CostOfGoal> {
+  late TextEditingController _costOfGoalController;
 
   @override
-  void initState() {
-    super.initState();
-    phoneNumber = widget.phoneNumber;
-    _codeController = TextEditingController();
-    _codeController.addListener(() => setState(() {}));
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _costOfGoalController = context.goal.goalNotifier.costController;
+    _costOfGoalController.addListener(() {
+      setState(() {});
+    });
   }
 
-  @override
-  void dispose() {
-    _codeController.dispose();
-    super.dispose();
-  }
 
 
   @override
@@ -64,7 +60,16 @@ class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
               height: 8,
               decoration: BoxDecoration(
                 color: Color(0xFFE2E8F0),
-                shape: BoxShape.circle,
+                borderRadius: BorderRadius.circular(4),
+              ),
+            ),
+            const SizedBox(width: 6),
+            Container(
+              width: 8,
+              height: 8,
+              decoration: BoxDecoration(
+                color: Color(0xFFE2E8F0),
+                borderRadius: BorderRadius.circular(4),
               ),
             ),
           ],
@@ -77,7 +82,7 @@ class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              context.l10n.verification,
+              context.l10n.howMuch,
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -86,25 +91,31 @@ class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
             ),
             const SizedBox(height: 10),
             Text(
-              context.l10n.verificationBody,
+              context.l10n.howMuchBody,
               style: TextStyle(color: Colors.grey),
             ),
-            const SizedBox(height: 10),
-            Text(phoneNumber,
-              style: TextStyle(color: Color(0xFF0F172A), fontWeight: FontWeight.w700),
-            ),
             const SizedBox(height: 30),
-            OtpField(
-              controller: _codeController,
+            GoalMoneyBanner(
+              title: context.l10n.goalSum,
+              money: _costOfGoalController.text,
+              color: Color(0xFFDBEAFE),
+              textColor: Color(0xFF1D4ED8),
+              borderColor: Color(0xFF2563EB).withValues(alpha: 0.1),
+            ),
+            const SizedBox(height: 20),
+            CustomTextField(
+              controller: _costOfGoalController,
+              label: context.l10n.amount,
+              keyboardType: TextInputType.numberWithOptions(),
             ),
             const SizedBox(height: 35),
             CustomButton(
-              onPressed: _codeController.text.length == 6 ? () {
-                context.go('/auth/sign-up/otp/$phoneNumber/personal-info');
-              } : null,
+              onPressed: () {
+                context.goNamed('current-budget');
+              },
               backgroundColor: Color(0xFF2563EB),
               child: Text(
-                context.l10n.enter,
+                context.l10n.continuing,
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w700,
@@ -112,7 +123,6 @@ class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
           ],
         ),
       ),

@@ -3,39 +3,9 @@ import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/l10n/l10n_inherited.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/presentation/features/into/notifier/inherited_intro.dart';
-import 'package:fundoo/presentation/features/into/notifier/intro_notifier.dart';
 import 'package:fundoo/presentation/features/into/view/intro3.dart';
 import 'package:fundoo/presentation/features/into/view/intro1.dart';
 import 'package:fundoo/presentation/features/into/view/intro2.dart';
-
-class IntroPage extends StatefulWidget {
-  const IntroPage({super.key});
-
-  @override
-  State<IntroPage> createState() => _IntroPageState();
-}
-
-class _IntroPageState extends State<IntroPage> {
-  late final IntroNotifier introNotifier;
-
-  @override
-  void initState() {
-    super.initState();
-    introNotifier = IntroNotifier();
-  }
-
-  @override
-  void dispose() {
-    introNotifier.pageController.dispose();
-    introNotifier.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return InheritedIntro(notifier: introNotifier, child: Intro());
-  }
-}
 
 class Intro extends StatelessWidget {
   const Intro({super.key});

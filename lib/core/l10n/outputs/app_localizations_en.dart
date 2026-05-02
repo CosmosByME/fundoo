@@ -244,5 +244,5 @@ class AppLocalizationsEn extends AppLocalizations {
   String get saveEveryMonth => 'Save this amount every month';
 
   @override
-  String get goToFundoo => 'Go to Fundoo';
+  String get goToFundoo => 'Go to Fundoo 🚀';
 }

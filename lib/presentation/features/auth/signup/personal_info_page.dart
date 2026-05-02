@@ -53,7 +53,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                 shape: BoxShape.circle,
               ),
             ),
-            SizedBox(width: 6),
+            const SizedBox(width: 6),
             Container(
               width: 8,
               height: 8,
@@ -62,7 +62,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                 shape: BoxShape.circle,
               ),
             ),
-            SizedBox(width: 6),
+            const SizedBox(width: 6),
             Container(
               width: 22,
               height: 8,
@@ -88,9 +88,9 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                 color: Color(0xFF0F172A),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(context.l10n.askingInfo, style: TextStyle(color: Colors.grey)),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             ImgSelecting(
               image: image,
               onPressed: () async {
@@ -105,19 +105,19 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                 });
               },
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             CustomTextField(
               controller: _nameController,
               label: "${context.l10n.fullName} *",
               hint: "Lola Toirxonova",
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             CustomTextField(
               controller: _userNameController,
               label: "${context.l10n.userName} *",
               hint: "@lola_toirxonova",
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             CustomTextField(
               controller: _ageController,
               label: "${context.l10n.age} *",

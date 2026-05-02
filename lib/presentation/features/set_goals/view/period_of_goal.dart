@@ -1,30 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:fundoo/core/widget/custom_text_field.dart';
+import 'package:fundoo/core/widget/date_picking_field.dart';
 import 'package:fundoo/core/widget/recommended_goal_names.dart';
+import 'package:fundoo/core/widget/recommended_times.dart';
 import 'package:fundoo/presentation/features/set_goals/module/inherited_goal.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/l10n/l10n.dart';
 import '../../../../core/widget/custom_button.dart';
+import '../../../../core/widget/info_widget.dart';
 
-class NameOfGoal extends StatefulWidget {
-  const NameOfGoal({super.key});
+class PeriodOfGoal extends StatefulWidget {
+  const PeriodOfGoal({super.key});
 
   @override
-  State<NameOfGoal> createState() => _NameOfGoalState();
+  State<PeriodOfGoal> createState() => _PeriodOfGoalState();
 }
 
-class _NameOfGoalState extends State<NameOfGoal> {
-  late TextEditingController _goalNameController;
+class _PeriodOfGoalState extends State<PeriodOfGoal> {
+  late TextEditingController _deadlineController;
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _goalNameController = context.goal.goalNotifier.goalController;
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _deadlineController = TextEditingController();
+    _deadlineController.addListener(() {
+      setState(() {});
+      if(_deadlineController.text.length == 10) {
+        context.goal.goalNotifier.deadlineController = DateTime(
+          int.parse(_deadlineController.text.substring(6, 10)),
+          int.parse(_deadlineController.text.substring(3, 5)),
+          int.parse(_deadlineController.text.substring(0, 2)),
+        );
+      }
+    });
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +47,16 @@ class _NameOfGoalState extends State<NameOfGoal> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              width: 22,
+              width: 8,
+              height: 8,
+              decoration: BoxDecoration(
+                color: Color(0xFF3B82F6),
+                shape: BoxShape.circle,
+              ),
+            ),
+            const SizedBox(width: 6),
+            Container(
+              width: 8,
               height: 8,
               decoration: BoxDecoration(
                 color: Color(0xFF3B82F6),
@@ -48,25 +68,16 @@ class _NameOfGoalState extends State<NameOfGoal> {
               width: 8,
               height: 8,
               decoration: BoxDecoration(
-                color: Color(0xFFE2E8F0),
-                shape: BoxShape.circle,
-              ),
-            ),
-            const SizedBox(width: 6),
-            Container(
-              width: 8,
-              height: 8,
-              decoration: BoxDecoration(
-                color: Color(0xFFE2E8F0),
+                color: Color(0xFF3B82F6),
                 borderRadius: BorderRadius.circular(4),
               ),
             ),
             const SizedBox(width: 6),
             Container(
-              width: 8,
+              width: 22,
               height: 8,
               decoration: BoxDecoration(
-                color: Color(0xFFE2E8F0),
+                color: Color(0xFF3B82F6),
                 borderRadius: BorderRadius.circular(4),
               ),
             ),
@@ -81,7 +92,7 @@ class _NameOfGoalState extends State<NameOfGoal> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                context.l10n.whatGoal,
+                context.l10n.whenGoal,
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -90,31 +101,36 @@ class _NameOfGoalState extends State<NameOfGoal> {
               ),
               const SizedBox(height: 10),
               Text(
-                context.l10n.goalBody,
+                context.l10n.whenGoalBody,
                 style: TextStyle(color: Colors.grey),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               Wrap(
+                spacing: 10,
+                runSpacing: 10,
+                alignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                runAlignment: WrapAlignment.center,
                 children: [
-                  RecommendedGoalNames(text: "🚗 Avtomobil", controller: _goalNameController),
-                  const SizedBox(width: 10),
-                  RecommendedGoalNames(text: "✈️ Sayohat", controller: _goalNameController),
-                  const SizedBox(width: 10),
-                  RecommendedGoalNames(text: "💼 Biznes", controller: _goalNameController),
-                  const SizedBox(width: 10),
-                  RecommendedGoalNames(text: "🏠 Uy", controller: _goalNameController),
-                  const SizedBox(width: 10),
-                  RecommendedGoalNames(text: "🎓 Ta'lim", controller: _goalNameController),
-                  const SizedBox(width: 10),
-                  RecommendedGoalNames(text: "📱 Gadjet", controller: _goalNameController),
-                ],
+                  RecommendedTimes(controller: _deadlineController, monthRange: 3),
+                  RecommendedTimes(controller: _deadlineController, monthRange: 6),
+                  RecommendedTimes(controller: _deadlineController, monthRange: 12),
+                  RecommendedTimes(controller: _deadlineController, monthRange: 18),
+                  RecommendedTimes(controller: _deadlineController, monthRange: 24),
+                  RecommendedTimes(controller: _deadlineController, monthRange: 36)
+                ]
               ),
               const SizedBox(height: 20),
-              CustomTextField(controller: _goalNameController, label: context.l10n.writeGoal,maxLength: 60, maxLines: 3,),
-              const SizedBox(height: 35),
+              DatePickingField(
+                context: context,
+                controller: _deadlineController,
+              ),
+              const SizedBox(height: 20),
+              InfoWidget(icon: "💡", text: context.l10n.dateInfo(110000)),
+              const SizedBox(height: 20),
               CustomButton(
                 onPressed: () {
-                  context.goNamed('cost-of-goal');
+                  context.goNamed('goal-summary');
                 },
                 backgroundColor: Color(0xFF2563EB),
                 child: Text(
