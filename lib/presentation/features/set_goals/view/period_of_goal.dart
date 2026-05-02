@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fundoo/core/widget/custom_text_field.dart';
 import 'package:fundoo/core/widget/date_picking_field.dart';
-import 'package:fundoo/core/widget/recommended_goal_names.dart';
 import 'package:fundoo/core/widget/recommended_times.dart';
 import 'package:fundoo/presentation/features/set_goals/module/inherited_goal.dart';
 import 'package:go_router/go_router.dart';
