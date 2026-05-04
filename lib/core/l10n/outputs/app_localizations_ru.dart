@@ -379,4 +379,55 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get seeAll => 'Смотреть все';
+
+  @override
+  String get addIncome => '💰 Добавить доход';
+
+  @override
+  String get addIncomeBody => 'Введите данные о доходе';
+
+  @override
+  String get incomeAmount => 'Сумма (сум) *';
+
+  @override
+  String get incomeCategory => 'Категория *';
+
+  @override
+  String get incomeDate => 'Дата';
+
+  @override
+  String get incomeNotes => 'Примечание (необязательно)';
+
+  @override
+  String get editGoal => '✏️ Редактировать цель';
+
+  @override
+  String get editGoalBody => 'Обновите данные цели';
+
+  @override
+  String get thisMonthAnalytic => 'Этот месяц';
+
+  @override
+  String get allIncome => 'Весь доход';
+
+  @override
+  String get allSpending => 'Все расходы';
+
+  @override
+  String get savingDegree => 'Степень экономии';
+
+  @override
+  String get balanceHistory => 'История баланса';
+
+  @override
+  String get spendingDistribution => 'Распределение расходов';
+
+  @override
+  String get weekly => 'Еженедельно';
+
+  @override
+  String get monthly => 'Ежемесячно';
+
+  @override
+  String get yearly => 'Ежегодно';
 }

@@ -151,5 +151,28 @@
     "removeMoney": "Удалить деньги",
     "addNewGoal": "Добавить новую цель",
     "recentActivity": "Последняя активность",
-    "seeAll": "Смотреть все"
+    "seeAll": "Смотреть все",
+
+
+    "addIncome": "💰 Добавить доход",
+    "addIncomeBody": "Введите данные о доходе",
+    "incomeAmount": "Сумма (сум) *",
+    "incomeCategory": "Категория *",
+    "incomeDate": "Дата",
+    "incomeNotes": "Примечание (необязательно)",
+
+
+    "editGoal": "✏️ Редактировать цель",
+    "editGoalBody": "Обновите данные цели",
+
+
+    "thisMonthAnalytic": "Этот месяц",
+    "allIncome": "Весь доход",
+    "allSpending": "Все расходы",
+    "savingDegree": "Степень экономии",
+    "balanceHistory": "История баланса",
+    "spendingDistribution": "Распределение расходов",
+    "weekly": "Еженедельно",
+    "monthly": "Ежемесячно",
+    "yearly": "Ежегодно"
 }

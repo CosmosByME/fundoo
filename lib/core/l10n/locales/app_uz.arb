@@ -151,5 +151,29 @@
     "removeMoney": "Pul olish",
     "addNewGoal": "Yangi maqsad qo'shish",
     "recentActivity": "So'nggi faollik",
-    "seeAll": "Barchasini ko'rish"
+    "seeAll": "Barchasini ko'rish",
+
+
+    "addIncome": "💰 Daromad qo'shish",
+    "addIncomeBody": "Daromad ma'lumotlarini kiriting",
+    "incomeAmount": "Miqdor (so'm) *",
+    "incomeCategory": "Kategoriya *",
+    "incomeDate": "Sana",
+    "incomeNotes": "Izoh (ixtiyoriy)",
+
+
+    "editGoal": "✏️ Maqsadni tahrirlash",
+    "editGoalBody": "Maqsad ma'lumotlarini yangilang",
+
+
+    "thisMonthAnalytic": "Bu oylik moliyaviy ko'rinish",
+    "allIncome": "Jami daromad",
+    "allSpending": "Jami xarajat",
+    "savingDegree": "Tejash darajasi",
+    "balanceHistory": "Balans tarixi",
+    "spendingDistribution": "Xarajat taqsimoti",
+    "weekly": "Haftalik",
+    "monthly": "Oylik",
+    "yearly": "Yillik"
+
 }

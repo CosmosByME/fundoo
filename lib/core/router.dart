@@ -7,6 +7,7 @@ import 'package:fundoo/presentation/features/auth/signup/personal_info_page.dart
 import 'package:fundoo/presentation/features/auth/signup/signup_page.dart';
 import 'package:fundoo/presentation/features/auth/signup/sms_verification.dart';
 import 'package:fundoo/presentation/features/home/view/home.dart';
+import 'package:fundoo/presentation/features/home/view/other/all_activities.dart';
 import 'package:fundoo/presentation/features/home/view/other/bio.dart';
 import 'package:fundoo/presentation/features/home/view/other/notifications.dart';
 import 'package:fundoo/presentation/features/home/view/other/personal_info.dart';
@@ -141,5 +142,6 @@ final router = GoRouter(
     GoRoute(path: '/phone-changing', builder: (context, state) => PhoneChangingPage()),
     GoRoute(path: '/personal-info-changing', builder: (context, state) => PersonalInfo()),
     GoRoute(path: '/bio', builder: (context, state) => BioChangingPage()),
+    GoRoute(path: '/recent-activity', builder: (context, state) => AllActivities()),
   ],
 );

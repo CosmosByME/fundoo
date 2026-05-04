@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/models/spending.dart';
+import 'package:fundoo/core/widget/goal_card.dart';
+import 'package:fundoo/core/widget/new_goal_button.dart';
 import 'package:fundoo/core/widget/notification_icon.dart';
 import 'package:fundoo/core/widget/spending_section.dart';
 import 'package:fundoo/core/widget/spending_tile.dart';
+import 'package:fundoo/presentation/features/home/view/other/show_goal_edit.dart';
+import 'package:fundoo/presentation/features/home/view/other/show_income_adding.dart';
 import 'package:go_router/go_router.dart';
 
 class MainPage extends StatefulWidget {
@@ -60,6 +64,27 @@ class _MainPageState extends State<MainPage> {
       ),
       body: CustomScrollView(
         slivers: [
+          SliverToBoxAdapter(
+            child: GoalCard(
+              onAddMoney: () {
+                openIncomeEditDialog(context);
+              },
+              onEditPurpose: () {
+                openGoalEditDialog(context);
+              },
+            ),
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: 16)),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: NewGoalButton(
+                onPressed: () {
+                  context.push('/name-of-goal');
+                },
+              ),
+            ),
+          ),
           SliverToBoxAdapter(child: SizedBox(height: 16)),
           SliverToBoxAdapter(
             child: SpendingSection(

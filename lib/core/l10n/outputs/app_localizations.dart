@@ -801,6 +801,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'See All'**
   String get seeAll;
+
+  /// No description provided for @addIncome.
+  ///
+  /// In en, this message translates to:
+  /// **'💰 Add Income'**
+  String get addIncome;
+
+  /// No description provided for @addIncomeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter income information'**
+  String get addIncomeBody;
+
+  /// No description provided for @incomeAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount (sum) *'**
+  String get incomeAmount;
+
+  /// No description provided for @incomeCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category *'**
+  String get incomeCategory;
+
+  /// No description provided for @incomeDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get incomeDate;
+
+  /// No description provided for @incomeNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes (optional)'**
+  String get incomeNotes;
+
+  /// No description provided for @editGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'✏️ Edit Goal'**
+  String get editGoal;
+
+  /// No description provided for @editGoalBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Update your goal information'**
+  String get editGoalBody;
+
+  /// No description provided for @thisMonthAnalytic.
+  ///
+  /// In en, this message translates to:
+  /// **'This Month\'s Financial Overview'**
+  String get thisMonthAnalytic;
+
+  /// No description provided for @allIncome.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Income'**
+  String get allIncome;
+
+  /// No description provided for @allSpending.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Spending'**
+  String get allSpending;
+
+  /// No description provided for @savingDegree.
+  ///
+  /// In en, this message translates to:
+  /// **'Savings Rate'**
+  String get savingDegree;
+
+  /// No description provided for @balanceHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Balance History'**
+  String get balanceHistory;
+
+  /// No description provided for @spendingDistribution.
+  ///
+  /// In en, this message translates to:
+  /// **'Spending Distribution'**
+  String get spendingDistribution;
+
+  /// No description provided for @weekly.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly'**
+  String get weekly;
+
+  /// No description provided for @monthly.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly'**
+  String get monthly;
+
+  /// No description provided for @yearly.
+  ///
+  /// In en, this message translates to:
+  /// **'Yearly'**
+  String get yearly;
 }
 
 class _AppLocalizationsDelegate

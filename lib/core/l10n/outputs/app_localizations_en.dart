@@ -374,4 +374,55 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get seeAll => 'See All';
+
+  @override
+  String get addIncome => '💰 Add Income';
+
+  @override
+  String get addIncomeBody => 'Enter income information';
+
+  @override
+  String get incomeAmount => 'Amount (sum) *';
+
+  @override
+  String get incomeCategory => 'Category *';
+
+  @override
+  String get incomeDate => 'Date';
+
+  @override
+  String get incomeNotes => 'Notes (optional)';
+
+  @override
+  String get editGoal => '✏️ Edit Goal';
+
+  @override
+  String get editGoalBody => 'Update your goal information';
+
+  @override
+  String get thisMonthAnalytic => 'This Month\'s Financial Overview';
+
+  @override
+  String get allIncome => 'Total Income';
+
+  @override
+  String get allSpending => 'Total Spending';
+
+  @override
+  String get savingDegree => 'Savings Rate';
+
+  @override
+  String get balanceHistory => 'Balance History';
+
+  @override
+  String get spendingDistribution => 'Spending Distribution';
+
+  @override
+  String get weekly => 'Weekly';
+
+  @override
+  String get monthly => 'Monthly';
+
+  @override
+  String get yearly => 'Yearly';
 }

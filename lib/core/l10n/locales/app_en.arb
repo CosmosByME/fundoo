@@ -151,6 +151,28 @@
     "removeMoney": "Remove Money",
     "addNewGoal": "Add New Goal",
     "recentActivity": "Recent Activity",
-    "seeAll": "See All"
+    "seeAll": "See All",
+
+    "addIncome": "💰 Add Income",
+    "addIncomeBody": "Enter income information",
+    "incomeAmount": "Amount (sum) *",
+    "incomeCategory": "Category *",
+    "incomeDate": "Date",
+    "incomeNotes": "Notes (optional)",
+
+
+    "editGoal": "✏️ Edit Goal",
+    "editGoalBody": "Update your goal information",
+
+
+    "thisMonthAnalytic": "This Month's Financial Overview",
+    "allIncome": "Total Income",
+    "allSpending": "Total Spending",
+    "savingDegree": "Savings Rate",
+    "balanceHistory": "Balance History",
+    "spendingDistribution": "Spending Distribution",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "yearly": "Yearly"
      
 }

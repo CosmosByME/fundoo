@@ -379,4 +379,55 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get seeAll => 'Barchasini ko\'rish';
+
+  @override
+  String get addIncome => '💰 Daromad qo\'shish';
+
+  @override
+  String get addIncomeBody => 'Daromad ma\'lumotlarini kiriting';
+
+  @override
+  String get incomeAmount => 'Miqdor (so\'m) *';
+
+  @override
+  String get incomeCategory => 'Kategoriya *';
+
+  @override
+  String get incomeDate => 'Sana';
+
+  @override
+  String get incomeNotes => 'Izoh (ixtiyoriy)';
+
+  @override
+  String get editGoal => '✏️ Maqsadni tahrirlash';
+
+  @override
+  String get editGoalBody => 'Maqsad ma\'lumotlarini yangilang';
+
+  @override
+  String get thisMonthAnalytic => 'Bu oylik moliyaviy ko\'rinish';
+
+  @override
+  String get allIncome => 'Jami daromad';
+
+  @override
+  String get allSpending => 'Jami xarajat';
+
+  @override
+  String get savingDegree => 'Tejash darajasi';
+
+  @override
+  String get balanceHistory => 'Balans tarixi';
+
+  @override
+  String get spendingDistribution => 'Xarajat taqsimoti';
+
+  @override
+  String get weekly => 'Haftalik';
+
+  @override
+  String get monthly => 'Oylik';
+
+  @override
+  String get yearly => 'Yillik';
 }
