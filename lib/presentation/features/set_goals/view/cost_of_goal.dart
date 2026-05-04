@@ -31,9 +31,7 @@ class _CostOfGoalState extends State<CostOfGoal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -75,55 +73,57 @@ class _CostOfGoalState extends State<CostOfGoal> {
           ],
         ),
       ),
-      body: Padding(
-        padding: EdgeInsetsGeometry.all(20),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              context.l10n.howMuch,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF0F172A),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              context.l10n.howMuchBody,
-              style: TextStyle(color: Colors.grey),
-            ),
-            const SizedBox(height: 30),
-            GoalMoneyBanner(
-              title: context.l10n.goalSum,
-              money: _costOfGoalController.text,
-              color: Color(0xFFDBEAFE),
-              textColor: Color(0xFF1D4ED8),
-              borderColor: Color(0xFF2563EB).withValues(alpha: 0.1),
-            ),
-            const SizedBox(height: 20),
-            CustomTextField(
-              controller: _costOfGoalController,
-              label: context.l10n.amount,
-              keyboardType: TextInputType.numberWithOptions(),
-            ),
-            const SizedBox(height: 35),
-            CustomButton(
-              onPressed: () {
-                context.goNamed('current-budget');
-              },
-              backgroundColor: Color(0xFF2563EB),
-              child: Text(
-                context.l10n.continuing,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsetsGeometry.all(20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                context.l10n.howMuch,
                 style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xFFFFFFFF),
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF0F172A),
                 ),
               ),
-            ),
-          ],
+              const SizedBox(height: 10),
+              Text(
+                context.l10n.howMuchBody,
+                style: TextStyle(color: Colors.grey),
+              ),
+              const SizedBox(height: 30),
+              GoalMoneyBanner(
+                title: context.l10n.goalSum,
+                money: _costOfGoalController.text,
+                color: Color(0xFFDBEAFE),
+                textColor: Color(0xFF1D4ED8),
+                borderColor: Color(0xFF2563EB).withValues(alpha: 0.1),
+              ),
+              const SizedBox(height: 20),
+              CustomTextField(
+                controller: _costOfGoalController,
+                label: context.l10n.amount,
+                keyboardType: TextInputType.numberWithOptions(),
+              ),
+              const SizedBox(height: 35),
+              CustomButton(
+                onPressed: () {
+                  context.goNamed('current-budget');
+                },
+                backgroundColor: Color(0xFF2563EB),
+                child: Text(
+                  context.l10n.continuing,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFFFFFFFF),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

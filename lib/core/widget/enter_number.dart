@@ -4,9 +4,11 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import '../l10n/l10n.dart';
 
 class EnterNumberField extends StatefulWidget {
+  final String? label;
   final TextEditingController _controller;
 
-  const EnterNumberField({super.key, controller}) : _controller = controller;
+  const EnterNumberField({super.key, this.label, required controller})
+    : _controller = controller;
 
   @override
   State<EnterNumberField> createState() => _EnterNumberFieldState();
@@ -14,9 +16,11 @@ class EnterNumberField extends StatefulWidget {
 
 class _EnterNumberFieldState extends State<EnterNumberField> {
   late TextEditingController controller;
+  late String? label;
 
   @override
   void initState() {
+    label = widget.label;
     controller = widget._controller;
     super.initState();
   }
@@ -38,6 +42,15 @@ class _EnterNumberFieldState extends State<EnterNumberField> {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        if (label != null)
+          Text(
+            label!,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFF64748B),
+            ),
+          ),
         Container(
           width: double.infinity,
           height: 53,

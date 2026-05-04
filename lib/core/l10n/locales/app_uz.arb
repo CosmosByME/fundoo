@@ -82,5 +82,74 @@
     "duration": "Muddat",
     "monthlySaving": "Oylik tejash miqdori",
     "saveEveryMonth": "Har oy shu miqdorni tejang",
-    "goToFundoo": "Fundoo'ga o'tish 🚀"
+    "goToFundoo": "Fundoo'ga o'tish 🚀",
+
+
+
+    "main" : "Asosiy",
+    "profile" : "Profil",
+    "analytics" : "Tahlil",
+    "game" : "O'yinlar",
+
+
+    "notifications" : "Bildirishnomalar",
+    "noNotifications" : "Sizda bildirishnoma yo'q",
+
+
+    "soon" : "Tez orada...",
+    "gamesBody": "Moliyaviy bilimlarni o'yin orqali o'rganadigan qiziqarli o'yinlar tayyorlanmoqda. Kutib turing!",
+    "gamesButton": "🚀 Tez orada",
+
+
+    "logOut": "Chiqish",
+    "personalInfo": "Shaxsiy ma'lumotlar",
+    "phoneNumber": "Telefon raqami",
+    "bio": "Bio",
+
+    "darkMode": "Qorong'i rejim",
+    "qa": "Ko'p beriladigan savollar",
+    "qaBody": "FAQ bo'limi",
+    "support": "Qo'llab-quvvatlash",
+    "supportBody": "Muammo yoki savol bormi?",
+
+    "about": "Ilova haqida",
+
+    "save": "Saqlash",
+
+    "phoneChangingBody": "Telefon raqamingizni o'zgartirish uchun avval yangi raqamni tasdiqlashingiz kerak.",
+    "currentPhone": "Joriy telefon raqami",
+    "newPhone": "Yangi telefon raqami",
+
+    "bioBody": "O'zingiz haqida qisqacha yozing. Bu profil sahifangizda ko'rsatiladi.",
+
+
+    "deleteAccount": "Hisobni o'chirish",
+    "deleteAccountBody": "Barcha ma'lumotlar o'chiriladi",
+
+    "deleteDialogTitle": "Haqiqatan ham hisobingizni o'chirmoqchimisiz?",
+    "deleteDialogContentBody": "Ogohlantirish! Quyidagi narsalar doimiy ravishda o'chiriladi:",
+    "deleteDialogItem1": "Barcha shaxsiy ma'lumotlar",
+    "deleteDialogItem2": "Barcha maqsadlar",
+    "deleteDialogItem3": "Barcha tahlil ma'lumotlari",
+    "deleteDialogItem4": "Profil rasmi va sozlamalar",
+
+    "cancel": "Bekor qilish",
+    "delete": "Ha, o'chirish",
+
+
+    "controlPanel": "Boshqaruv paneli",
+    "savingPurpose": "Tejash uchun maqsad",
+    "daysLeft": "{days} kun qoldi",
+    "@daysLeft": {
+        "placeholders": {
+            "days": {
+                "type": "int"
+            }
+        }
+    },
+    "addMoney": "Pul qo'shish",
+    "removeMoney": "Pul olish",
+    "addNewGoal": "Yangi maqsad qo'shish",
+    "recentActivity": "So'nggi faollik",
+    "seeAll": "Barchasini ko'rish"
 }

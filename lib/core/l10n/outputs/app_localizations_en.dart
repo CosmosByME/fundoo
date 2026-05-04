@@ -245,4 +245,133 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get goToFundoo => 'Go to Fundoo 🚀';
+
+  @override
+  String get main => 'Main';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get game => 'Games';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get noNotifications => 'No notifications yet';
+
+  @override
+  String get soon => 'Soon...';
+
+  @override
+  String get gamesBody =>
+      'Exciting games to learn financial literacy are coming soon. Stay tuned!';
+
+  @override
+  String get gamesButton => '🚀 Soon!';
+
+  @override
+  String get logOut => 'Log Out';
+
+  @override
+  String get phoneNumber => 'Phone Number';
+
+  @override
+  String get bio => 'Bio';
+
+  @override
+  String get darkMode => 'Dark Mode';
+
+  @override
+  String get qa => 'FAQ';
+
+  @override
+  String get qaBody => 'FAQ section';
+
+  @override
+  String get support => 'Support';
+
+  @override
+  String get supportBody => 'Do you have any issues or questions?';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get phoneChangingBody =>
+      'To change your phone number, you need to verify the new number first.';
+
+  @override
+  String get currentPhone => 'Current Phone Number';
+
+  @override
+  String get newPhone => 'New Phone Number';
+
+  @override
+  String get bioBody =>
+      'Write a short description about yourself. This will be displayed on your profile page.';
+
+  @override
+  String get deleteAccount => 'Delete Account';
+
+  @override
+  String get deleteAccountBody => 'All data will be deleted';
+
+  @override
+  String get deleteDialogTitle => 'Do you really want to delete your account?';
+
+  @override
+  String get deleteDialogContentBody =>
+      'Warning! The things below will be permanently deleted:';
+
+  @override
+  String get deleteDialogItem1 => 'All personal information';
+
+  @override
+  String get deleteDialogItem2 => 'All your goals';
+
+  @override
+  String get deleteDialogItem3 => 'All your analytics data';
+
+  @override
+  String get deleteDialogItem4 => 'Profile picture and settings';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get delete => 'Yes, delete';
+
+  @override
+  String get controlPanel => 'Control Panel';
+
+  @override
+  String get savingPurpose => 'Saving Purpose';
+
+  @override
+  String daysLeft(int days) {
+    return '$days days left';
+  }
+
+  @override
+  String get addMoney => 'Add Money';
+
+  @override
+  String get removeMoney => 'Remove Money';
+
+  @override
+  String get addNewGoal => 'Add New Goal';
+
+  @override
+  String get recentActivity => 'Recent Activity';
+
+  @override
+  String get seeAll => 'See All';
 }

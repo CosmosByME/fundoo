@@ -131,7 +131,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Telefon raqamingizni kiriting. Unga tasdiqlash kodi yuboramiz.';
 
   @override
-  String get personalInfo => 'Malumotlaringiz';
+  String get personalInfo => 'Shaxsiy ma\'lumotlar';
 
   @override
   String get askingInfo =>
@@ -249,4 +249,134 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get goToFundoo => 'Fundoo\'ga o\'tish 🚀';
+
+  @override
+  String get main => 'Asosiy';
+
+  @override
+  String get profile => 'Profil';
+
+  @override
+  String get analytics => 'Tahlil';
+
+  @override
+  String get game => 'O\'yinlar';
+
+  @override
+  String get notifications => 'Bildirishnomalar';
+
+  @override
+  String get noNotifications => 'Sizda bildirishnoma yo\'q';
+
+  @override
+  String get soon => 'Tez orada...';
+
+  @override
+  String get gamesBody =>
+      'Moliyaviy bilimlarni o\'yin orqali o\'rganadigan qiziqarli o\'yinlar tayyorlanmoqda. Kutib turing!';
+
+  @override
+  String get gamesButton => '🚀 Tez orada';
+
+  @override
+  String get logOut => 'Chiqish';
+
+  @override
+  String get phoneNumber => 'Telefon raqami';
+
+  @override
+  String get bio => 'Bio';
+
+  @override
+  String get darkMode => 'Qorong\'i rejim';
+
+  @override
+  String get qa => 'Ko\'p beriladigan savollar';
+
+  @override
+  String get qaBody => 'FAQ bo\'limi';
+
+  @override
+  String get support => 'Qo\'llab-quvvatlash';
+
+  @override
+  String get supportBody => 'Muammo yoki savol bormi?';
+
+  @override
+  String get about => 'Ilova haqida';
+
+  @override
+  String get save => 'Saqlash';
+
+  @override
+  String get phoneChangingBody =>
+      'Telefon raqamingizni o\'zgartirish uchun avval yangi raqamni tasdiqlashingiz kerak.';
+
+  @override
+  String get currentPhone => 'Joriy telefon raqami';
+
+  @override
+  String get newPhone => 'Yangi telefon raqami';
+
+  @override
+  String get bioBody =>
+      'O\'zingiz haqida qisqacha yozing. Bu profil sahifangizda ko\'rsatiladi.';
+
+  @override
+  String get deleteAccount => 'Hisobni o\'chirish';
+
+  @override
+  String get deleteAccountBody => 'Barcha ma\'lumotlar o\'chiriladi';
+
+  @override
+  String get deleteDialogTitle =>
+      'Haqiqatan ham hisobingizni o\'chirmoqchimisiz?';
+
+  @override
+  String get deleteDialogContentBody =>
+      'Ogohlantirish! Quyidagi narsalar doimiy ravishda o\'chiriladi:';
+
+  @override
+  String get deleteDialogItem1 => 'Barcha shaxsiy ma\'lumotlar';
+
+  @override
+  String get deleteDialogItem2 => 'Barcha maqsadlar';
+
+  @override
+  String get deleteDialogItem3 => 'Barcha tahlil ma\'lumotlari';
+
+  @override
+  String get deleteDialogItem4 => 'Profil rasmi va sozlamalar';
+
+  @override
+  String get cancel => 'Bekor qilish';
+
+  @override
+  String get delete => 'Ha, o\'chirish';
+
+  @override
+  String get controlPanel => 'Boshqaruv paneli';
+
+  @override
+  String get savingPurpose => 'Tejash uchun maqsad';
+
+  @override
+  String daysLeft(int days) {
+    return '$days kun qoldi';
+  }
+
+  @override
+  String get addMoney => 'Pul qo\'shish';
+
+  @override
+  String get removeMoney => 'Pul olish';
+
+  @override
+  String get addNewGoal => 'Yangi maqsad qo\'shish';
+
+  @override
+  String get recentActivity => 'So\'nggi faollik';
+
+  @override
+  String get seeAll => 'Barchasini ko\'rish';
 }

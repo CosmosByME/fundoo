@@ -555,6 +555,252 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Go to Fundoo 🚀'**
   String get goToFundoo;
+
+  /// No description provided for @main.
+  ///
+  /// In en, this message translates to:
+  /// **'Main'**
+  String get main;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// No description provided for @analytics.
+  ///
+  /// In en, this message translates to:
+  /// **'Analytics'**
+  String get analytics;
+
+  /// No description provided for @game.
+  ///
+  /// In en, this message translates to:
+  /// **'Games'**
+  String get game;
+
+  /// No description provided for @notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
+
+  /// No description provided for @noNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'No notifications yet'**
+  String get noNotifications;
+
+  /// No description provided for @soon.
+  ///
+  /// In en, this message translates to:
+  /// **'Soon...'**
+  String get soon;
+
+  /// No description provided for @gamesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Exciting games to learn financial literacy are coming soon. Stay tuned!'**
+  String get gamesBody;
+
+  /// No description provided for @gamesButton.
+  ///
+  /// In en, this message translates to:
+  /// **'🚀 Soon!'**
+  String get gamesButton;
+
+  /// No description provided for @logOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Log Out'**
+  String get logOut;
+
+  /// No description provided for @phoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phoneNumber;
+
+  /// No description provided for @bio.
+  ///
+  /// In en, this message translates to:
+  /// **'Bio'**
+  String get bio;
+
+  /// No description provided for @darkMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Mode'**
+  String get darkMode;
+
+  /// No description provided for @qa.
+  ///
+  /// In en, this message translates to:
+  /// **'FAQ'**
+  String get qa;
+
+  /// No description provided for @qaBody.
+  ///
+  /// In en, this message translates to:
+  /// **'FAQ section'**
+  String get qaBody;
+
+  /// No description provided for @support.
+  ///
+  /// In en, this message translates to:
+  /// **'Support'**
+  String get support;
+
+  /// No description provided for @supportBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you have any issues or questions?'**
+  String get supportBody;
+
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get about;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @phoneChangingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'To change your phone number, you need to verify the new number first.'**
+  String get phoneChangingBody;
+
+  /// No description provided for @currentPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Phone Number'**
+  String get currentPhone;
+
+  /// No description provided for @newPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'New Phone Number'**
+  String get newPhone;
+
+  /// No description provided for @bioBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Write a short description about yourself. This will be displayed on your profile page.'**
+  String get bioBody;
+
+  /// No description provided for @deleteAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get deleteAccount;
+
+  /// No description provided for @deleteAccountBody.
+  ///
+  /// In en, this message translates to:
+  /// **'All data will be deleted'**
+  String get deleteAccountBody;
+
+  /// No description provided for @deleteDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you really want to delete your account?'**
+  String get deleteDialogTitle;
+
+  /// No description provided for @deleteDialogContentBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning! The things below will be permanently deleted:'**
+  String get deleteDialogContentBody;
+
+  /// No description provided for @deleteDialogItem1.
+  ///
+  /// In en, this message translates to:
+  /// **'All personal information'**
+  String get deleteDialogItem1;
+
+  /// No description provided for @deleteDialogItem2.
+  ///
+  /// In en, this message translates to:
+  /// **'All your goals'**
+  String get deleteDialogItem2;
+
+  /// No description provided for @deleteDialogItem3.
+  ///
+  /// In en, this message translates to:
+  /// **'All your analytics data'**
+  String get deleteDialogItem3;
+
+  /// No description provided for @deleteDialogItem4.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile picture and settings'**
+  String get deleteDialogItem4;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes, delete'**
+  String get delete;
+
+  /// No description provided for @controlPanel.
+  ///
+  /// In en, this message translates to:
+  /// **'Control Panel'**
+  String get controlPanel;
+
+  /// No description provided for @savingPurpose.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving Purpose'**
+  String get savingPurpose;
+
+  /// No description provided for @daysLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'{days} days left'**
+  String daysLeft(int days);
+
+  /// No description provided for @addMoney.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Money'**
+  String get addMoney;
+
+  /// No description provided for @removeMoney.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove Money'**
+  String get removeMoney;
+
+  /// No description provided for @addNewGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Add New Goal'**
+  String get addNewGoal;
+
+  /// No description provided for @recentActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Activity'**
+  String get recentActivity;
+
+  /// No description provided for @seeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See All'**
+  String get seeAll;
 }
 
 class _AppLocalizationsDelegate

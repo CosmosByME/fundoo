@@ -20,69 +20,71 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-      ),
-      body: Padding(
-        padding: EdgeInsetsGeometry.all(20),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              context.l10n.enter,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF0F172A),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              context.l10n.enterPhone,
-              style: TextStyle(color: Colors.grey),
-            ),
-            const SizedBox(height: 30),
-            EnterNumberField(
-              controller: _phoneController,
-            ),
-            const SizedBox(height: 35),
-            CustomButton(
-              onPressed: () {
-                context.go('/auth/log-in/otp/${_phoneController.text}');
-              },
-              backgroundColor: Color(0xFF2563EB),
-              child: Text(
-                context.l10n.sendCode,
+      appBar: AppBar(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsetsGeometry.all(20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                context.l10n.enter,
                 style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xFFFFFFFF),
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF0F172A),
                 ),
               ),
-            ),
-            const SizedBox(height: 10),
-            Container(
-              alignment: Alignment.center,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(context.l10n.noAccount, style: TextStyle(color: Colors.grey),),
-                  TextButton(
-                    onPressed: () {
-                      context.go('/auth/sign-up');
-                    },
-                    child: Text(context.l10n.createAccount, style: TextStyle(color: Color(0xFF2563EB)),),
-                  )
-                ],
+              const SizedBox(height: 10),
+              Text(
+                context.l10n.enterPhone,
+                style: TextStyle(color: Colors.grey),
               ),
-            )
-          ],
+              const SizedBox(height: 30),
+              EnterNumberField(controller: _phoneController),
+              const SizedBox(height: 35),
+              CustomButton(
+                onPressed: () {
+                  context.go('/auth/log-in/otp/${_phoneController.text}');
+                },
+                backgroundColor: Color(0xFF2563EB),
+                child: Text(
+                  context.l10n.sendCode,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFFFFFFFF),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Container(
+                alignment: Alignment.center,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      context.l10n.noAccount,
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        context.go('/auth/sign-up');
+                      },
+                      child: Text(
+                        context.l10n.createAccount,
+                        style: TextStyle(color: Color(0xFF2563EB)),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

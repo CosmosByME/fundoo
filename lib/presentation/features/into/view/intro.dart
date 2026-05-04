@@ -14,9 +14,7 @@ class Intro extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = InheritedIntro.of(context).notifier;
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
         leading: ElevatedButton(
           onPressed: () => state.changeLanguage(context),
           style: ElevatedButton.styleFrom(

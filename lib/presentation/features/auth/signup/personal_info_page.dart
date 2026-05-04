@@ -39,9 +39,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -74,72 +72,74 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
           ],
         ),
       ),
-      body: Padding(
-        padding: EdgeInsetsGeometry.all(20),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              context.l10n.personalInfo,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF0F172A),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(context.l10n.askingInfo, style: TextStyle(color: Colors.grey)),
-            const SizedBox(height: 15),
-            ImgSelecting(
-              image: image,
-              onPressed: () async {
-                final imageS = await FileService.pickImageFromGallery();
-                setState(() {
-                  image = imageS;
-                });
-              },
-              onCencel: () async {
-                setState(() {
-                  image = null;
-                });
-              },
-            ),
-            const SizedBox(height: 15),
-            CustomTextField(
-              controller: _nameController,
-              label: "${context.l10n.fullName} *",
-              hint: "Lola Toirxonova",
-            ),
-            const SizedBox(height: 15),
-            CustomTextField(
-              controller: _userNameController,
-              label: "${context.l10n.userName} *",
-              hint: "@lola_toirxonova",
-            ),
-            const SizedBox(height: 15),
-            CustomTextField(
-              controller: _ageController,
-              label: "${context.l10n.age} *",
-              hint: "25",
-              keyboardType: TextInputType.number,
-            ),
-            const SizedBox(height: 35),
-            CustomButton(
-              onPressed: () {
-                context.go('/done-page');
-              },
-              backgroundColor: Color(0xFF2563EB),
-              child: Text(
-                context.l10n.continuing,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsetsGeometry.all(20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                context.l10n.personalInfo,
                 style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xFFFFFFFF),
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF0F172A),
                 ),
               ),
-            ),
-          ],
+              const SizedBox(height: 10),
+              Text(context.l10n.askingInfo, style: TextStyle(color: Colors.grey)),
+              const SizedBox(height: 15),
+              ImgSelecting(
+                image: image,
+                onPressed: () async {
+                  final imageS = await FileService.pickImageFromGallery();
+                  setState(() {
+                    image = imageS;
+                  });
+                },
+                onCencel: () async {
+                  setState(() {
+                    image = null;
+                  });
+                },
+              ),
+              const SizedBox(height: 15),
+              CustomTextField(
+                controller: _nameController,
+                label: "${context.l10n.fullName} *",
+                hint: "Lola Toirxonova",
+              ),
+              const SizedBox(height: 15),
+              CustomTextField(
+                controller: _userNameController,
+                label: "${context.l10n.userName} *",
+                hint: "@lola_toirxonova",
+              ),
+              const SizedBox(height: 15),
+              CustomTextField(
+                controller: _ageController,
+                label: "${context.l10n.age} *",
+                hint: "25",
+                keyboardType: TextInputType.number,
+              ),
+              const SizedBox(height: 35),
+              CustomButton(
+                onPressed: () {
+                  context.go('/done-page');
+                },
+                backgroundColor: Color(0xFF2563EB),
+                child: Text(
+                  context.l10n.continuing,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFFFFFFFF),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -14,7 +14,6 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
         child: TweenAnimationBuilder<double>(
           tween: Tween(begin: 200, end: 250),
@@ -24,10 +23,17 @@ class _SplashPageState extends State<SplashPage> {
           },
           onEnd: () async {
             bool isSeen = await PreferencesService.getIntroSeen();
+            bool isRegistered = await PreferencesService.getIsRegistered();
 
             if (isSeen) {
-              if (context.mounted) {
-                context.go("/auth");
+              if (isRegistered) {
+                if (context.mounted) {
+                  context.go("/main-page");
+                }
+              } else {
+                if (context.mounted) {
+                  context.go("/auth");
+                }
               }
             } else {
               if (context.mounted) {

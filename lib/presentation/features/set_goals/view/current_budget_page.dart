@@ -31,9 +31,7 @@ class _CurrentBudgetPageState extends State<CurrentBudgetPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -75,57 +73,59 @@ class _CurrentBudgetPageState extends State<CurrentBudgetPage> {
           ],
         ),
       ),
-      body: Padding(
-        padding: EdgeInsetsGeometry.all(20),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              context.l10n.howMuchYouHave,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF0F172A),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              context.l10n.howMuchYouHaveBody,
-              style: TextStyle(color: Colors.grey),
-            ),
-            const SizedBox(height: 30),
-            GoalMoneyBanner(
-              title: context.l10n.currentBalance,
-              money: _currentBudgetController.text,
-              color: Color(0xFFDCFCE7),
-              textColor: Color(0xFF16A34A),
-              borderColor: Color(0xFF16A34A).withValues(alpha: 0.12),
-            ),
-            const SizedBox(height: 20),
-            CustomTextField(
-              controller: _currentBudgetController,
-              label: context.l10n.currentAmount,
-              keyboardType: TextInputType.numberWithOptions(),
-            ),
-            const SizedBox(height: 20),
-            InfoWidget(icon: "ℹ️", text: context.l10n.balanceChangingInfo),
-            const SizedBox(height: 20),
-            CustomButton(
-              onPressed: () {
-                context.goNamed('period-of-goal');
-              },
-              backgroundColor: Color(0xFF2563EB),
-              child: Text(
-                context.l10n.continuing,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsetsGeometry.all(20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                context.l10n.howMuchYouHave,
                 style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xFFFFFFFF),
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF0F172A),
                 ),
               ),
-            ),
-          ],
+              const SizedBox(height: 10),
+              Text(
+                context.l10n.howMuchYouHaveBody,
+                style: TextStyle(color: Colors.grey),
+              ),
+              const SizedBox(height: 30),
+              GoalMoneyBanner(
+                title: context.l10n.currentBalance,
+                money: _currentBudgetController.text,
+                color: Color(0xFFDCFCE7),
+                textColor: Color(0xFF16A34A),
+                borderColor: Color(0xFF16A34A).withValues(alpha: 0.12),
+              ),
+              const SizedBox(height: 20),
+              CustomTextField(
+                controller: _currentBudgetController,
+                label: context.l10n.currentAmount,
+                keyboardType: TextInputType.numberWithOptions(),
+              ),
+              const SizedBox(height: 20),
+              InfoWidget(icon: "ℹ️", text: context.l10n.balanceChangingInfo),
+              const SizedBox(height: 20),
+              CustomButton(
+                onPressed: () {
+                  context.goNamed('period-of-goal');
+                },
+                backgroundColor: Color(0xFF2563EB),
+                child: Text(
+                  context.l10n.continuing,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFFFFFFFF),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

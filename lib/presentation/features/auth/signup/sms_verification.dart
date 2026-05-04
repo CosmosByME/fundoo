@@ -35,9 +35,7 @@ class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -70,50 +68,52 @@ class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
           ],
         ),
       ),
-      body: Padding(
-        padding: EdgeInsetsGeometry.all(20),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              context.l10n.verification,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF0F172A),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              context.l10n.verificationBody,
-              style: TextStyle(color: Colors.grey),
-            ),
-            const SizedBox(height: 10),
-            Text(phoneNumber,
-              style: TextStyle(color: Color(0xFF0F172A), fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(height: 30),
-            OtpField(
-              controller: _codeController,
-            ),
-            const SizedBox(height: 35),
-            CustomButton(
-              onPressed: _codeController.text.length == 6 ? () {
-                context.go('/auth/sign-up/otp/$phoneNumber/personal-info');
-              } : null,
-              backgroundColor: Color(0xFF2563EB),
-              child: Text(
-                context.l10n.enter,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsetsGeometry.all(20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                context.l10n.verification,
                 style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xFFFFFFFF),
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF0F172A),
                 ),
               ),
-            ),
-            const SizedBox(height: 10),
-          ],
+              const SizedBox(height: 10),
+              Text(
+                context.l10n.verificationBody,
+                style: TextStyle(color: Colors.grey),
+              ),
+              const SizedBox(height: 10),
+              Text(phoneNumber,
+                style: TextStyle(color: Color(0xFF0F172A), fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 30),
+              OtpField(
+                controller: _codeController,
+              ),
+              const SizedBox(height: 35),
+              CustomButton(
+                onPressed: _codeController.text.length == 6 ? () {
+                  context.go('/auth/sign-up/otp/$phoneNumber/personal-info');
+                } : null,
+                backgroundColor: Color(0xFF2563EB),
+                child: Text(
+                  context.l10n.enter,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFFFFFFFF),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+            ],
+          ),
         ),
       ),
     );

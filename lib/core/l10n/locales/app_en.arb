@@ -82,5 +82,75 @@
     "duration": "Duration",
     "monthlySaving": "Monthly saving amount",
     "saveEveryMonth": "Save this amount every month",
-    "goToFundoo": "Go to Fundoo 🚀"
+    "goToFundoo": "Go to Fundoo 🚀",
+
+    
+
+
+    "main" : "Main",
+    "profile" : "Profile",
+    "analytics" : "Analytics",
+    "game" : "Games",
+
+
+    "notifications" : "Notifications",
+    "noNotifications": "No notifications yet",
+
+
+    "soon" : "Soon...",
+    "gamesBody": "Exciting games to learn financial literacy are coming soon. Stay tuned!",
+    "gamesButton": "🚀 Soon!",
+
+
+    "logOut": "Log Out",
+    "personalInfo": "Personal Information",
+    "phoneNumber": "Phone Number",
+    "bio": "Bio",
+
+    "darkMode": "Dark Mode",
+    "qa": "FAQ",
+    "qaBody": "FAQ section",
+    "support": "Support",
+    "supportBody": "Do you have any issues or questions?",
+
+    "about": "About",
+    "save": "Save",
+
+    "phoneChangingBody": "To change your phone number, you need to verify the new number first.",
+    "currentPhone": "Current Phone Number",
+    "newPhone": "New Phone Number",
+
+    "bioBody": "Write a short description about yourself. This will be displayed on your profile page.",
+
+
+    "deleteAccount": "Delete Account",
+    "deleteAccountBody": "All data will be deleted",
+
+    "deleteDialogTitle": "Do you really want to delete your account?",
+    "deleteDialogContentBody": "Warning! The things below will be permanently deleted:",
+    "deleteDialogItem1": "All personal information",
+    "deleteDialogItem2": "All your goals",
+    "deleteDialogItem3": "All your analytics data",
+    "deleteDialogItem4": "Profile picture and settings",
+
+    "cancel": "Cancel",
+    "delete": "Yes, delete",
+
+
+    "controlPanel": "Control Panel",
+    "savingPurpose": "Saving Purpose",
+    "daysLeft": "{days} days left",
+    "@daysLeft": {
+        "placeholders": {
+            "days": {
+                "type": "int"
+            }
+        }
+    },
+    "addMoney": "Add Money",
+    "removeMoney": "Remove Money",
+    "addNewGoal": "Add New Goal",
+    "recentActivity": "Recent Activity",
+    "seeAll": "See All"
+     
 }

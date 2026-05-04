@@ -249,4 +249,134 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get goToFundoo => 'Перейти в Fundoo 🚀';
+
+  @override
+  String get main => 'Главная';
+
+  @override
+  String get profile => 'Профиль';
+
+  @override
+  String get analytics => 'Аналитика';
+
+  @override
+  String get game => 'Игры';
+
+  @override
+  String get notifications => 'Уведомления';
+
+  @override
+  String get noNotifications => 'Пока нет уведомлений';
+
+  @override
+  String get soon => 'Скоро...';
+
+  @override
+  String get gamesBody =>
+      'Увлекательные игры для изучения финансовой грамотности скоро появятся. Оставайтесь с нами!';
+
+  @override
+  String get gamesButton => '🚀 Скоро';
+
+  @override
+  String get logOut => 'Выйти';
+
+  @override
+  String get phoneNumber => 'Номер телефона';
+
+  @override
+  String get bio => 'О себе';
+
+  @override
+  String get darkMode => 'Темный режим';
+
+  @override
+  String get qa => 'Часто задаваемые вопросы';
+
+  @override
+  String get qaBody => 'Раздел FAQ';
+
+  @override
+  String get support => 'Поддержка';
+
+  @override
+  String get supportBody => 'У вас есть проблемы или вопросы?';
+
+  @override
+  String get about => 'О приложении';
+
+  @override
+  String get save => 'Сохранить';
+
+  @override
+  String get phoneChangingBody =>
+      'Введите новый номер телефона. На него будет отправлен код подтверждения.';
+
+  @override
+  String get currentPhone => 'Текущий номер телефона';
+
+  @override
+  String get newPhone => 'Новый номер телефона';
+
+  @override
+  String get bioBody =>
+      'Напишите немного о себе. Это будет отображаться на вашей странице профиля.';
+
+  @override
+  String get deleteAccount => 'Удалить аккаунт';
+
+  @override
+  String get deleteAccountBody => 'Все данные будут удалены';
+
+  @override
+  String get deleteDialogTitle =>
+      'Вы действительно хотите удалить ваш аккаунт?';
+
+  @override
+  String get deleteDialogContentBody =>
+      'Предупреждение! Ниже перечисленные элементы будут永久 удалены:';
+
+  @override
+  String get deleteDialogItem1 => 'Все личные данные';
+
+  @override
+  String get deleteDialogItem2 => 'Все ваши цели';
+
+  @override
+  String get deleteDialogItem3 => 'Все ваши аналитические данные';
+
+  @override
+  String get deleteDialogItem4 => 'Фото профиля и настройки';
+
+  @override
+  String get cancel => 'Отмена';
+
+  @override
+  String get delete => 'Да, удалить';
+
+  @override
+  String get controlPanel => 'Панель управления';
+
+  @override
+  String get savingPurpose => 'Цель экономии';
+
+  @override
+  String daysLeft(int days) {
+    return '$days дней осталось';
+  }
+
+  @override
+  String get addMoney => 'Добавить деньги';
+
+  @override
+  String get removeMoney => 'Удалить деньги';
+
+  @override
+  String get addNewGoal => 'Добавить новую цель';
+
+  @override
+  String get recentActivity => 'Последняя активность';
+
+  @override
+  String get seeAll => 'Смотреть все';
 }
