@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fundoo/core/models/spending.dart';
+import 'package:fundoo/data/models/spending.dart';
 
 class SpendingTile extends StatelessWidget {
   final IconData icon;

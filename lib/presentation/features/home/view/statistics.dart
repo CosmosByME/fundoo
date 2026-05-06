@@ -13,7 +13,7 @@ class StatisticsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.l10n.analytics),
+        title: Text(context.l10n.analytics, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),),
         actions: [
           NotificationIcon(
             hasNotifications: true,

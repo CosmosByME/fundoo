@@ -10,11 +10,19 @@ void openIncomeEditDialog(BuildContext context) {
   showModalBottomSheet(
     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
     context: context,
+    isScrollControlled: true,
+    useRootNavigator: true,
     builder: (context) {
-      return Container(
-        padding: const EdgeInsets.all(16),
+      return SingleChildScrollView(
+        padding: EdgeInsets.only(
+          top: 16,
+          left: 16,
+          right: 16,
+          bottom: MediaQuery.of(context).viewInsets.bottom + 16,
+        ),
+
         child: Column(
-          mainAxisSize: MainAxisSize.max,
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(

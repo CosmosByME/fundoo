@@ -5,6 +5,7 @@ import 'package:fundoo/core/router.dart';
 import 'package:fundoo/core/services/preferences_service.dart';
 import 'package:fundoo/core/theme/inherited_theme.dart';
 import 'package:fundoo/core/theme/themes.dart';
+import 'package:fundoo/core/widget/on_un_focus.dart';
 import 'package:fundoo/presentation/features/into/notifier/inherited_intro.dart';
 import 'package:fundoo/presentation/features/into/notifier/intro_notifier.dart';
 import 'package:fundoo/presentation/features/set_goals/module/goal_notifier.dart';
@@ -49,26 +50,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: context.themeMode,
-      builder: (context, themeMode, child) {
-        return ValueListenableBuilder(
-          valueListenable: context.locale,
-          builder: (context, value, child) {
-            return MaterialApp.router(
-              theme: MyAppThemes().lightTheme,
-              darkTheme: MyAppThemes().darkTheme,
-              themeMode: themeMode,
-              locale: context.locale.value,
-              localizationsDelegates: AppLocalizations.localizationsDelegates,
-              supportedLocales: AppLocalizations.supportedLocales,
-              debugShowCheckedModeBanner: false,
-              title: 'Flutter Demo',
-              routerConfig: router,
-            );
-          },
-        );
-      },
+    return OnUnFocusTap(
+      child: ValueListenableBuilder(
+        valueListenable: context.themeMode,
+        builder: (context, themeMode, child) {
+          return ValueListenableBuilder(
+            valueListenable: context.locale,
+            builder: (context, value, child) {
+              return MaterialApp.router(
+                theme: MyAppThemes().lightTheme,
+                darkTheme: MyAppThemes().darkTheme,
+                themeMode: themeMode,
+                locale: context.locale.value,
+                localizationsDelegates: AppLocalizations.localizationsDelegates,
+                supportedLocales: AppLocalizations.supportedLocales,
+                debugShowCheckedModeBanner: false,
+                title: 'Flutter Demo',
+                routerConfig: router,
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

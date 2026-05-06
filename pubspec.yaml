@@ -28,6 +28,8 @@ dependencies:
   image_picker: ^1.2.2
   dotted_border: ^3.1.0
   fl_chart: ^1.2.0
+  dio: ^5.9.2
+  pretty_dio_logger: ^1.4.0
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
-import 'package:fundoo/core/models/spending.dart';
+import 'package:fundoo/data/models/spending.dart';
 import 'package:fundoo/core/widget/goal_card.dart';
 import 'package:fundoo/core/widget/new_goal_button.dart';
 import 'package:fundoo/core/widget/notification_icon.dart';

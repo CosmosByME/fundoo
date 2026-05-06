@@ -17,19 +17,20 @@ class OtpField extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: Color(0xFFF8FAFC),
-        border: Border.all(color: Color(0xFFE2E8F0)),
-        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Color(0xFFE2E8F0), width: 1.6),
+        borderRadius: BorderRadius.circular(13),
       ),
     );
 
     final focused = base.copyDecorationWith(
-      border: Border.all(color: Color(0xFF2563EB)),
-      borderRadius: BorderRadius.circular(8),
+      border: Border.all(color: Color(0xFF2563EB), width: 3),
+      borderRadius: BorderRadius.circular(13),
     );
 
     final submitted = base.copyWith(
       decoration: base.decoration?.copyWith(
-        color: Color(0xFFE2F8F0),
+        border: Border.all(color: Color(0xFF2563EB), width: 3),
+        color: Color(0xFEFF6FF),
       ),
     );
 
