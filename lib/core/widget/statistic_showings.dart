@@ -11,7 +11,15 @@ class AllIncomeIndicator extends StatelessWidget {
       // height: 100, // double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.green.withValues(alpha: 0.1),
+        gradient: LinearGradient(
+          colors: [
+            Color(0xFFF0FDF4),
+            Color(0xFFDCFCE7),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        border: Border.all(color: Color(0xFF16A34A).withValues(alpha: 0.15)),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
@@ -58,7 +66,15 @@ class AllSpendingIndicator extends StatelessWidget {
       // height: 100, //double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.red.withValues(alpha: 0.1),
+        gradient: LinearGradient(
+          colors: [
+            Color(0xFFFEF2F2),
+            Color(0xFFFEE2E2),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        border: Border.all(color: Color(0xFFDC2626).withValues(alpha: 0.15)),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(

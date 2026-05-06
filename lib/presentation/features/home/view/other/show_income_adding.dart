@@ -8,6 +8,7 @@ void openIncomeEditDialog(BuildContext context) {
   TextEditingController date = TextEditingController();
   TextEditingController purpose = TextEditingController();
   showModalBottomSheet(
+    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
     context: context,
     builder: (context) {
       return Container(

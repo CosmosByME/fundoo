@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fundoo/core/widget/custom_text_field.dart';
 import 'package:fundoo/core/widget/goal_money_banner.dart';
-import 'package:fundoo/presentation/features/set_goals/module/inherited_goal.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/l10n/l10n.dart';
@@ -18,9 +17,9 @@ class _CostOfGoalState extends State<CostOfGoal> {
   late TextEditingController _costOfGoalController;
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _costOfGoalController = context.goal.goalNotifier.costController;
+  void initState() {
+    super.initState();
+    _costOfGoalController = TextEditingController();
     _costOfGoalController.addListener(() {
       setState(() {});
     });

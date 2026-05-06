@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/widget/analytic_section.dart';
 import 'package:fundoo/core/widget/notification_icon.dart';
+import 'package:fundoo/core/widget/piechart_analytics.dart';
 import 'package:fundoo/core/widget/statistic_showings.dart';
 import 'package:go_router/go_router.dart';
 
@@ -40,6 +41,11 @@ class StatisticsPage extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: 10)),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            sliver: SliverToBoxAdapter(child: PiechartAnalytics()),
           ),
         ],
       ),

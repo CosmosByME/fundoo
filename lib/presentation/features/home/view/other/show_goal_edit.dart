@@ -8,6 +8,7 @@ void openGoalEditDialog(BuildContext context) {
   TextEditingController name = TextEditingController();
   TextEditingController date = TextEditingController();
   showModalBottomSheet(
+    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
     context: context,
     builder: (context) {
       return Container(
