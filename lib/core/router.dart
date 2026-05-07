@@ -84,10 +84,9 @@ final router = GoRouter(
           builder: (context, state) => SignUpPage(),
           routes: [
             GoRoute(
-              path: 'otp/:number',
+              path: 'otp',
               builder: (context, state) {
-                final id = state.pathParameters['number'] ?? '';
-                return SmsVerificationSignUpPage(phoneNumber: id);
+                return SmsVerificationSignUpPage();
               },
               routes: [
                 GoRoute(

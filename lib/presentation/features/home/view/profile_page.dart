@@ -47,7 +47,12 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             actionsPadding: const EdgeInsets.symmetric(horizontal: 16),
-            actions: [LogOutButton(onTap: () {})],
+            actions: [LogOutButton(onTap: () async {
+              await PreferencesService.clearTokens();
+              if (context.mounted) {
+                context.go('/auth');
+              }
+            })],
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.pin,
               background: Container(

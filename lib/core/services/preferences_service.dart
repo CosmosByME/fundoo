@@ -33,13 +33,29 @@ class PreferencesService {
     return prefs.getString("locale");
   }
 
-  static void setIsRegistered(bool isRegistered) async {
+  static Future<void> setAccessToken(String accessToken) async {
     final prefs = await futureOfSharedPreferences;
-    await prefs.setBool("is_registered", isRegistered);
+    await prefs.setString("accessToken", accessToken);
   }
 
-  static Future<bool> getIsRegistered() async {
+  static Future<String> getAccessToken() async {
     final prefs = await futureOfSharedPreferences;
-    return prefs.getBool("is_registered") ?? false;
+    return prefs.getString("accessToken") ?? "";
+  }
+
+  static Future<void> setRefreshToken(String refreshToken) async {
+    final prefs = await futureOfSharedPreferences;
+    await prefs.setString("refreshToken", refreshToken);
+  }
+
+  static Future<String?> getRefreshToken() async {
+    final prefs = await futureOfSharedPreferences;
+    return prefs.getString("refreshToken");
+  }
+
+  static Future<void> clearTokens() async {
+    final prefs = await futureOfSharedPreferences;
+    await prefs.remove("accessToken");
+    await prefs.remove("refreshToken");
   }
 }

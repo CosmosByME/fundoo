@@ -23,10 +23,12 @@ class _SplashPageState extends State<SplashPage> {
           },
           onEnd: () async {
             bool isSeen = await PreferencesService.getIntroSeen();
-            bool isRegistered = await PreferencesService.getIsRegistered();
+            String isRegistered = await PreferencesService.getAccessToken();
+
+            debugPrint(isRegistered);
 
             if (isSeen) {
-              if (isRegistered) {
+              if (isRegistered.isNotEmpty) {
                 if (context.mounted) {
                   context.go("/main-page");
                 }
