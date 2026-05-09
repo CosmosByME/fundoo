@@ -7,6 +7,7 @@ import 'package:fundoo/core/services/preferences_service.dart';
 import 'package:fundoo/core/theme/inherited_theme.dart';
 import 'package:fundoo/core/theme/themes.dart';
 import 'package:fundoo/core/widget/on_un_focus.dart';
+import 'package:fundoo/presentation/features/auth/login/bloc/log_in_bloc.dart';
 import 'package:fundoo/presentation/features/auth/signup/bloc/sign_up_bloc.dart';
 import 'package:fundoo/presentation/features/into/notifier/inherited_intro.dart';
 import 'package:fundoo/presentation/features/into/notifier/intro_notifier.dart';
@@ -28,19 +29,21 @@ void main() async {
     locale = Locale('uz');
   }
 
-
   runApp(
     L10nInherited(
       locale: ValueNotifier(locale),
       child: InheritedIntro(
         notifier: IntroNotifier(),
         child: BlocProvider(
-          create: (context) => SignUpBloc(),
-          child: InheritedGoal(
-            goalNotifier: GoalNotifier(),
-            child: InheritedThemeMode(
-              themeMode: ValueNotifier(themeMode),
-              child: MyApp(),
+          create: (context) => LogInBloc(),
+          child: BlocProvider(
+            create: (context) => SignUpBloc(),
+            child: InheritedGoal(
+              goalNotifier: GoalNotifier(),
+              child: InheritedThemeMode(
+                themeMode: ValueNotifier(themeMode),
+                child: MyApp(),
+              ),
             ),
           ),
         ),

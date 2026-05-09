@@ -30,7 +30,7 @@ class OtpField extends StatelessWidget {
     final submitted = base.copyWith(
       decoration: base.decoration?.copyWith(
         border: Border.all(color: Color(0xFF2563EB), width: 3),
-        color: Color(0xFEFF6FF),
+        color: Color(0xFFEFF6FF),
       ),
     );
 

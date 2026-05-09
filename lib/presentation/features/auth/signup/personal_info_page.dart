@@ -29,7 +29,6 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
     _nameController = TextEditingController();
     _userNameController = TextEditingController();
     _ageController = TextEditingController();
-
   }
 
   @override
@@ -42,7 +41,6 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return BlocListener<SignUpBloc, SignUpState>(
       listener: (context, state) {
         if (state.errorMessage != null) {
@@ -144,24 +142,44 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                   builder: (context, state) {
                     return CustomButton(
                       onPressed: () {
-                        final age = int.tryParse(_ageController.text);
-                        if (age == null) {
+                        if (_nameController.text.isEmpty &&
+                            _userNameController.text.isEmpty &&
+                            _ageController.text.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
-                                "Invalid age. Please enter a valid number.",
+                                "Please fill in all required fields.",
                               ),
                             ),
                           );
-                          return;
+                        } else {
+                          final age = int.tryParse(_ageController.text);
+                          if (age == null) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  "Invalid age. Please enter a valid number.",
+                                ),
+                              ),
+                            );
+                            return;
+                          }
+                          context.read<SignUpBloc>().add(
+                            SignUpUserDetailsSubmitted(
+                              _nameController.text,
+                              _userNameController.text,
+                              age,
+                            ),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                "User details submitted successfully.",
+                              ),
+                            ),
+                          );
+                          context.push('done-page');
                         }
-                        context.read<SignUpBloc>().add(
-                          SignUpUserDetailsSubmitted(
-                            _nameController.text,
-                            _userNameController.text,
-                            age,
-                          ),
-                        );
                       },
                       backgroundColor: Color(0xFF2563EB),
                       child: state.isLoading

@@ -19,9 +19,8 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-      _phoneController.addListener(() => debugPrint(_phoneController.text));
+    _phoneController.addListener(() => debugPrint(_phoneController.text));
   }
 
   @override
@@ -35,12 +34,12 @@ class _SignUpPageState extends State<SignUpPage> {
     return BlocListener<SignUpBloc, SignUpState>(
       listener: (context, state) {
         if (state.errorMessage != null) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.errorMessage!)),
-          );
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(state.errorMessage!)));
         }
-        if (state.phoneNumber.isNotEmpty) {
-          context.go('/auth/sign-up/otp');
+        if (state.otpSent) {
+          context.push('/auth/sign-up/otp');
         }
       },
       child: Scaffold(
@@ -104,20 +103,26 @@ class _SignUpPageState extends State<SignUpPage> {
                   builder: (context, state) {
                     return CustomButton(
                       onPressed: () {
-                        debugPrint('Phone number submitted: 998${_phoneController.text.replaceAll(' ', '')}');
+                        debugPrint(
+                          'Phone number submitted: 998${_phoneController.text.replaceAll(' ', '')}',
+                        );
                         context.read<SignUpBloc>().add(
-                          SignUpPhoneNumberSubmitted('998${_phoneController.text.replaceAll(' ', '')}'),
+                          SignUpPhoneNumberSubmitted(
+                            '998${_phoneController.text.replaceAll(' ', '')}',
+                          ),
                         );
                       },
                       backgroundColor: Color(0xFF2563EB),
-                      child:state.isLoading ? CircularProgressIndicator.adaptive() : Text(
-                        context.l10n.sendCode,
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFFFFFFFF),
-                        ),
-                      ),
+                      child: state.isLoading
+                          ? CircularProgressIndicator.adaptive()
+                          : Text(
+                              context.l10n.sendCode,
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFFFFFFFF),
+                              ),
+                            ),
                     );
                   },
                 ),

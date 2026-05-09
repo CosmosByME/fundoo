@@ -8,6 +8,7 @@ class SignUpState extends Equatable {
   final int age;
   final bool isVerified;
   final String? errorMessage;
+  final bool otpSent;
 
   const SignUpState({
     this.phoneNumber = '',
@@ -17,6 +18,7 @@ class SignUpState extends Equatable {
     this.isLoading = false,
     this.errorMessage,
     this.isVerified = false,
+    this.otpSent = false,
   });
 
   SignUpState copyWith({
@@ -27,6 +29,7 @@ class SignUpState extends Equatable {
     bool? isLoading,
     String? errorMessage,
     bool? isVerified,
+    bool? otpSent,
   }) {
     return SignUpState(
       phoneNumber: phoneNumber ?? this.phoneNumber,
@@ -36,6 +39,7 @@ class SignUpState extends Equatable {
       isLoading: isLoading ?? this.isLoading,
       errorMessage: errorMessage ?? this.errorMessage,
       isVerified: isVerified ?? this.isVerified,
+      otpSent: otpSent ?? this.otpSent,
     );
   }
 
@@ -48,5 +52,6 @@ class SignUpState extends Equatable {
     isLoading,
     errorMessage,
     isVerified,
+    otpSent,
   ];
 }

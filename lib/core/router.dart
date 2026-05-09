@@ -70,10 +70,9 @@ final router = GoRouter(
           builder: (context, state) => LoginPage(),
           routes: [
             GoRoute(
-              path: 'otp/:number',
+              path: 'otp',
               builder: (context, state) {
-                final id = state.pathParameters['number'] ?? '';
-                return SmsVerificationPage(phoneNumber: id);
+                return SmsVerificationPage();
               },
             ),
           ],

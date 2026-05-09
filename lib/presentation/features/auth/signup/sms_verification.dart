@@ -32,7 +32,6 @@ class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     phoneNumber = context.read<SignUpBloc>().state.phoneNumber;
@@ -40,12 +39,12 @@ class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
     return BlocListener<SignUpBloc, SignUpState>(
       listener: (context, state) {
         if (state.errorMessage != null) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.errorMessage!)),
-          );
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(state.errorMessage!)));
         }
         if (state.isVerified) {
-          context.go('/auth/sign-up/otp/personal-info');
+          context.pushReplacement('/auth/sign-up/otp/personal-info');
         }
       },
       child: Scaffold(
@@ -102,34 +101,40 @@ class _SmsVerificationSignUpPageState extends State<SmsVerificationSignUpPage> {
                   context.l10n.verificationBody,
                   style: TextStyle(color: Colors.grey),
                 ),
-                Text(phoneNumber,
+                Text(
+                  phoneNumber,
                   style: TextStyle(
-                      color: Color(0xFF0F172A),
-                      fontWeight: FontWeight.w700),
-
+                    color: Color(0xFF0F172A),
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
                 const SizedBox(height: 30),
-                OtpField(
-                  controller: _codeController,
-                ),
+                OtpField(controller: _codeController),
                 const SizedBox(height: 35),
                 BlocBuilder<SignUpBloc, SignUpState>(
                   builder: (context, state) {
                     return CustomButton(
-                      onPressed: _codeController.text.length == 6 ? () {
-                        context.read<SignUpBloc>().add(
-                            SignUpOTPSubmitted(
-                                phoneNumber, _codeController.text));
-                      } : null,
+                      onPressed: _codeController.text.length == 6
+                          ? () {
+                              context.read<SignUpBloc>().add(
+                                SignUpOTPSubmitted(
+                                  phoneNumber,
+                                  _codeController.text,
+                                ),
+                              );
+                            }
+                          : null,
                       backgroundColor: Color(0xFF2563EB),
-                      child: state.isLoading ? CircularProgressIndicator.adaptive() : Text(
-                        context.l10n.enter,
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFFFFFFFF),
-                        ),
-                      ),
+                      child: state.isLoading
+                          ? CircularProgressIndicator.adaptive()
+                          : Text(
+                              context.l10n.enter,
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFFFFFFFF),
+                              ),
+                            ),
                     );
                   },
                 ),

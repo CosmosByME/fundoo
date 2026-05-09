@@ -20,12 +20,11 @@ class _PeriodOfGoalState extends State<PeriodOfGoal> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _deadlineController = TextEditingController();
     _deadlineController.addListener(() {
       setState(() {});
-      if(_deadlineController.text.length == 10) {
+      if (_deadlineController.text.length == 10) {
         context.goal.goalNotifier.deadlineController = DateTime(
           int.parse(_deadlineController.text.substring(6, 10)),
           int.parse(_deadlineController.text.substring(3, 5)),
@@ -108,13 +107,31 @@ class _PeriodOfGoalState extends State<PeriodOfGoal> {
                 crossAxisAlignment: WrapCrossAlignment.center,
                 runAlignment: WrapAlignment.center,
                 children: [
-                  RecommendedTimes(controller: _deadlineController, monthRange: 3),
-                  RecommendedTimes(controller: _deadlineController, monthRange: 6),
-                  RecommendedTimes(controller: _deadlineController, monthRange: 12),
-                  RecommendedTimes(controller: _deadlineController, monthRange: 18),
-                  RecommendedTimes(controller: _deadlineController, monthRange: 24),
-                  RecommendedTimes(controller: _deadlineController, monthRange: 36)
-                ]
+                  RecommendedTimes(
+                    controller: _deadlineController,
+                    monthRange: 3,
+                  ),
+                  RecommendedTimes(
+                    controller: _deadlineController,
+                    monthRange: 6,
+                  ),
+                  RecommendedTimes(
+                    controller: _deadlineController,
+                    monthRange: 12,
+                  ),
+                  RecommendedTimes(
+                    controller: _deadlineController,
+                    monthRange: 18,
+                  ),
+                  RecommendedTimes(
+                    controller: _deadlineController,
+                    monthRange: 24,
+                  ),
+                  RecommendedTimes(
+                    controller: _deadlineController,
+                    monthRange: 36,
+                  ),
+                ],
               ),
               const SizedBox(height: 20),
               DatePickingField(
