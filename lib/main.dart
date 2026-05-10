@@ -8,12 +8,11 @@ import 'package:fundoo/core/services/preferences_service.dart';
 import 'package:fundoo/core/theme/inherited_theme.dart';
 import 'package:fundoo/core/theme/themes.dart';
 import 'package:fundoo/core/widget/on_un_focus.dart';
-import 'package:fundoo/presentation/features/auth/login/bloc/log_in_bloc.dart';
-import 'package:fundoo/presentation/features/auth/signup/bloc/sign_up_bloc.dart';
-import 'package:fundoo/presentation/features/into/notifier/inherited_intro.dart';
-import 'package:fundoo/presentation/features/into/notifier/intro_notifier.dart';
-import 'package:fundoo/presentation/features/set_goals/module/goal_notifier.dart';
-import 'package:fundoo/presentation/features/set_goals/module/inherited_goal.dart';
+import 'package:fundoo/presentation/auth/login/bloc/log_in_bloc.dart';
+import 'package:fundoo/presentation/auth/signup/bloc/sign_up_bloc.dart';
+import 'package:fundoo/presentation/into/notifier/inherited_intro.dart';
+import 'package:fundoo/presentation/into/notifier/intro_notifier.dart';
+import 'package:fundoo/presentation/set_goals/bloc/set_goal_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,10 +39,10 @@ void main() async {
           create: (context) => LogInBloc(),
           child: BlocProvider(
             create: (context) => SignUpBloc(),
-            child: InheritedGoal(
-              goalNotifier: GoalNotifier(),
-              child: InheritedThemeMode(
-                themeMode: ValueNotifier(themeMode),
+            child: InheritedThemeMode(
+              themeMode: ValueNotifier(themeMode),
+              child: BlocProvider(
+                create: (context) => SetGoalBloc(),
                 child: MyApp(),
               ),
             ),
@@ -85,7 +84,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 
 class SimpleBlocObserver extends BlocObserver {
   @override

@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fundoo/presentation/set_goals/bloc/set_goal_bloc.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class DatePickingField extends StatefulWidget {
   final BuildContext context;
   final TextEditingController controller;
-  const DatePickingField({super.key, required this.context, required this.controller});
+  const DatePickingField({
+    super.key,
+    required this.context,
+    required this.controller,
+  });
 
   @override
   State<DatePickingField> createState() => _DatePickingFieldState();
 }
 
 class _DatePickingFieldState extends State<DatePickingField> {
-
   final maskFormatter = MaskTextInputFormatter(
-    mask: '##.##.####',
+    mask: '####-##-##',
     filter: {"#": RegExp(r'[0-9]')},
   );
 
@@ -39,7 +44,7 @@ class _DatePickingFieldState extends State<DatePickingField> {
                 fontWeight: FontWeight.w400,
               ),
               decoration: InputDecoration(
-                hintText: 'DD.MM.YYYY',
+                hintText: 'YYYY-MM-DD',
                 hintStyle: TextStyle(
                   fontSize: 16,
                   color: Color(0xFF6B7280),
@@ -48,11 +53,20 @@ class _DatePickingFieldState extends State<DatePickingField> {
                 border: InputBorder.none,
               ),
               inputFormatters: [maskFormatter],
+              onChanged: (value) {
+                if (maskFormatter.isFill()) {
+                  context.read<SetGoalBloc>().add(
+                    SetGoalTargetDateChanged(widget.controller.text),
+                  );
+                }
+              },
             ),
           ),
           SizedBox(height: 15),
           Expanded(
-            child: IconButton(icon: Icon(Icons.calendar_month), onPressed: () {
+            child: IconButton(
+              icon: Icon(Icons.calendar_month),
+              onPressed: () async {
                 showDatePicker(
                   context: widget.context,
                   initialDate: DateTime.now(),
@@ -60,11 +74,18 @@ class _DatePickingFieldState extends State<DatePickingField> {
                   lastDate: DateTime(2100),
                 ).then((pickedDate) {
                   if (pickedDate != null) {
-                    String formattedDate = "${pickedDate.day.toString().padLeft(2, '0')}.${pickedDate.month.toString().padLeft(2, '0')}.${pickedDate.year}";
+                    String formattedDate =
+                        "${pickedDate.year}-${pickedDate.month.toString().padLeft(2, '0')}-${pickedDate.day.toString().padLeft(2, '0')}";
                     widget.controller.text = formattedDate;
+                    if (context.mounted) {
+                      context.read<SetGoalBloc>().add(
+                        SetGoalTargetDateChanged(formattedDate),
+                      );
+                    }
                   }
                 });
-            },),
+              },
+            ),
           ),
         ],
       ),

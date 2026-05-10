@@ -17,7 +17,7 @@ Dio dio =
             if (accessToken.isNotEmpty) {
               options.headers['Authorization'] = 'Bearer $accessToken';
             }
-            options.headers['lang'] = lang ?? 'uz';
+            options.headers['Accept-Language'] = lang ?? 'uz';
             return handler.next(options);
           },
           onError: (error, handler) async {
