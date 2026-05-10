@@ -28,7 +28,8 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
       await Future.delayed(const Duration(seconds: 1));
       emit(state.copyWith(otpSent: false));
     } catch (e) {
-      emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
+      final message = e.toString().replaceFirst('Exception: ', '');
+      emit(state.copyWith(errorMessage: message, isLoading: false));
     }
   }
 
@@ -43,7 +44,8 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
       await Future.delayed(const Duration(seconds: 1));
       emit(state.copyWith(isVerified: false));
     } catch (e) {
-      emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
+      final message = e.toString().replaceFirst('Exception: ', '');
+      emit(state.copyWith(errorMessage: message, isLoading: false));
     }
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
+import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/core/widget/enter_number.dart';
 import 'package:fundoo/presentation/features/auth/login/bloc/log_in_bloc.dart';
@@ -14,7 +16,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  late FToast ftoast;
   final TextEditingController _phoneController = TextEditingController();
+
+  @override
+  initState() {
+    super.initState();
+    ftoast = FToast();
+    ftoast.init(context);
+  }
 
   @override
   void dispose() {
@@ -26,9 +36,7 @@ class _LoginPageState extends State<LoginPage> {
     return BlocListener<LogInBloc, LogInState>(
       listener: (context, state) {
         if (state.errorMessage != null) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(state.errorMessage!)));
+          showErrorToast(ftoast, state.errorMessage!);
         }
         if (state.otpSent) {
           context.push('/auth/log-in/otp');

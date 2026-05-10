@@ -37,7 +37,7 @@ class SignUpState extends Equatable {
       displayName: displayName ?? this.displayName,
       age: age ?? this.age,
       isLoading: isLoading ?? this.isLoading,
-      errorMessage: errorMessage ?? this.errorMessage,
+      errorMessage: errorMessage,
       isVerified: isVerified ?? this.isVerified,
       otpSent: otpSent ?? this.otpSent,
     );

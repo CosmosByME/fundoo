@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n_inherited.dart';
 import 'package:fundoo/core/l10n/outputs/app_localizations.dart';
 import 'package:fundoo/core/router.dart';
@@ -16,6 +17,7 @@ import 'package:fundoo/presentation/features/set_goals/module/inherited_goal.dar
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = SimpleBlocObserver();
   final isDarkMode = await PreferencesService.getDarkMode();
   final themeMode = isDarkMode == null
       ? ThemeMode.system
@@ -65,6 +67,7 @@ class MyApp extends StatelessWidget {
             valueListenable: context.locale,
             builder: (context, value, child) {
               return MaterialApp.router(
+                builder: FToastBuilder(),
                 theme: MyAppThemes().lightTheme,
                 darkTheme: MyAppThemes().darkTheme,
                 themeMode: themeMode,
@@ -80,5 +83,14 @@ class MyApp extends StatelessWidget {
         },
       ),
     );
+  }
+}
+
+
+class SimpleBlocObserver extends BlocObserver {
+  @override
+  void onChange(BlocBase bloc, Change change) {
+    super.onChange(bloc, change);
+    debugPrint('${bloc.runtimeType} $change');
   }
 }

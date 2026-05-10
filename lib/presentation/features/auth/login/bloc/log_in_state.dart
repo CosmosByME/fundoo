@@ -26,7 +26,7 @@ class LogInState extends Equatable {
       isLoading: isLoading ?? this.isLoading,
       phoneNumber: phoneNumber ?? this.phoneNumber,
       isVerified: isVerified ?? this.isVerified,
-      errorMessage: errorMessage ?? this.errorMessage,
+      errorMessage: errorMessage,
       otpSent: otpSent ?? this.otpSent,
     );
   }

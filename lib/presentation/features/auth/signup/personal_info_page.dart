@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/services/file_service.dart';
+import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/core/widget/custom_text_field.dart';
 import 'package:fundoo/core/widget/img_selecting.dart';
@@ -22,10 +24,13 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
   late final TextEditingController _nameController;
   late final TextEditingController _userNameController;
   late final TextEditingController _ageController;
+  late FToast ftoast;
 
   @override
   initState() {
     super.initState();
+    ftoast = FToast();
+    ftoast.init(context);
     _nameController = TextEditingController();
     _userNameController = TextEditingController();
     _ageController = TextEditingController();
@@ -44,9 +49,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
     return BlocListener<SignUpBloc, SignUpState>(
       listener: (context, state) {
         if (state.errorMessage != null) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(state.errorMessage!)));
+          showErrorToast(ftoast, state.errorMessage!);
         }
       },
       child: Scaffold(

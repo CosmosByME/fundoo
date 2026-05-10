@@ -4,7 +4,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 Map<String, dynamic> header = {
   'Content-Type': 'application/json',
-  'Accept': 'application/json'
+  'Accept': 'application/json',
 };
 
 Dio dio =
@@ -13,9 +13,11 @@ Dio dio =
         InterceptorsWrapper(
           onRequest: (options, handler) async {
             final accessToken = await PreferencesService.getAccessToken();
+            final lang = await PreferencesService.getLocale();
             if (accessToken.isNotEmpty) {
               options.headers['Authorization'] = 'Bearer $accessToken';
             }
+            options.headers['lang'] = lang ?? 'uz';
             return handler.next(options);
           },
           onError: (error, handler) async {
@@ -29,7 +31,8 @@ Dio dio =
                   );
                   if (response.statusCode == 200) {
                     final newAccessToken = response.data['data']['accessToken'];
-                    final newRefreshToken = response.data['data']['refreshToken'];
+                    final newRefreshToken =
+                        response.data['data']['refreshToken'];
                     await PreferencesService.setAccessToken(newAccessToken);
                     await PreferencesService.setRefreshToken(newRefreshToken);
                     error.requestOptions.headers['Authorization'] =
