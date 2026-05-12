@@ -18,6 +18,11 @@ class DefaultWaitingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Skeletonizer(
+      effect: ShimmerEffect(
+        baseColor: Colors.grey[300]!,
+        highlightColor: Colors.grey[100]!,
+        duration: const Duration(seconds: 2),
+      ),
       enabled: true,
       child: CustomScrollView(
         physics: const BouncingScrollPhysics(),

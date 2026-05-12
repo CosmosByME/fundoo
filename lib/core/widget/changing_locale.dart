@@ -4,6 +4,7 @@ import 'package:fundoo/core/l10n/l10n.dart';
 Future<Locale?> localeSelectingDialog(BuildContext context) async {
   return await showModalBottomSheet<Locale>(
     context: context,
+    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
     builder: (context) {
       return Container(
         padding: EdgeInsets.all(16),

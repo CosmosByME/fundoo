@@ -1,0 +1,121 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:fundoo/core/l10n/l10n.dart';
+import 'package:fundoo/core/toasts/error_toast.dart';
+import 'package:fundoo/core/widget/custom_button.dart';
+import 'package:fundoo/presentation/auth/widgets/otp_field.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../bloc/profile_bloc/profile_bloc.dart';
+
+class ChangeNumberOpt extends StatefulWidget {
+  const ChangeNumberOpt({super.key});
+
+  @override
+  State<ChangeNumberOpt> createState() => _ChangeNumberOptState();
+}
+
+class _ChangeNumberOptState extends State<ChangeNumberOpt> {
+  late FToast ftoast;
+  late String phoneNumber;
+  late final TextEditingController _codeController;
+
+  @override
+  void initState() {
+    super.initState();
+    ftoast = FToast();
+    ftoast.init(context);
+    _codeController = TextEditingController();
+    _codeController.addListener(() => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _codeController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    phoneNumber = context.read<ProfileBloc>().state.newPhoneNumber!;
+
+    return BlocListener<ProfileBloc, ProfileState>(
+      listener: (context, state) {
+        if (state.errorMessage != null) {
+          showErrorToast(ftoast, state.errorMessage!);
+        }
+
+        if (state.newPhoneNumber == null && context.mounted) {
+          context.go('/profile');
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsetsGeometry.all(20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  context.l10n.verification,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF0F172A),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  context.l10n.verificationBody,
+                  style: TextStyle(color: Colors.grey),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  phoneNumber,
+                  style: TextStyle(
+                    color: Color(0xFF0F172A),
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const SizedBox(height: 30),
+                OtpField(controller: _codeController),
+                const SizedBox(height: 35),
+                BlocBuilder<ProfileBloc, ProfileState>(
+                  builder: (context, state) {
+                    return CustomButton(
+                      onPressed: _codeController.text.length == 6
+                          ? () {
+                        context.read<ProfileBloc>().add(
+                          VerifyPhoneNumberChange(
+                            newPhoneNumber: state.newPhoneNumber!,
+                            verificationCode: _codeController.text,
+                          ),
+                        );
+                      }
+                          : null,
+                      backgroundColor: Color(0xFF2563EB),
+                      child: state.isLoading
+                          ? CircularProgressIndicator(color: Colors.white)
+                          : Text(
+                        context.l10n.enter,
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFFFFFFFF),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

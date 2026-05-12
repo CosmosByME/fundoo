@@ -9,6 +9,7 @@ import 'package:fundoo/presentation/auth/signup/sms_verification.dart';
 import 'package:fundoo/presentation/home/view/home.dart';
 import 'package:fundoo/presentation/home/view/other/all_activities.dart';
 import 'package:fundoo/presentation/home/view/other/bio.dart';
+import 'package:fundoo/presentation/home/view/other/change_number_otp.dart';
 import 'package:fundoo/presentation/home/view/other/notifications.dart';
 import 'package:fundoo/presentation/home/view/other/personal_info.dart';
 import 'package:fundoo/presentation/home/view/other/phone_number.dart';
@@ -31,6 +32,13 @@ final GlobalKey<NavigatorState> _shellNavigatorKey =
     GlobalKey<NavigatorState>();
 
 final router = GoRouter(
+  // refreshListenable: authNotifier,
+  // redirect: (context, state) {
+  //   if (!authNotifier.isAuthenticated) {
+  //     return '/auth';
+  //   }
+  //   return null;
+  // },
   navigatorKey: rootNavigatorKey,
   initialLocation: "/",
   routes: [
@@ -138,8 +146,27 @@ final router = GoRouter(
 
     GoRoute(path: '/notifications', builder: (context, state) => NotificationsPage()),
     GoRoute(path: '/phone-changing', builder: (context, state) => PhoneChangingPage()),
+    GoRoute(path: '/change-number-otp', builder: (context, state) => ChangeNumberOpt()),
     GoRoute(path: '/personal-info-changing', builder: (context, state) => PersonalInfo()),
     GoRoute(path: '/bio', builder: (context, state) => BioChangingPage()),
     GoRoute(path: '/recent-activity', builder: (context, state) => AllActivities()),
   ],
 );
+
+
+
+
+//This notifier is just for redirecting. Not for external use.
+
+class AuthNotifier extends ChangeNotifier {
+  bool _isAuthenticated = false;
+
+  bool get isAuthenticated => _isAuthenticated;
+
+  void logOut() {
+    _isAuthenticated = false;
+    notifyListeners();
+  }
+}
+
+final authNotifier = AuthNotifier();

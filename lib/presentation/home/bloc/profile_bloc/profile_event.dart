@@ -20,5 +20,25 @@ final class UpdateUserProfile extends ProfileEvent {
   });
 }
 
+final class ChangePhoneNumber extends ProfileEvent {
+  final String currentPhoneNumber;
+  final String newPhoneNumber;
+
+  ChangePhoneNumber({required this.newPhoneNumber, required this.currentPhoneNumber});
+}
+
+final class VerifyPhoneNumberChange extends ProfileEvent {
+  final String newPhoneNumber;
+  final String verificationCode;
+
+  VerifyPhoneNumberChange({
+    required this.newPhoneNumber,
+    required this.verificationCode,
+  });
+}
+
+
+final class DeleteUserAccount extends ProfileEvent {}
+
 
 //Here will be events for working with user profile_picture.

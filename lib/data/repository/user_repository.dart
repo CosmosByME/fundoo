@@ -9,4 +9,13 @@ abstract class UserRepository {
     int? age,
     String? bio,
   });
+
+  Future<void> changePhoneStep1({String newPhoneNumber});
+
+  Future<Map<String, dynamic>> changePhoneStep2({
+    String newPhoneNumber,
+    String verificationCode,
+  });
+
+  Future<void> deleteUserAccount();
 }

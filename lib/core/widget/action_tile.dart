@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
 class ActionTile extends StatelessWidget {
+  final Color? mainColor;
   final IconData icon;
   final String title;
   final String subtitle;
   final Widget? trailing;
   final VoidCallback onTap;
 
-  const ActionTile({super.key, 
+  const ActionTile({
+    super.key,
     required this.icon,
     required this.title,
     required this.subtitle,
     required this.onTap,
     this.trailing,
+    this.mainColor,
   });
 
   @override
@@ -34,7 +37,7 @@ class ActionTile extends StatelessWidget {
                 height: 36,
                 width: 36,
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF7F8FC),
+                  color: mainColor?.withValues(alpha: 0.1) ?? const Color(0xFFF7F8FC),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Icon(icon, color: const Color(0xFF3D4D66), size: 18),
@@ -46,19 +49,19 @@ class ActionTile extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
-                        color: Color(0xFF1E2A3C),
+                        color: mainColor ?? Color(0xFF1E2A3C),
                       ),
                     ),
                     const SizedBox(height: 2),
                     Text(
                       subtitle,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.w500,
-                        color: Color(0xFF8A94A6),
+                        color:mainColor ?? Color(0xFF8A94A6),
                       ),
                     ),
                   ],
@@ -68,9 +71,9 @@ class ActionTile extends StatelessWidget {
                 const SizedBox(width: 10),
                 trailing!,
               ] else ...[
-                const Icon(
+                 Icon(
                   Icons.chevron_right_rounded,
-                  color: Color(0xFFC2C8D3),
+                  color: mainColor ?? Color(0xFFC2C8D3),
                   size: 22,
                 ),
               ],

@@ -11,8 +11,8 @@ import 'package:fundoo/core/widget/log_out_button.dart';
 import 'package:fundoo/core/widget/profile_header.dart';
 import 'package:fundoo/core/widget/selection_card.dart';
 import 'package:fundoo/core/widget/toggle_tile.dart';
-import 'package:fundoo/data/models/user.dart';
 import 'package:fundoo/presentation/home/view/other/default_waiting_page.dart';
+import 'package:fundoo/presentation/home/view/other/delete_account_dialog.dart';
 import 'package:fundoo/presentation/into/notifier/inherited_intro.dart';
 import 'package:go_router/go_router.dart';
 
@@ -126,7 +126,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ActionTile(
                               icon: Icons.phone_iphone_outlined,
                               title: 'Telefon raqami',
-                              subtitle: '+998 90 123 45 67',
+                              subtitle: state.user!.phoneNumber ?? "-",
                               onTap: () {
                                 context.push('/phone-changing');
                               },
@@ -222,10 +222,17 @@ class _ProfilePageState extends State<ProfilePage> {
                         SectionCard(
                           children: [
                             ActionTile(
+                              mainColor: Color(0xFFDC2626),
                               icon: Icons.delete,
                               title: context.l10n.deleteAccount,
                               subtitle: context.l10n.deleteAccountBody,
-                              onTap: () {},
+                              onTap: () async {
+                                final result = await showDeleteAccountDialog(context);
+                                if (result == true && context.mounted) {
+                                  context.read<ProfileBloc>().add(DeleteUserAccount());
+                                  context.go('/auth');
+                                }
+                              },
                             ),
                           ],
                         ),

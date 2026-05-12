@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:fundoo/core/router.dart';
 import 'package:fundoo/core/services/preferences_service.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -16,7 +15,7 @@ Dio dio =
             final accessToken = await PreferencesService.getAccessToken();
             final lang = await PreferencesService.getLocale();
             if (accessToken.isNotEmpty) {
-              options.headers['Authorization'] = 'Bearer "accessToken"';
+              options.headers['Authorization'] = 'Bearer $accessToken';
             }
             options.headers['Accept-Language'] = lang ?? 'uz';
             return handler.next(options);
@@ -28,7 +27,7 @@ Dio dio =
                 try {
                   final response = await dio.post(
                     '/api/v1/Auth/token/refresh',
-                    data: {'refreshToken': "refreshToken"},
+                    data: {'refreshToken': refreshToken},
                   );
                   if (response.statusCode == 200) {
                     final newAccessToken = response.data['data']['accessToken'];
@@ -51,10 +50,7 @@ Dio dio =
                     return handler.resolve(cloneReq);
                   } else if (response.statusCode == 401) {
                     await PreferencesService.clearTokens();
-                    rootNavigatorKey.currentState?.pushNamedAndRemoveUntil(
-                      "/auth",
-                      (route) => false,
-                    );
+                    // authNotifier.logOut();
                   }
                 } catch (e) {
                   return handler.next(error);

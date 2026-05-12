@@ -125,13 +125,17 @@ class _ProfileHeaderState extends State<ProfileHeader> {
             ],
           ),
           const SizedBox(height: 14),
-          Text(
-            '"${widget.user.bio ?? "-"}"',
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: Colors.white.withValues(alpha: 0.72),
-              height: 1.35,
+          Expanded(
+            child: Text(
+              '"${widget.user.bio ?? "-"}"',
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: Colors.white.withValues(alpha: 0.72),
+                height: 1.35,
+              ),
+              // softWrap: true,
             ),
           ),
+
         ],
       ),
     );
