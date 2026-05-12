@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fundoo/core/services/preferences_service.dart';
 import 'package:fundoo/core/services/svg_service.dart';
 import 'package:go_router/go_router.dart';
+
+import '../home/bloc/profile_bloc/profile_bloc.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -30,6 +33,7 @@ class _SplashPageState extends State<SplashPage> {
             if (isSeen) {
               if (isRegistered.isNotEmpty) {
                 if (context.mounted) {
+                  context.read<ProfileBloc>().add(LoadUserProfile());
                   context.go("/main-page");
                 }
               } else {

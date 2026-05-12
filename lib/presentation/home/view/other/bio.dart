@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/core/widget/custom_text_field.dart';
+
+import '../../bloc/profile_bloc/profile_bloc.dart';
 
 class BioChangingPage extends StatefulWidget {
   const BioChangingPage({super.key});
@@ -21,12 +24,13 @@ class _BioChangingPageState extends State<BioChangingPage> {
 
   @override
   void dispose() {
-    _bioController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final state = context.read<ProfileBloc>().state;
+    // _bioController.setText(state.user?.fullname ?? "");
     return Scaffold(
       appBar: AppBar(
         title: Text(

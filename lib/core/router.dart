@@ -26,12 +26,12 @@ import '../presentation/home/view/profile_page.dart';
 import '../presentation/home/view/statistics.dart';
 import '../presentation/set_goals/view/name_of_goal.dart';
 
-final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
+final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
 final GlobalKey<NavigatorState> _shellNavigatorKey =
     GlobalKey<NavigatorState>();
 
 final router = GoRouter(
-  navigatorKey: _rootNavigatorKey,
+  navigatorKey: rootNavigatorKey,
   initialLocation: "/",
   routes: [
     GoRoute(path: '/', builder: (context, state) => SplashPage()),
@@ -39,7 +39,7 @@ final router = GoRouter(
 
     ShellRoute(
       navigatorKey: _shellNavigatorKey,
-      parentNavigatorKey: _rootNavigatorKey,
+      parentNavigatorKey: rootNavigatorKey,
       builder: (context, state, child) {
         return HomePage(
           key: state.pageKey,

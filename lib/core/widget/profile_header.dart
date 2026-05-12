@@ -2,10 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:fundoo/core/services/file_service.dart';
+import 'package:fundoo/data/models/user.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ProfileHeader extends StatefulWidget {
-  const ProfileHeader({super.key});
+  final User user;
+  const ProfileHeader({super.key, required this.user});
 
   @override
   State<ProfileHeader> createState() => _ProfileHeaderState();
@@ -94,7 +96,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Alisher Abdullayev',
+                        widget.user.fullname ?? "-",
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           color: Colors.white,
                           fontWeight: FontWeight.w800,
@@ -103,7 +105,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        '@alisher_99',
+                        widget.user.displayName ?? "-",
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           color: Colors.white.withValues(alpha: 0.8),
                           fontWeight: FontWeight.w600,
@@ -111,7 +113,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        '22 yosh',
+                        widget.user.age != null ? "${widget.user.age} yosh": "-",
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: Colors.white.withValues(alpha: 0.75),
                         ),
@@ -124,7 +126,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
           ),
           const SizedBox(height: 14),
           Text(
-            '"Har kuni ozgina tejash - katta orzularga yetkazadi"',
+            '"${widget.user.bio ?? "-"}"',
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: Colors.white.withValues(alpha: 0.72),
               height: 1.35,

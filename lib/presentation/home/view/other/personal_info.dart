@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/core/widget/custom_text_field.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pinput/pinput.dart';
+
+import '../../bloc/profile_bloc/profile_bloc.dart';
 
 class PersonalInfo extends StatefulWidget {
   const PersonalInfo({super.key});
@@ -18,21 +23,25 @@ class _PersonalInfoState extends State<PersonalInfo> {
   @override
   void initState() {
     super.initState();
-    _nameController = TextEditingController(text: "Alisher Abdullayev");
-    _userNameController = TextEditingController(text: "@alisher_99");
-    _ageController = TextEditingController(text: "25");
+    _nameController = TextEditingController();
+    _userNameController = TextEditingController();
+    _ageController = TextEditingController();
   }
 
   @override
   void dispose() {
-    _nameController.dispose();
-    _userNameController.dispose();
-    _ageController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final state = context.read<ProfileBloc>().state;
+    _nameController.setText(state.user?.fullname ?? "");
+    _userNameController.setText(state.user?.displayName ?? "");
+    _ageController.setText(
+      state.user?.age != null ? state.user!.age.toString() : "",
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -60,14 +69,32 @@ class _PersonalInfoState extends State<PersonalInfo> {
               keyboardType: TextInputType.number,
             ),
             SizedBox(height: 32),
-            CustomButton(
-              backgroundColor: const Color(0xFF2563EB),
-              child: Text(
-                context.l10n.save,
-                style: TextStyle(color: Colors.white),
-              ),
-              onPressed: () {
-                // Save logic here
+            BlocBuilder<ProfileBloc, ProfileState>(
+              builder: (context, state) {
+                return CustomButton(
+                  backgroundColor: const Color(0xFF2563EB),
+                  child: state.isLoading
+                      ? CircularProgressIndicator.adaptive(
+                          backgroundColor: Colors.white,
+                        )
+                      : Text(
+                          context.l10n.save,
+                          style: TextStyle(color: Colors.white),
+                        ),
+                  onPressed: () {
+                    context.read<ProfileBloc>().add(
+                      UpdateUserProfile(
+                        displayName: _userNameController.text,
+                        fullName: _nameController.text,
+                        age: int.tryParse(_ageController.text),
+                        bio: state.user?.bio,
+                      ),
+                    );
+                    context.pop();
+                    context.read<ProfileBloc>().add(
+                      LoadUserProfile());
+                  },
+                );
               },
             ),
           ],
