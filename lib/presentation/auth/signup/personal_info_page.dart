@@ -38,9 +38,6 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
 
   @override
   void dispose() {
-    _nameController.dispose();
-    _userNameController.dispose();
-    _ageController.dispose();
     super.dispose();
   }
 
@@ -181,7 +178,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                               ),
                             ),
                           );
-                          context.push('done-page');
+                          context.push('/auth/sign-up/otp/personal-info/done-page');
                         }
                       },
                       backgroundColor: Color(0xFF2563EB),

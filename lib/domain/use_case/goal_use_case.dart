@@ -23,4 +23,10 @@ class GoalUseCase {
     final repository = GoalRepositoryImpl();
     return await repository.activate(id: id);
   }
+
+
+  Future<List<Goal>> getActivatedGoals() async {
+    final repository = GoalRepositoryImpl();
+    return await repository.getActivatedGoals();
+  }
 }

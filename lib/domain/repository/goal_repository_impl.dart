@@ -27,13 +27,13 @@ class GoalRepositoryImpl implements GoalRepository {
       }
 
 
-      final responce = await dio.post('/api/v1/Goals', data: data);
+      final response = await dio.post('/api/v1/Goals', data: data);
 
-      if (responce.statusCode == 201) {
-        return Goal.fromJson(responce.data['data']);
+      if (response.statusCode == 201) {
+        return Goal.fromJson(response.data['data']);
       } else {
         throw Exception(
-          'Failed to create draft goal: ${responce.statusCode} - ${responce.data}',
+          'Failed to create draft goal: ${response.statusCode} - ${response.data}',
         );
       }
     } on DioException catch (e) {
@@ -52,13 +52,13 @@ class GoalRepositoryImpl implements GoalRepository {
   @override
   Future<Goal> activate({required String id}) async {
     try {
-      final responce = await dio.post('/api/v1/Goals/$id/activate');
+      final response = await dio.post('/api/v1/Goals/$id/activate');
 
-      if (responce.statusCode == 200) {
-        return Goal.fromJson(responce.data['data']);
+      if (response.statusCode == 200) {
+        return Goal.fromJson(response.data['data']);
       } else {
         throw Exception(
-          'Failed to activate goal: ${responce.statusCode} - ${responce.data}',
+          'Failed to activate goal: ${response.statusCode} - ${response.data}',
         );
       }
     } on DioException catch (e) {
@@ -68,6 +68,33 @@ class GoalRepositoryImpl implements GoalRepository {
           data?['detail'] ??
           e.message ??
           'Unknown error';
+      throw Exception(message);
+    } catch (e) {
+      throw Exception('Error occurred while activating goal: $e');
+    }
+  }
+
+
+  @override
+  Future<List<Goal>> getActivatedGoals() async {
+    try {
+      final response = await dio.get('/api/v1/Goals/active');
+
+      if (response.statusCode == 200) {
+        final List list = response.data['data'];
+        return list.map<Goal>((json) => Goal.fromJson(json)).toList();
+      } else {
+        throw Exception(
+          'Failed to fetch goals: ${response.statusCode} - ${response.data}',
+        );
+      }
+    } on DioException catch (e) {
+      final data = e.response?.data;
+      final message =
+          data?['error']?['message'] ??
+              data?['detail'] ??
+              e.message ??
+              'Unknown error';
       throw Exception(message);
     } catch (e) {
       throw Exception('Error occurred while activating goal: $e');

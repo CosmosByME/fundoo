@@ -100,6 +100,9 @@ final router = GoRouter(
                   path: 'personal-info',
                   name: 'personal-info',
                   builder: (context, state) => PersonalInfoPage(),
+                  routes: [
+                    GoRoute(path: '/done-page', builder: (context, state) => DonePage()),
+                  ]
                 ),
               ],
             ),
@@ -108,7 +111,6 @@ final router = GoRouter(
       ],
     ),
 
-    GoRoute(path: '/done-page', builder: (context, state) => DonePage()),
 
     GoRoute(
       path: '/name-of-goal',

@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
-import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/core/widget/save_purpose_card.dart';
 
+import '../../data/models/goal.dart';
+
 class GoalCard extends StatelessWidget {
+  final List<Goal?> goals;
   final VoidCallback onAddMoney;
   final VoidCallback onEditPurpose;
-  const GoalCard({super.key, required this.onAddMoney, required this.onEditPurpose});
+
+  const GoalCard({
+    super.key,
+    required this.onAddMoney,
+    required this.onEditPurpose,
+    required this.goals,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final double totalBalance = goals.fold(
+      0,
+      (sum, goal) => sum + (goal?.currentSavedAmount ?? 0),
+    );
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       padding: const EdgeInsets.all(16),
@@ -44,8 +56,8 @@ class GoalCard extends StatelessWidget {
 
           const SizedBox(height: 5),
 
-          const Text(
-            "390,500 so'm",
+          Text(
+            "$totalBalance so'm",
             style: TextStyle(
               color: Colors.white,
               fontSize: 30,
@@ -54,35 +66,12 @@ class GoalCard extends StatelessWidget {
           ),
           const SizedBox(height: 5),
 
-          SavePurposeCard(onEditPurpose: onEditPurpose),
-
-          const SizedBox(height: 10),
-
-          Row(
-            children: [
-              Expanded(
-                child: CustomButton(
-                  onPressed: onAddMoney,
-                  backgroundColor: Color(0xFF22C55E),
-                  child: Text(
-                    "+ ${context.l10n.addMoney}",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: CustomButton(
-                  onPressed: () {},
-                  backgroundColor: Color(0xFFF97316),
-                  child: Text(
-                    "- ${context.l10n.removeMoney}",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
-            ],
-          ),
+          for (int i = 0; i < goals.length; i++)
+            SavePurposeCard(
+              goal: goals[i]!,
+              onEditPurpose: onEditPurpose,
+              onAddMoney: onAddMoney,
+            ),
         ],
       ),
     );

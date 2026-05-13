@@ -10,6 +10,7 @@ import 'package:fundoo/core/theme/themes.dart';
 import 'package:fundoo/core/widget/on_un_focus.dart';
 import 'package:fundoo/presentation/auth/login/bloc/log_in_bloc.dart';
 import 'package:fundoo/presentation/auth/signup/bloc/sign_up_bloc.dart';
+import 'package:fundoo/presentation/home/bloc/home_bloc/home_bloc.dart';
 import 'package:fundoo/presentation/home/bloc/profile_bloc/profile_bloc.dart';
 import 'package:fundoo/presentation/into/notifier/inherited_intro.dart';
 import 'package:fundoo/presentation/into/notifier/intro_notifier.dart';
@@ -46,7 +47,10 @@ void main() async {
                 create: (context) => SetGoalBloc(),
                 child: BlocProvider(
                   create: (context) => ProfileBloc(),
-                  child: MyApp(),
+                  child: BlocProvider(
+                    create: (context) => HomeBloc(),
+                    child: MyApp(),
+                  ),
                 ),
               ),
             ),

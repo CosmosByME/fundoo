@@ -10,4 +10,7 @@ abstract class GoalRepository {
   });
 
   Future<Goal> activate({required String id});
+
+
+  Future<List<Goal>> getActivatedGoals();
 }

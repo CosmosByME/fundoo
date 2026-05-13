@@ -8,9 +8,9 @@ class User {
   int? status;
   bool? hasPassword;
   String? profilePictureId;
-  DateTime lastLoginAt;
+  DateTime? lastLoginAt;
   DateTime createdAt;
-  DateTime updatedAt;
+  DateTime? updatedAt;
 
   User({
     this.id,
@@ -22,9 +22,9 @@ class User {
     this.status,
     this.hasPassword,
     this.profilePictureId,
-    required this.lastLoginAt,
+    this.lastLoginAt,
     required this.createdAt,
-    required this.updatedAt,
+    this.updatedAt,
   });
 
   User copyWith({
@@ -51,9 +51,9 @@ class User {
         status: status ,
         hasPassword: hasPassword ,
         profilePictureId: profilePictureId ,
-        lastLoginAt: lastLoginAt ?? this.lastLoginAt,
+        lastLoginAt: lastLoginAt,
         createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
+        updatedAt: updatedAt,
       );
 
   factory User.fromJson(Map<String, dynamic> json) => User(
@@ -66,9 +66,9 @@ class User {
     status: json["status"],
     hasPassword: json["hasPassword"],
     profilePictureId: json["profilePictureId"],
-    lastLoginAt: DateTime.parse(json["lastLoginAt"]),
+    lastLoginAt: json["lastLoginAt"] != null ? DateTime.parse(json["lastLoginAt"]) : null,
     createdAt: DateTime.parse(json["createdAt"]),
-    updatedAt: DateTime.parse(json["updatedAt"]),
+    updatedAt: json["updatedAt"] != null ? DateTime.parse(json["updatedAt"]) : null,
   );
 
   Map<String, dynamic> toJson() => {
@@ -81,8 +81,8 @@ class User {
     "status": status,
     "hasPassword": hasPassword,
     "profilePictureId": profilePictureId,
-    "lastLoginAt": lastLoginAt.toIso8601String(),
+    "lastLoginAt":  lastLoginAt?.toIso8601String(),
     "createdAt": createdAt.toIso8601String(),
-    "updatedAt": updatedAt.toIso8601String(),
+    "updatedAt": updatedAt?.toIso8601String(),
   };
 }
