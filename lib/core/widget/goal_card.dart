@@ -6,13 +6,9 @@ import '../../data/models/goal.dart';
 
 class GoalCard extends StatelessWidget {
   final List<Goal?> goals;
-  final VoidCallback onAddMoney;
-  final VoidCallback onEditPurpose;
 
   const GoalCard({
     super.key,
-    required this.onAddMoney,
-    required this.onEditPurpose,
     required this.goals,
   });
 
@@ -68,9 +64,7 @@ class GoalCard extends StatelessWidget {
 
           for (int i = 0; i < goals.length; i++)
             SavePurposeCard(
-              goal: goals[i]!,
-              onEditPurpose: onEditPurpose,
-              onAddMoney: onAddMoney,
+              goal: goals[i]!
             ),
         ],
       ),

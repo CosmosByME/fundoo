@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/core/widget/custom_text_field.dart';
+import 'package:fundoo/data/models/goal.dart';
 
-void openGoalEditDialog(BuildContext context) {
-  TextEditingController sum = TextEditingController();
-  TextEditingController name = TextEditingController();
-  TextEditingController date = TextEditingController();
+import '../../bloc/home_bloc/home_bloc.dart';
+
+void openGoalEditDialog(BuildContext context, Goal goal) {
+  TextEditingController sum = TextEditingController(
+    text: goal.targetAmount.toString(),
+  );
+  TextEditingController name = TextEditingController(text: goal.name);
+  TextEditingController date = TextEditingController(
+    text: (goal.plannedMonths ?? goal.targetDate!).toString(),
+  );
   showModalBottomSheet(
     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
     context: context,
+    useRootNavigator: true,
     builder: (context) {
       return Container(
         padding: const EdgeInsets.all(16),
@@ -46,7 +55,6 @@ void openGoalEditDialog(BuildContext context) {
                 Expanded(
                   child: CustomButton(
                     onPressed: () {
-                      // Maqsadni saqlash logikasi
                       Navigator.pop(context);
                     },
                     backgroundColor: Color(0xFFF1F5F9),
@@ -60,6 +68,17 @@ void openGoalEditDialog(BuildContext context) {
                 Expanded(
                   child: CustomButton(
                     onPressed: () {
+                      context.read<HomeBloc>().add(
+                        EditActivatedGoal(
+                          goalId: goal.id!,
+                          name: name.text,
+                          targetAmount: double.tryParse(sum.text) ?? 0,
+                          plannedMonths: goal.plannedMonths != null
+                              ? int.tryParse(date.text)
+                              : null,
+                          targetDate: goal.targetDate != null ? date.text: null,
+                        ),
+                      );
                       Navigator.pop(context);
                     },
                     backgroundColor: Color(0xFF2563EB),

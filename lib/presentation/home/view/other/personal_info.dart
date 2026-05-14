@@ -30,6 +30,9 @@ class _PersonalInfoState extends State<PersonalInfo> {
 
   @override
   void dispose() {
+    _nameController.dispose();
+    _userNameController.dispose();
+    _ageController.dispose();
     super.dispose();
   }
 

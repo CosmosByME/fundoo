@@ -394,6 +394,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get incomeNotes => 'Notes (optional)';
 
   @override
+  String get addExpanse => '💰 Add Expanse';
+
+  @override
+  String get addExpanseBody => 'Enter expanse information';
+
+  @override
   String get editGoal => '✏️ Edit Goal';
 
   @override

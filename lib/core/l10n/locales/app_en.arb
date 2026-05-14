@@ -160,6 +160,9 @@
     "incomeDate": "Date",
     "incomeNotes": "Notes (optional)",
 
+    "addExpanse": "💰 Add Expanse",
+    "addExpanseBody": "Enter expanse information",
+
 
     "editGoal": "✏️ Edit Goal",
     "editGoalBody": "Update your goal information",

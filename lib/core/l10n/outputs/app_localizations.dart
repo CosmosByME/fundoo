@@ -838,6 +838,18 @@ abstract class AppLocalizations {
   /// **'Notes (optional)'**
   String get incomeNotes;
 
+  /// No description provided for @addExpanse.
+  ///
+  /// In en, this message translates to:
+  /// **'💰 Add Expanse'**
+  String get addExpanse;
+
+  /// No description provided for @addExpanseBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter expanse information'**
+  String get addExpanseBody;
+
   /// No description provided for @editGoal.
   ///
   /// In en, this message translates to:

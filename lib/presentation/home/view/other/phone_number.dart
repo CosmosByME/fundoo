@@ -32,6 +32,8 @@ class _PhoneChangingPageState extends State<PhoneChangingPage> {
 
   @override
   void dispose() {
+    _oldPhoneController.dispose();
+    _newPhoneController.dispose();
     super.dispose();
   }
 

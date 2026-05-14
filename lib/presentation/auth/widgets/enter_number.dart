@@ -27,7 +27,6 @@ class _EnterNumberFieldState extends State<EnterNumberField> {
 
   @override
   void dispose() {
-    controller.dispose();
     super.dispose();
   }
 

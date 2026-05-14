@@ -7,13 +7,13 @@ import 'package:fundoo/data/models/category.dart';
 import 'package:fundoo/domain/use_case/category_use_case.dart';
 import 'package:fundoo/presentation/home/bloc/home_bloc/home_bloc.dart';
 
-void openIncomeEditDialog(BuildContext context, String goalId) async {
+void openChargeEditDialog(BuildContext context, String goalId) async {
   TextEditingController sum = TextEditingController();
   TextEditingController purpose = TextEditingController();
   int? categoryId;
   TextEditingController category = TextEditingController();
   bool isOther = false;
-  List<Category> categories = await CategoryUseCase().getIncomeCategories();
+  List<Category> categories = await CategoryUseCase().getExpanseCategories();
   if (context.mounted) {
     showModalBottomSheet(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -36,12 +36,12 @@ void openIncomeEditDialog(BuildContext context, String goalId) async {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  context.l10n.addIncome,
+                  context.l10n.addExpanse,
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
                 ),
                 SizedBox(height: 10),
                 Text(
-                  context.l10n.addIncomeBody,
+                  context.l10n.addExpanseBody,
                   style: TextStyle(fontSize: 14, color: Colors.grey[600]),
                 ),
                 SizedBox(height: 16),
@@ -112,18 +112,18 @@ void openIncomeEditDialog(BuildContext context, String goalId) async {
                       child: CustomButton(
                         onPressed: (sum.text.isNotEmpty && (categoryId != null || category.text.isNotEmpty))? () {
                           context.read<HomeBloc>().add(
-                            AddIncomeToGoal(
+                            AddChargeToGoal(
                               goalId: goalId,
                               amount: double.tryParse(sum.text) ?? 0,
                               categoryId: categoryId,
                               customCategoryName:
-                                  isOther ? category.text : null,
+                              isOther ? category.text : null,
                               description: purpose.text.isEmpty ? null : purpose.text,
                             ),
                           );
                           Navigator.pop(context);
                         } : null,
-                        backgroundColor: Color(0xFF22C55E),
+                        backgroundColor: Color(0xFFF97316),
                         child: Text(
                           context.l10n.save,
                           style: TextStyle(color: Colors.white),

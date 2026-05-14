@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/data/models/goal.dart';
+import 'package:fundoo/presentation/home/view/other/delete_confirmation.dart';
+import 'package:fundoo/presentation/home/view/other/show_charge_adding.dart';
+import 'package:fundoo/presentation/home/view/other/show_goal_edit.dart';
 
+import '../../presentation/home/bloc/home_bloc/home_bloc.dart';
+import '../../presentation/home/view/other/show_income_adding.dart';
 import 'custom_button.dart';
 
 class SavePurposeCard extends StatelessWidget {
   final Goal goal;
-  final VoidCallback onAddMoney;
-  final VoidCallback onEditPurpose;
 
   const SavePurposeCard({
     super.key,
-    required this.onEditPurpose,
-    required this.goal, required this.onAddMoney,
+    required this.goal,
   });
 
   @override
@@ -63,7 +66,9 @@ class SavePurposeCard extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         GestureDetector(
-                          onTap: onEditPurpose,
+                          onTap: () {
+                            openGoalEditDialog(context, goal);
+                          },
                           child: Container(
                             width: 26,
                             height: 26,
@@ -79,17 +84,25 @@ class SavePurposeCard extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 4),
-                        Container(
-                          width: 26,
-                          height: 26,
-                          decoration: BoxDecoration(
-                            color: Colors.white.withValues(alpha: 0.18),
-                            borderRadius: BorderRadius.circular(7),
-                          ),
-                          child: const Icon(
-                            Icons.delete,
-                            size: 16,
-                            color: Colors.white,
+                        GestureDetector(
+                          onTap: () async {
+                            final response = await showDeleteConfirmationDialog(context);
+                            if (response && context.mounted) {
+                              context.read<HomeBloc>().add(DeleteActivatedGoal(goalId: goal.id!));
+                            }
+                          },
+                          child: Container(
+                            width: 26,
+                            height: 26,
+                            decoration: BoxDecoration(
+                              color: Colors.white.withValues(alpha: 0.18),
+                              borderRadius: BorderRadius.circular(7),
+                            ),
+                            child: const Icon(
+                              Icons.delete,
+                              size: 16,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ],
@@ -145,7 +158,9 @@ class SavePurposeCard extends StatelessWidget {
           children: [
             Expanded(
               child: CustomButton(
-                onPressed: onAddMoney,
+                onPressed: () async {
+                  openIncomeEditDialog(context, goal.id!);
+                },
                 backgroundColor: Color(0xFF22C55E),
                 child: Text(
                   "+ ${context.l10n.addMoney}",
@@ -156,7 +171,9 @@ class SavePurposeCard extends StatelessWidget {
             const SizedBox(width: 10),
             Expanded(
               child: CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  openChargeEditDialog(context, goal.id!);
+                },
                 backgroundColor: Color(0xFFF97316),
                 child: Text(
                   "- ${context.l10n.removeMoney}",

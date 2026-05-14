@@ -8,8 +8,6 @@ import 'package:fundoo/core/widget/notification_icon.dart';
 import 'package:fundoo/core/widget/spending_section.dart';
 import 'package:fundoo/core/widget/spending_tile.dart';
 import 'package:fundoo/presentation/home/bloc/home_bloc/home_bloc.dart';
-import 'package:fundoo/presentation/home/view/other/show_goal_edit.dart';
-import 'package:fundoo/presentation/home/view/other/show_income_adding.dart';
 import 'package:go_router/go_router.dart';
 
 import '../bloc/profile_bloc/profile_bloc.dart';
@@ -83,12 +81,6 @@ class _MainPageState extends State<MainPage> {
                 builder: (context, state) {
                   return GoalCard(
                     goals: state.activatedGoals ?? [],
-                    onAddMoney: () {
-                      openIncomeEditDialog(context);
-                    },
-                    onEditPurpose: () {
-                      openGoalEditDialog(context);
-                    },
                   );
                 },
               ),

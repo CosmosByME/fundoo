@@ -399,6 +399,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get incomeNotes => 'Примечание (необязательно)';
 
   @override
+  String get addExpanse => '💰 Добавить расход';
+
+  @override
+  String get addExpanseBody => 'Введите данные о расходе';
+
+  @override
   String get editGoal => '✏️ Редактировать цель';
 
   @override

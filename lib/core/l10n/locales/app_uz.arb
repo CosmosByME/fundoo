@@ -161,6 +161,9 @@
     "incomeDate": "Sana",
     "incomeNotes": "Izoh (ixtiyoriy)",
 
+    "addExpanse": "💰 Chiqim qo'shish",
+    "addExpanseBody": "Chiqim ma'lumotlarini kiriting",
+
 
     "editGoal": "✏️ Maqsadni tahrirlash",
     "editGoalBody": "Maqsad ma'lumotlarini yangilang",

@@ -38,7 +38,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   @override
   void dispose() {
-    controller.dispose();
     super.dispose();
   }
 

@@ -13,4 +13,33 @@ abstract class GoalRepository {
 
 
   Future<List<Goal>> getActivatedGoals();
+
+  Future<Goal> editGoal({
+    required String id,
+    String? name,
+    String? description,
+    double? targetAmount,
+    String? targetDate,
+    int? plannedMonths,
+  });
+
+  Future<void> deleteGoal({required String id});
+
+  Future<void> addIncomeToGoal({
+    required String goalId,
+    required double amount,
+    String? description,
+    int? categoryId,
+    int? manualCategoryId,
+    String? customCategoryName,
+  });
+
+  Future<void> addChargeToGoal({
+    required String goalId,
+    required double amount,
+    String? description,
+    int? categoryId,
+    int? manualCategoryId,
+    String? customCategoryName,
+  });
 }

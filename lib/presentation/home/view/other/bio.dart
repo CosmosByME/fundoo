@@ -26,6 +26,7 @@ class _BioChangingPageState extends State<BioChangingPage> {
 
   @override
   void dispose() {
+    _bioController.dispose();
     super.dispose();
   }
 

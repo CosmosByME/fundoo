@@ -28,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void dispose() {
+    _phoneController.dispose();
     super.dispose();
   }
 

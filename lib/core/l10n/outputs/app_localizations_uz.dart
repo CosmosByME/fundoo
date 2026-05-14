@@ -399,6 +399,12 @@ class AppLocalizationsUz extends AppLocalizations {
   String get incomeNotes => 'Izoh (ixtiyoriy)';
 
   @override
+  String get addExpanse => '💰 Chiqim qo\'shish';
+
+  @override
+  String get addExpanseBody => 'Chiqim ma\'lumotlarini kiriting';
+
+  @override
   String get editGoal => '✏️ Maqsadni tahrirlash';
 
   @override

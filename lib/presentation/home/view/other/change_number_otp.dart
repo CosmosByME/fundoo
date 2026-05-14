@@ -46,7 +46,7 @@ class _ChangeNumberOptState extends State<ChangeNumberOpt> {
           showErrorToast(ftoast, state.errorMessage!);
         }
 
-        if (state.newPhoneNumber == null && context.mounted) {
+        if (state.isPhoneNumberChangeIsDone && context.mounted) {
           context.go('/profile');
         }
       },

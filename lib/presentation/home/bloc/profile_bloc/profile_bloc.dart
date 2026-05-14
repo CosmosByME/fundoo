@@ -72,7 +72,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       );
       await Future.delayed(const Duration(seconds: 1));
       emit(state.copyWith(errorMessage: null));
-      add(LoadUserProfile());
       return;
     } else if (state.user!.phoneNumber != "+${event.currentPhoneNumber}") {
       emit(
@@ -95,8 +94,12 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           state.copyWith(
             isLoading: false,
             newPhoneNumber: event.newPhoneNumber,
+            isOtpSent: true,
           ),
+
         );
+        await Future.delayed(const Duration(seconds: 1));
+        emit(state.copyWith(isOtpSent: false));
       } catch (e) {
         emit(
           state.copyWith(
@@ -118,9 +121,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         newPhoneNumber: event.newPhoneNumber,
         verificationCode: event.verificationCode,
       );
-      emit(state.copyWith(isLoading: false, newPhoneNumber: null));
+      emit(state.copyWith(isLoading: false, newPhoneNumber: null, isPhoneNumberChangeIsDone: true));
       // After successful phone number change, we can reload the user profile to get updated data
       add(LoadUserProfile());
+      emit(state.copyWith(isPhoneNumberChangeIsDone: false));
     } catch (e) {
       emit(
         state.copyWith(
