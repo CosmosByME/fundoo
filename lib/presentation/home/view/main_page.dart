@@ -10,8 +10,6 @@ import 'package:fundoo/core/widget/spending_tile.dart';
 import 'package:fundoo/presentation/home/bloc/home_bloc/home_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../bloc/profile_bloc/profile_bloc.dart';
-
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -65,60 +63,50 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
-      body: RefreshIndicator.adaptive(
-        onRefresh: () {
-          return Future.delayed(Duration(seconds: 1), () {
-            if (context.mounted) {
-              context.read<ProfileBloc>().add(LoadUserProfile());
-              context.read<HomeBloc>().add(LoadActivatedGoals());
-            }
-          });
-        },
-        child: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: BlocBuilder<HomeBloc, HomeState>(
-                builder: (context, state) {
-                  return GoalCard(
-                    goals: state.activatedGoals ?? [],
-                  );
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: BlocBuilder<HomeBloc, HomeState>(
+              builder: (context, state) {
+                return GoalCard(
+                  goals: state.activatedGoals ?? [],
+                );
+              },
+            ),
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: 16)),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: NewGoalButton(
+                onPressed: () {
+                  context.push('/name-of-goal');
                 },
               ),
             ),
-            SliverToBoxAdapter(child: SizedBox(height: 16)),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: NewGoalButton(
-                  onPressed: () {
-                    context.push('/name-of-goal');
-                  },
-                ),
-              ),
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: 16)),
+          SliverToBoxAdapter(
+            child: SpendingSection(
+              onSeeAllPressed: () {
+                context.push('/recent-activity');
+              },
+              children: spendingTiles
+                  .map(
+                    (data) =>
+                    SpendingTile(
+                      data: data,
+                      icon: data.type == SpendingType.income
+                          ? Icons.arrow_upward
+                          : data.type == SpendingType.spending
+                          ? Icons.arrow_downward
+                          : Icons.trending_up,
+                    ),
+              )
+                  .toList(),
             ),
-            SliverToBoxAdapter(child: SizedBox(height: 16)),
-            SliverToBoxAdapter(
-              child: SpendingSection(
-                onSeeAllPressed: () {
-                  context.push('/recent-activity');
-                },
-                children: spendingTiles
-                    .map(
-                      (data) =>
-                      SpendingTile(
-                        data: data,
-                        icon: data.type == SpendingType.income
-                            ? Icons.arrow_upward
-                            : data.type == SpendingType.spending
-                            ? Icons.arrow_downward
-                            : Icons.trending_up,
-                      ),
-                )
-                    .toList(),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

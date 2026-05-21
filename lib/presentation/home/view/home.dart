@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fundoo/core/services/initialize_everything.dart';
 import 'package:fundoo/core/widget/custom_bnb.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,7 +18,16 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: widget.child,
+      body: RefreshIndicator.adaptive(
+        onRefresh: () async {
+          return Future.delayed(Duration(seconds: 1), () {
+            if (context.mounted) {
+              initializeEverything(context);
+            }
+          });
+        },
+        child: widget.child,
+      ),
       bottomNavigationBar: CustomBnb(
         currentIndex: widget.currentIndex,
         onTap: (index) {

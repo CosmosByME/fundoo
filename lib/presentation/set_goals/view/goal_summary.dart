@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
+import 'package:fundoo/core/services/initialize_everything.dart';
 import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/presentation/set_goals/bloc/set_goal_bloc.dart';
@@ -35,6 +36,7 @@ class _GoalSummaryState extends State<GoalSummary> {
     return BlocListener<SetGoalBloc, SetGoalState>(
       listener: (context, state) {
         if (state.isDone) {
+          initializeEverything(context);
           context.go('/main-page');
         }
 

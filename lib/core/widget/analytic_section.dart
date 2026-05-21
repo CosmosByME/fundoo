@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
+import 'package:fundoo/presentation/home/bloc/statistics_bloc/statistic_bloc.dart';
 
 class AnalyticSection extends StatelessWidget {
   const AnalyticSection({super.key});
@@ -22,52 +24,60 @@ class AnalyticSection extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: Column(
-          children: [
-            Container(
-              alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.only(left: 16.0, bottom: 8, top: 16),
-              child: Text(
-                context.l10n.thisMonthAnalytic,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
-              ),
-            ),
-            ...[
-              AnalyticsTile(
-                name: context.l10n.allIncome,
-                trailing: Text(
-                  "+650,000 so'm",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.lightGreen,
+        child: BlocBuilder<StatisticBloc, StatisticState>(
+          builder: (context, state) {
+            return Column(
+              children: [
+                Container(
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                    bottom: 8,
+                    top: 16,
+                  ),
+                  child: Text(
+                    context.l10n.thisMonthAnalytic,
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
                   ),
                 ),
-              ),
-              AnalyticsTile(
-                name: context.l10n.allSpending,
-                trailing: Text(
-                  "-250,000 so'm",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.red,
+                ...[
+                  AnalyticsTile(
+                    name: context.l10n.allIncome,
+                    trailing: Text(
+                      "+${state.wallet?.totalIncome ?? 0} so'm",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.lightGreen,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              AnalyticsTile(
-                name: context.l10n.savingDegree,
-                trailing: Text(
-                  "61%",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.blue,
+                  AnalyticsTile(
+                    name: context.l10n.allSpending,
+                    trailing: Text(
+                      "-${state.wallet?.totalExpenses ?? 0} so'm",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.red,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ],
-          ],
+                  AnalyticsTile(
+                    name: context.l10n.savingDegree,
+                    trailing: Text(
+                      "${state.wallet != null ? (((state.wallet!.totalIncome ?? 0) - (state.wallet!.totalExpenses ?? 0)) / (state.wallet!.totalIncome ?? 1) * 100).toStringAsFixed(2) : "0"}%",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
+                ],
+              ],
+            );
+          },
         ),
       ),
     );

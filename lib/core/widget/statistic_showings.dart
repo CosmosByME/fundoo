@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
+import 'package:fundoo/presentation/home/bloc/statistics_bloc/statistic_bloc.dart';
 
 class AllIncomeIndicator extends StatelessWidget {
   const AllIncomeIndicator({super.key});
@@ -12,10 +14,7 @@ class AllIncomeIndicator extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
-            Color(0xFFF0FDF4),
-            Color(0xFFDCFCE7),
-          ],
+          colors: [Color(0xFFF0FDF4), Color(0xFFDCFCE7)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -34,13 +33,17 @@ class AllIncomeIndicator extends StatelessWidget {
               color: Color(0xFF16A34A),
             ),
           ),
-          Text(
-            "650,000",
-            style: TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.w800,
-              color: Color(0xFF15803D),
-            ),
+          BlocBuilder<StatisticBloc, StatisticState>(
+            builder: (context, state) {
+              return Text(
+                "+${state.wallet?.totalIncome ?? 0}",
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w800,
+                  color: Color(0xFF15803D),
+                ),
+              );
+            },
           ),
           Text(
             "so'm",
@@ -67,10 +70,7 @@ class AllSpendingIndicator extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
-            Color(0xFFFEF2F2),
-            Color(0xFFFEE2E2),
-          ],
+          colors: [Color(0xFFFEF2F2), Color(0xFFFEE2E2)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -89,13 +89,17 @@ class AllSpendingIndicator extends StatelessWidget {
               color: Color(0xFFDC2626),
             ),
           ),
-          Text(
-            "250,000",
-            style: TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.w800,
-              color: Color(0xFFB91C1C),
-            ),
+          BlocBuilder<StatisticBloc, StatisticState>(
+            builder: (context, state) {
+              return Text(
+                "-${state.wallet?.totalExpenses ?? 0}",
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w800,
+                  color: Color(0xFFB91C1C),
+                ),
+              );
+            },
           ),
           Text(
             "so'm",

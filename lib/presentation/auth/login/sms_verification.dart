@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
+import 'package:fundoo/core/services/initialize_everything.dart';
 import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/presentation/auth/widgets/otp_field.dart';
@@ -49,6 +50,7 @@ class _SmsVerificationPageState extends State<SmsVerificationPage> {
 
         if (state.isVerified && context.mounted) {
           context.go('/main-page');
+          initializeEverything(context);
         }
       },
       child: Scaffold(
