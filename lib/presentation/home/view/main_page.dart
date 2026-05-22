@@ -51,7 +51,7 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         title: Text(
           context.l10n.controlPanel,
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
         ),
         actionsPadding: EdgeInsets.only(right: 16),
         actions: [

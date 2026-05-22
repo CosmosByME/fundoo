@@ -159,7 +159,7 @@ class SavePurposeCard extends StatelessWidget {
             Expanded(
               child: CustomButton(
                 onPressed: () async {
-                  openIncomeEditDialog(context, goal.id!);
+                  openIncomeAddDialog(context, goal.id!);
                 },
                 backgroundColor: Color(0xFF22C55E),
                 child: Text(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/toasts/error_toast.dart';
+import 'package:fundoo/core/widget/button_loading_indicator.dart';
 import 'package:fundoo/core/widget/date_picking_field.dart';
 import 'package:fundoo/core/widget/recommended_times.dart';
 import 'package:fundoo/presentation/set_goals/bloc/set_goal_bloc.dart';
@@ -197,7 +198,7 @@ class _PeriodOfGoalState extends State<PeriodOfGoal> {
                           : null,
                       backgroundColor: Color(0xFF2563EB),
                       child: state.isLoading
-                          ? CircularProgressIndicator(color: Colors.white)
+                          ? const ButtonLoadingIndicator()
                           : Text(
                               context.l10n.continuing,
                               style: TextStyle(

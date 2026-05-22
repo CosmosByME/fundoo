@@ -1,9 +1,9 @@
 class Wallet {
     String walletId;
-    int? balance;
+    num? balance;
     int? currency;
-    int? totalIncome;
-    int? totalExpenses;
+    num? totalIncome;
+    num? totalExpenses;
     int? activeGoalsCount;
     DateTime? lastUpdated;
 
@@ -19,10 +19,10 @@ class Wallet {
 
     Wallet copyWith({
         String? walletId,
-        int? balance,
+        double? balance,
         int? currency,
-        int? totalIncome,
-        int? totalExpenses,
+        double? totalIncome,
+        double? totalExpenses,
         int? activeGoalsCount,
         DateTime? lastUpdated,
     }) => 

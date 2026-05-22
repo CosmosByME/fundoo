@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/widget/pie.dart';
 import 'package:fundoo/core/widget/pie_data_column.dart';
 import 'package:fundoo/core/widget/sliding_segment_control.dart';
+import 'package:fundoo/presentation/home/bloc/statistics_bloc/statistic_bloc.dart';
 
 class PiechartAnalytics extends StatefulWidget {
   const PiechartAnalytics({super.key});
@@ -18,35 +20,8 @@ class _PiechartAnalyticsState extends State<PiechartAnalytics> {
     setState(() {
       index = newIndex;
     });
+    context.read<StatisticBloc>().add(LoadPieDataEvent(newIndex + 1));
   }
-
-  final int totalWeekly = 100000;
-  final int totalMonthly = 400000;
-  final int totalYearly = 5000000;
-
-  Map<String, double> dataWeekly = {
-    "Oziq-ovqat": 25,
-    "Transport": 16,
-    "Ko'ngilochar": 12,
-    "Kiyim": 10,
-    "Boshqa": 37,
-  };
-
-  Map<String, double> dataMonthly = {
-    "Oziq-ovqat": 30,
-    "Transport": 20,
-    "Ko'ngilochar": 15,
-    "Kiyim": 10,
-    "Boshqa": 25,
-  };
-
-  Map<String, double> dataYearly = {
-    "Oziq-ovqat": 28,
-    "Transport": 18,
-    "Ko'ngilochar": 14,
-    "Kiyim": 12,
-    "Boshqa": 28,
-  };
 
   @override
   Widget build(BuildContext context) {
@@ -78,35 +53,25 @@ class _PiechartAnalyticsState extends State<PiechartAnalytics> {
             ],
           ),
           SizedBox(height: 16),
-          IntrinsicHeight(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Pie(
-                    total: index == 0
-                        ? totalWeekly
-                        : index == 1
-                        ? totalMonthly
-                        : totalYearly,
-                    data: index == 0
-                        ? dataWeekly
-                        : index == 1
-                        ? dataMonthly
-                        : dataYearly,
+          BlocBuilder<StatisticBloc, StatisticState>(
+            builder: (context, state) {
+              if (state.pieData != null) {
+                return IntrinsicHeight(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(child: Pie()),
+                      Expanded(child: PieDataColumn()),
+                    ],
                   ),
-                ),
-                Expanded(
-                  child: PieDataColumn(
-                    data: index == 0
-                        ? dataWeekly
-                        : index == 1
-                        ? dataMonthly
-                        : dataYearly,
-                  ),
-                ),
-              ],
-            ),
+                );
+              } else {
+                return Text(
+                  "No data available",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                );
+              }
+            },
           ),
         ],
       ),

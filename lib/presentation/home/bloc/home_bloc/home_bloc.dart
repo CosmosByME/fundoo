@@ -78,7 +78,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         manualCategoryId: event.manualCategoryId,
         customCategoryName: event.customCategoryName,
       );
-      add(LoadActivatedGoals());
+      // add(LoadActivatedGoals());
     } catch (e) {
       emit(state.copyWith(isLoading: false, errorMessage: e.toString()));
     }
@@ -98,7 +98,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         manualCategoryId: event.manualCategoryId,
         customCategoryName: event.customCategoryName,
       );
-      add(LoadActivatedGoals());
+      // add(LoadActivatedGoals());
     } catch (e) {
       emit(state.copyWith(isLoading: false, errorMessage: e.toString()));
     }

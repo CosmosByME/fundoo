@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/services/initialize_everything.dart';
 import 'package:fundoo/core/toasts/error_toast.dart';
+import 'package:fundoo/core/widget/button_loading_indicator.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/presentation/set_goals/bloc/set_goal_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -145,8 +146,8 @@ class _GoalSummaryState extends State<GoalSummary> {
                           context.read<SetGoalBloc>().add(ActivateGoal());
                         },
                         child: state.isLoading
-                            ? const CircularProgressIndicator(
-                                color: Colors.white,
+                            ? const ButtonLoadingIndicator(
+                                color: Color(0xFF1D4ED8),
                               )
                             : Text(
                                 context.l10n.goToFundoo,

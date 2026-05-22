@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/services/file_service.dart';
 import 'package:fundoo/core/toasts/error_toast.dart';
+import 'package:fundoo/core/widget/button_loading_indicator.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/core/widget/custom_text_field.dart';
 import 'package:fundoo/core/widget/img_selecting.dart';
@@ -174,19 +175,14 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                               age,
                             ),
                           );
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                "User details submitted successfully.",
-                              ),
-                            ),
+                          context.push(
+                            '/auth/sign-up/otp/personal-info/done-page',
                           );
-                          context.push('/auth/sign-up/otp/personal-info/done-page');
                         }
                       },
                       backgroundColor: Color(0xFF2563EB),
                       child: state.isLoading
-                          ? CircularProgressIndicator.adaptive()
+                          ? const ButtonLoadingIndicator()
                           : Text(
                               context.l10n.continuing,
                               style: TextStyle(

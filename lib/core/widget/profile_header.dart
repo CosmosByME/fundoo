@@ -113,7 +113,9 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        widget.user.age != null ? "${widget.user.age} yosh": "-",
+                        widget.user.age != null
+                            ? "${widget.user.age} yosh"
+                            : "-",
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: Colors.white.withValues(alpha: 0.75),
                         ),
@@ -127,7 +129,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
           const SizedBox(height: 14),
           Expanded(
             child: Text(
-              '"${widget.user.bio ?? "-"}"',
+              widget.user.bio != null ? '"${widget.user.bio}"' : '',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: Colors.white.withValues(alpha: 0.72),
                 height: 1.35,
@@ -135,7 +137,6 @@ class _ProfileHeaderState extends State<ProfileHeader> {
               // softWrap: true,
             ),
           ),
-
         ],
       ),
     );

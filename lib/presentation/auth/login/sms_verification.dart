@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/services/initialize_everything.dart';
 import 'package:fundoo/core/toasts/error_toast.dart';
+import 'package:fundoo/core/widget/button_loading_indicator.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/presentation/auth/widgets/otp_field.dart';
 import 'package:fundoo/presentation/auth/login/bloc/log_in_bloc.dart';
@@ -101,7 +102,7 @@ class _SmsVerificationPageState extends State<SmsVerificationPage> {
                           : null,
                       backgroundColor: Color(0xFF2563EB),
                       child: state.isLoading
-                          ? CircularProgressIndicator(color: Colors.white)
+                          ? const ButtonLoadingIndicator()
                           : Text(
                               context.l10n.enter,
                               style: TextStyle(

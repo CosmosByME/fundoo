@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/toasts/error_toast.dart';
+import 'package:fundoo/core/widget/button_loading_indicator.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/presentation/auth/widgets/enter_number.dart';
 import 'package:go_router/go_router.dart';
@@ -117,7 +118,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       },
                       backgroundColor: Color(0xFF2563EB),
                       child: state.isLoading
-                          ? CircularProgressIndicator.adaptive()
+                          ? const ButtonLoadingIndicator()
                           : Text(
                               context.l10n.sendCode,
                               style: TextStyle(

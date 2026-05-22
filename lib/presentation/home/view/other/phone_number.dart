@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/toasts/error_toast.dart';
+import 'package:fundoo/core/widget/button_loading_indicator.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/presentation/auth/widgets/enter_number.dart';
 import 'package:go_router/go_router.dart';
@@ -82,22 +83,18 @@ class _PhoneChangingPageState extends State<PhoneChangingPage> {
                   return CustomButton(
                     backgroundColor: const Color(0xFF2563EB),
                     child: state.isLoading
-                        ? CircularProgressIndicator.adaptive(
-                      backgroundColor: Colors.white,
-                    )
+                        ? const ButtonLoadingIndicator()
                         : Text(
-                      context.l10n.sendCode,
-                      style: TextStyle(color: Colors.white),
-                    ),
+                            context.l10n.sendCode,
+                            style: TextStyle(color: Colors.white),
+                          ),
                     onPressed: () {
                       context.read<ProfileBloc>().add(
                         ChangePhoneNumber(
                           currentPhoneNumber:
-                          "998${_oldPhoneController.text.trim().replaceAll(
-                              " ", "")}",
+                              "998${_oldPhoneController.text.trim().replaceAll(" ", "")}",
                           newPhoneNumber:
-                          "998${_newPhoneController.text.trim().replaceAll(
-                              " ", "")}",
+                              "998${_newPhoneController.text.trim().replaceAll(" ", "")}",
                         ),
                       );
                     },

@@ -13,6 +13,7 @@ import 'package:fundoo/core/widget/selection_card.dart';
 import 'package:fundoo/core/widget/toggle_tile.dart';
 import 'package:fundoo/presentation/home/view/other/default_waiting_page.dart';
 import 'package:fundoo/presentation/home/view/other/delete_account_dialog.dart';
+import 'package:fundoo/presentation/home/view/other/logout_confirmation.dart';
 import 'package:fundoo/presentation/into/notifier/inherited_intro.dart';
 import 'package:go_router/go_router.dart';
 
@@ -45,8 +46,7 @@ class _ProfilePageState extends State<ProfilePage> {
           //Claude, Can I add here an event which will download the user data, if the user in state is null?
 
           if (state.user != null) {
-            setState(() {
-            });
+            setState(() {});
           }
 
           if (state.errorMessage != null) {
@@ -82,9 +82,14 @@ class _ProfilePageState extends State<ProfilePage> {
                   actions: [
                     LogOutButton(
                       onTap: () async {
-                        await PreferencesService.clearTokens();
-                        if (context.mounted) {
-                          context.go('/auth');
+                        final result = await showLogoutConfirmationDialog(
+                          context,
+                        );
+                        if (result) {
+                          await PreferencesService.clearTokens();
+                          if (context.mounted) {
+                            context.go('/auth');
+                          }
                         }
                       },
                     ),
@@ -99,7 +104,10 @@ class _ProfilePageState extends State<ProfilePage> {
                           colors: [Color(0xFF2F6BFF), Color(0xFF2A57E8)],
                         ),
                       ),
-                      child: SafeArea(bottom: false, child: ProfileHeader(user: state.user!,)),
+                      child: SafeArea(
+                        bottom: false,
+                        child: ProfileHeader(user: state.user!),
+                      ),
                     ),
                     stretchModes: [
                       StretchMode.zoomBackground,
@@ -227,9 +235,13 @@ class _ProfilePageState extends State<ProfilePage> {
                               title: context.l10n.deleteAccount,
                               subtitle: context.l10n.deleteAccountBody,
                               onTap: () async {
-                                final result = await showDeleteAccountDialog(context);
+                                final result = await showDeleteAccountDialog(
+                                  context,
+                                );
                                 if (result == true && context.mounted) {
-                                  context.read<ProfileBloc>().add(DeleteUserAccount());
+                                  context.read<ProfileBloc>().add(
+                                    DeleteUserAccount(),
+                                  );
                                   context.go('/auth');
                                 }
                               },

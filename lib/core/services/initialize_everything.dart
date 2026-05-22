@@ -8,4 +8,5 @@ void initializeEverything(BuildContext context) {
   context.read<ProfileBloc>().add(LoadUserProfile());
   context.read<HomeBloc>().add(LoadActivatedGoals());
   context.read<StatisticBloc>().add(LoadStatisticsEvent());
+  context.read<StatisticBloc>().add(LoadPieDataEvent(1));
 }

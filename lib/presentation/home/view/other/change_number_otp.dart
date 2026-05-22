@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/toasts/error_toast.dart';
+import 'package:fundoo/core/widget/button_loading_indicator.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/presentation/auth/widgets/otp_field.dart';
 import 'package:go_router/go_router.dart';
@@ -88,25 +89,25 @@ class _ChangeNumberOptState extends State<ChangeNumberOpt> {
                     return CustomButton(
                       onPressed: _codeController.text.length == 6
                           ? () {
-                        context.read<ProfileBloc>().add(
-                          VerifyPhoneNumberChange(
-                            newPhoneNumber: state.newPhoneNumber!,
-                            verificationCode: _codeController.text,
-                          ),
-                        );
-                      }
+                              context.read<ProfileBloc>().add(
+                                VerifyPhoneNumberChange(
+                                  newPhoneNumber: state.newPhoneNumber!,
+                                  verificationCode: _codeController.text,
+                                ),
+                              );
+                            }
                           : null,
                       backgroundColor: Color(0xFF2563EB),
                       child: state.isLoading
-                          ? CircularProgressIndicator(color: Colors.white)
+                          ? const ButtonLoadingIndicator()
                           : Text(
-                        context.l10n.enter,
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFFFFFFFF),
-                        ),
-                      ),
+                              context.l10n.enter,
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFFFFFFFF),
+                              ),
+                            ),
                     );
                   },
                 ),
