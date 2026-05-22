@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
-import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/core/widget/button_loading_indicator.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/presentation/auth/widgets/enter_number.dart';
@@ -18,14 +16,11 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  late FToast ftoast;
   final TextEditingController _phoneController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    ftoast = FToast();
-    ftoast.init(context);
     _phoneController.addListener(() => debugPrint(_phoneController.text));
   }
 
@@ -39,9 +34,6 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return BlocListener<SignUpBloc, SignUpState>(
       listener: (context, state) {
-        if (state.errorMessage != null) {
-          showErrorToast(ftoast, state.errorMessage!);
-        }
         if (state.otpSent) {
           context.push('/auth/sign-up/otp');
         }

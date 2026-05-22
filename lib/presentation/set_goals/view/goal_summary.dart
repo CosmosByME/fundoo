@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/services/initialize_everything.dart';
-import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/core/widget/button_loading_indicator.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/presentation/set_goals/bloc/set_goal_bloc.dart';
@@ -17,13 +15,10 @@ class GoalSummary extends StatefulWidget {
 }
 
 class _GoalSummaryState extends State<GoalSummary> {
-  late FToast ftoast;
 
   @override
   void initState() {
     super.initState();
-    ftoast = FToast();
-    ftoast.init(context);
   }
 
   @override
@@ -39,10 +34,6 @@ class _GoalSummaryState extends State<GoalSummary> {
         if (state.isDone) {
           initializeEverything(context);
           context.go('/main-page');
-        }
-
-        if (state.errorMessage != null) {
-          showErrorToast(ftoast, state.errorMessage!);
         }
       },
       child: Scaffold(

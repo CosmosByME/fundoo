@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/services/initialize_everything.dart';
-import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/core/widget/button_loading_indicator.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/presentation/auth/widgets/otp_field.dart';
@@ -18,15 +16,12 @@ class SmsVerificationPage extends StatefulWidget {
 }
 
 class _SmsVerificationPageState extends State<SmsVerificationPage> {
-  late FToast ftoast;
   late String phoneNumber;
   late final TextEditingController _codeController;
 
   @override
   void initState() {
     super.initState();
-    ftoast = FToast();
-    ftoast.init(context);
     _codeController = TextEditingController();
     _codeController.addListener(() => setState(() {}));
   }
@@ -45,9 +40,6 @@ class _SmsVerificationPageState extends State<SmsVerificationPage> {
       listenWhen: (previous, current) =>
           !previous.isVerified && current.isVerified,
       listener: (context, state) {
-        if (state.errorMessage != null) {
-          showErrorToast(ftoast, state.errorMessage!);
-        }
 
         if (state.isVerified && context.mounted) {
           context.go('/main-page');

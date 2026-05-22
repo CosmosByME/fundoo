@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/data/repository/category_repository.dart';
 
 import '../../core/services/dio_service.dart';
@@ -25,6 +26,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
               data?['detail'] ??
               e.message ??
               'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Error occurred while activating goal: $e');
@@ -52,6 +54,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
               data?['detail'] ??
               e.message ??
               'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Error occurred while activating goal: $e');

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fundoo/core/services/dio_service.dart';
+import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/data/repository/user_repository.dart';
 
 import '../../data/models/user.dart';
@@ -23,6 +24,7 @@ class UserRepositoryImpl implements UserRepository {
           data?['detail'] ??
           e.message ??
           'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Error occurred while fetching user profile: $e');
@@ -59,6 +61,7 @@ class UserRepositoryImpl implements UserRepository {
           data?['detail'] ??
           e.message ??
           'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Error occurred while updating user profile: $e');
@@ -83,6 +86,7 @@ class UserRepositoryImpl implements UserRepository {
           data?['detail'] ??
           e.message ??
           'Unknown error';
+        showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception(
@@ -118,6 +122,7 @@ class UserRepositoryImpl implements UserRepository {
           data?['detail'] ??
           e.message ??
           'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception(
@@ -142,6 +147,7 @@ class UserRepositoryImpl implements UserRepository {
           data?['detail'] ??
           e.message ??
           'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Error occurred while deleting user account: $e');

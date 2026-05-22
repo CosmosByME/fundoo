@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fundoo/core/services/dio_service.dart';
+import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/data/models/pie_data.dart';
 import 'package:fundoo/data/repository/pie_data_repository.dart';
 
@@ -24,6 +25,7 @@ class PieDataRepositoryImpl implements PieDataRepository {
               data?['detail'] ??
               e.message ??
               'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Error occurred while fetching pie data: $e');

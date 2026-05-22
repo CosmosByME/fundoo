@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fundoo/core/services/dio_service.dart';
+import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/data/repository/auth_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
@@ -30,6 +31,7 @@ class AuthRepositoryImpl implements AuthRepository {
           data?['detail'] ??
           e.message ??
           'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Failed to register number: $e');
@@ -60,6 +62,7 @@ class AuthRepositoryImpl implements AuthRepository {
           data?['detail'] ??
           e.message ??
           'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Failed to verify OTP: $e');
@@ -94,6 +97,7 @@ class AuthRepositoryImpl implements AuthRepository {
           data?['detail'] ??
           e.message ??
           'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Failed to register user: $e');
@@ -125,6 +129,7 @@ class AuthRepositoryImpl implements AuthRepository {
           data?['detail'] ??
           e.message ??
           'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Failed to login number: $e');
@@ -158,6 +163,7 @@ class AuthRepositoryImpl implements AuthRepository {
           data?['detail'] ??
           e.message ??
           'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Failed to verify login OTP: $e');

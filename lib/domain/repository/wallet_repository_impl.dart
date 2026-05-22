@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fundoo/core/services/dio_service.dart';
+import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/data/models/wallet.dart';
 import 'package:fundoo/data/repository/wallet_repository.dart';
 
@@ -22,6 +23,7 @@ class WalletRepositoryImpl implements WalletRepository {
           data?['detail'] ??
           e.message ??
           'Unknown error';
+        showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Error occurred while fetching wallet: $e');

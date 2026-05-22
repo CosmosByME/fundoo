@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/core/widget/button_loading_indicator.dart';
@@ -18,7 +17,6 @@ class PhoneChangingPage extends StatefulWidget {
 }
 
 class _PhoneChangingPageState extends State<PhoneChangingPage> {
-  late FToast toast;
   late TextEditingController _oldPhoneController;
   late TextEditingController _newPhoneController;
 
@@ -27,8 +25,6 @@ class _PhoneChangingPageState extends State<PhoneChangingPage> {
     super.initState();
     _oldPhoneController = TextEditingController();
     _newPhoneController = TextEditingController();
-    toast = FToast();
-    toast.init(context);
   }
 
   @override
@@ -43,7 +39,7 @@ class _PhoneChangingPageState extends State<PhoneChangingPage> {
     return BlocListener<ProfileBloc, ProfileState>(
       listener: (context, state) {
         if (state.errorMessage != null) {
-          showErrorToast(toast, state.errorMessage!);
+          showErrorToast(state.errorMessage!);
         }
 
         if (state.newPhoneNumber != null && context.mounted) {

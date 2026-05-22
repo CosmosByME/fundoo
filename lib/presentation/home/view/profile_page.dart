@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/l10n/l10n_inherited.dart';
 import 'package:fundoo/core/services/preferences_service.dart';
 import 'package:fundoo/core/theme/inherited_theme.dart';
-import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/core/widget/action_tile.dart';
 import 'package:fundoo/core/widget/log_out_button.dart';
 import 'package:fundoo/core/widget/profile_header.dart';
@@ -27,15 +25,12 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  late FToast ftoast;
   bool _darkMode = false;
   bool _notificationsEnabled = true;
 
   @override
   void initState() {
     super.initState();
-    ftoast = FToast();
-    ftoast.init(context);
   }
 
   @override
@@ -47,10 +42,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
           if (state.user != null) {
             setState(() {});
-          }
-
-          if (state.errorMessage != null) {
-            showErrorToast(ftoast, state.errorMessage!);
           }
         },
         builder: (context, state) {

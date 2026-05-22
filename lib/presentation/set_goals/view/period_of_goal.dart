@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/core/widget/button_loading_indicator.dart';
 import 'package:fundoo/core/widget/date_picking_field.dart';
 import 'package:fundoo/core/widget/recommended_times.dart';
@@ -20,7 +18,6 @@ class PeriodOfGoal extends StatefulWidget {
 }
 
 class _PeriodOfGoalState extends State<PeriodOfGoal> {
-  late FToast ftoast;
   late TextEditingController _deadlineController;
 
   @override
@@ -30,8 +27,6 @@ class _PeriodOfGoalState extends State<PeriodOfGoal> {
     _deadlineController.addListener(() {
       setState(() {});
     });
-    ftoast = FToast();
-    ftoast.init(context);
   }
 
   @override
@@ -42,9 +37,6 @@ class _PeriodOfGoalState extends State<PeriodOfGoal> {
           context.pushNamed('goal-summary');
         }
 
-        if (state.errorMessage != null) {
-          showErrorToast(ftoast, state.errorMessage!);
-        }
       },
       child: Scaffold(
         appBar: AppBar(

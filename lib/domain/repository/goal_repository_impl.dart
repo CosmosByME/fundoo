@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fundoo/core/services/dio_service.dart';
+import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/data/models/goal.dart';
 import 'package:fundoo/data/repository/goal_repository.dart';
 
@@ -43,6 +44,7 @@ class GoalRepositoryImpl implements GoalRepository {
               data?['detail'] ??
               e.message ??
               'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Error occurred while creating draft goal: $e');
@@ -68,6 +70,7 @@ class GoalRepositoryImpl implements GoalRepository {
               data?['detail'] ??
               e.message ??
               'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Error occurred while activating goal: $e');
@@ -94,6 +97,7 @@ class GoalRepositoryImpl implements GoalRepository {
               data?['detail'] ??
               e.message ??
               'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Error occurred while activating goal: $e');
@@ -136,6 +140,7 @@ class GoalRepositoryImpl implements GoalRepository {
               data?['detail'] ??
               e.message ??
               'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Error occurred while activating goal: $e');
@@ -160,6 +165,7 @@ class GoalRepositoryImpl implements GoalRepository {
               data?['detail'] ??
               e.message ??
               'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Error occurred while deleting goal: $e');
@@ -192,6 +198,7 @@ class GoalRepositoryImpl implements GoalRepository {
               data?['detail'] ??
               e.message ??
               'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Error occurred while deleting goal: $e');
@@ -224,6 +231,7 @@ class GoalRepositoryImpl implements GoalRepository {
               data?['detail'] ??
               e.message ??
               'Unknown error';
+      showErrorToast(message);
       throw Exception(message);
     } catch (e) {
       throw Exception('Error occurred while deleting goal: $e');
