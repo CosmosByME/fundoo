@@ -20,7 +20,7 @@ class HomeState extends Equatable {
     return HomeState(
       isLoading: isLoading ?? this.isLoading,
       errorMessage: errorMessage,
-      activatedGoals: activatedGoals
+      activatedGoals: activatedGoals ?? this.activatedGoals,
     );
   }
 

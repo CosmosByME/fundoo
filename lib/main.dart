@@ -13,6 +13,7 @@ import 'package:fundoo/presentation/auth/signup/bloc/sign_up_bloc.dart';
 import 'package:fundoo/presentation/home/bloc/home_bloc/home_bloc.dart';
 import 'package:fundoo/presentation/home/bloc/profile_bloc/profile_bloc.dart';
 import 'package:fundoo/presentation/home/bloc/statistics_bloc/statistic_bloc.dart';
+import 'package:fundoo/presentation/home/bloc/transaction_bloc/transaction_bloc.dart';
 import 'package:fundoo/presentation/into/notifier/inherited_intro.dart';
 import 'package:fundoo/presentation/into/notifier/intro_notifier.dart';
 import 'package:fundoo/presentation/set_goals/bloc/set_goal_bloc.dart';
@@ -51,8 +52,11 @@ void main() async {
                   child: BlocProvider(
                     create: (context) => HomeBloc(),
                     child: BlocProvider(
-                      create: (context) => StatisticBloc(),
-                      child: MyApp(),
+                      create: (context) => TransactionBloc(),
+                      child: BlocProvider(
+                        create: (context) => StatisticBloc(),
+                        child: MyApp(),
+                      ),
                     ),
                   ),
                 ),

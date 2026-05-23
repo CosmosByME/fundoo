@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
-import 'package:fundoo/data/models/spending.dart';
 import 'package:fundoo/core/widget/activities_list_tile.dart';
+import 'package:fundoo/presentation/home/bloc/transaction_bloc/transaction_bloc.dart';
 
 class AllActivities extends StatefulWidget {
   const AllActivities({super.key});
@@ -11,32 +12,23 @@ class AllActivities extends StatefulWidget {
 }
 
 class _AllActivitiesState extends State<AllActivities> {
-  List<SpendingOrIncome> spendingTiles = [
-    SpendingOrIncome(
-      name: "Boshlang'ich ",
-      amount: 100000,
-      type: SpendingType.investment,
-      date: "Bugun",
-    ),
-    SpendingOrIncome(
-      name: "Oylik maosh",
-      amount: 500000,
-      type: SpendingType.income,
-      date: "3-mart",
-    ),
-    SpendingOrIncome(
-      name: "Oziq-ovqat",
-      amount: -150000,
-      type: SpendingType.spending,
-      date: "2-mart",
-    ),
-    SpendingOrIncome(
-      name: "Transport",
-      amount: -50000,
-      type: SpendingType.spending,
-      date: "1-mart",
-    ),
-  ];
+  final controller = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    controller.addListener(() {
+      if (controller.position.pixels >=
+              controller.position.maxScrollExtent - 200 &&
+          !context.read<TransactionBloc>().state.isLoading &&
+          context.read<TransactionBloc>().state.isScrollable) {
+        context.read<TransactionBloc>().add(
+          LoadTransactionsEvent(context.read<TransactionBloc>().state.page),
+        );
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,24 +38,37 @@ class _AllActivitiesState extends State<AllActivities> {
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
-        child: ListView.separated(
-          itemCount: spendingTiles.length,
-          itemBuilder: (context, index) {
-            return ActivitiesListTile(
-              icon: spendingTiles[index].type == SpendingType.income
-                  ? Icons.arrow_upward
-                  : spendingTiles[index].type == SpendingType.spending
-                  ? Icons.arrow_downward
-                  : Icons.trending_up,
-              data: spendingTiles[index],
-            );
-          },
-          separatorBuilder: (context, index) {
-            return SizedBox(height: 16);
-          },
-        ),
+      body: BlocBuilder<TransactionBloc, TransactionState>(
+        builder: (context, state) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
+            child: state.transactions != null
+                ? ListView.separated(
+                    controller: controller,
+                    itemCount: state.transactions!.length + 1,
+                    itemBuilder: (context, index) {
+                      if (index < state.transactions!.length) {
+                        return ActivitiesListTile(
+                    icon: state.transactions![index].transactionType == 4
+                        ? Icons.arrow_upward
+                        : state.transactions![index].transactionType == 3
+                        ? Icons.arrow_downward
+                        : Icons.trending_up,
+                    data: state.transactions![index],
+                  );
+                } else if (index == state.transactions!.length &&
+                    state.isLoading) {
+                  return Center(child: CircularProgressIndicator.adaptive());
+                } else {
+                  return SizedBox();
+                }
+              },
+              separatorBuilder: (context, index) {
+                return SizedBox(height: 16);
+              },
+            ) : Center(child: CircularProgressIndicator.adaptive()),
+          );
+        },
       ),
     );
   }

@@ -70,6 +70,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   ) async {
     emit(state.copyWith(isLoading: true, errorMessage: null));
     try {
+      emit(state.copyWith(isLoading: false));
       await GoalUseCase().addIncomeToGoal(
         goalId: event.goalId,
         amount: event.amount,
@@ -78,7 +79,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         manualCategoryId: event.manualCategoryId,
         customCategoryName: event.customCategoryName,
       );
-      // add(LoadActivatedGoals());
+      await Future.delayed(const Duration(seconds: 1, milliseconds: 500));
+      add(LoadActivatedGoals());
     } catch (e) {
       emit(state.copyWith(isLoading: false, errorMessage: e.toString()));
     }
@@ -90,6 +92,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       ) async {
     emit(state.copyWith(isLoading: true, errorMessage: null));
     try {
+      emit(state.copyWith(isLoading: false));
       await GoalUseCase().addChargeToGoal(
         goalId: event.goalId,
         amount: event.amount,
@@ -98,7 +101,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         manualCategoryId: event.manualCategoryId,
         customCategoryName: event.customCategoryName,
       );
-      // add(LoadActivatedGoals());
+      await Future.delayed(const Duration(seconds: 1, milliseconds: 500));
+      add(LoadActivatedGoals());
     } catch (e) {
       emit(state.copyWith(isLoading: false, errorMessage: e.toString()));
     }

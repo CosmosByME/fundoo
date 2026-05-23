@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fundoo/data/models/spending.dart';
+import 'package:fundoo/data/models/transaction.dart';
 
 class SpendingTile extends StatelessWidget {
   final IconData icon;
-  final SpendingOrIncome data;
+  final Transaction data;
 
   const SpendingTile({super.key, required this.icon, required this.data});
 
@@ -31,7 +31,7 @@ class SpendingTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  data.name,
+                  data.categoryName ?? data.manualCategoryName ?? 'Other',
                   style: const TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
@@ -40,7 +40,7 @@ class SpendingTile extends StatelessWidget {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  "${data.date} • ${data.type.name}",
+                  "${DateTime.now().difference(data.occurredAt).inDays} days ago",
                   style: const TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.w400,
@@ -51,11 +51,15 @@ class SpendingTile extends StatelessWidget {
             ),
           ),
           Text(
-            data.amount.toStringAsFixed(2),
+            data.transactionType == 3 || data.transactionType == 5
+                ? "-${data.amount.toStringAsFixed(2)}"
+                : "+${data.amount.toStringAsFixed(2)}",
             style: TextStyle(
               fontSize: 13,
               fontWeight: FontWeight.w700,
-              color: data.amount >= 0 ? Colors.lightGreen : Color(0xFFDC2626),
+              color: data.transactionType == 3 || data.transactionType == 5
+                  ? Color(0xFFDC2626)
+                  : Colors.lightGreen,
             ),
           ),
         ],

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
-import 'package:fundoo/core/services/initialize_everything.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:fundoo/core/widget/custom_text_field.dart';
 import 'package:fundoo/data/models/category.dart';
@@ -120,17 +119,17 @@ void openIncomeAddDialog(BuildContext context, String goalId) async {
                                   context.read<HomeBloc>().add(
                                     AddIncomeToGoal(
                                       goalId: goalId,
-                                      amount: double.tryParse(sum.text) ?? 0,
-                                      categoryId: categoryId,
-                                      customCategoryName: isOther
-                                          ? category.text
-                                          : null,
+                                      amount: double.parse(sum.text),
                                       description: purpose.text.isEmpty
                                           ? null
                                           : purpose.text,
+                                      categoryId: categoryId,
+                                      customCategoryName: category.text.isEmpty
+                                          ? null
+                                          : category.text,
                                     ),
                                   );
-                                  initializeEverything(context);
+
                                   Navigator.pop(context);
                                 }
                               : null,
