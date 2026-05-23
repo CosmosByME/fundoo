@@ -125,7 +125,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ActionTile(
                               icon: Icons.phone_iphone_outlined,
                               title: 'Telefon raqami',
-                              subtitle: state.user!.phoneNumber ?? "-",
+                              subtitle: state.user!.phoneNumber ?? '-',
                               onTap: () {
                                 context.push('/phone-changing');
                               },
@@ -181,7 +181,6 @@ class _ProfilePageState extends State<ProfilePage> {
                                 final state = InheritedIntro.of(
                                   context,
                                 ).notifier;
-
                                 state.changeLanguage(context);
                               },
                             ),
@@ -194,13 +193,17 @@ class _ProfilePageState extends State<ProfilePage> {
                               icon: Icons.quiz_outlined,
                               title: 'Ko\'p beriladigan savollar',
                               subtitle: 'FAQ bo\'limi',
-                              onTap: () {},
+                              onTap: () {
+                                context.push('/faq');
+                              },
                             ),
                             ActionTile(
                               icon: Icons.support_agent_outlined,
                               title: 'Qo\'llab-quvvatlash',
                               subtitle: 'Muammo yoki savol bormi?',
-                              onTap: () {},
+                              onTap: () {
+                                context.push('/support');
+                              },
                             ),
                             ActionTile(
                               icon: Icons.info_outline,
@@ -221,7 +224,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         SectionCard(
                           children: [
                             ActionTile(
-                              mainColor: Color(0xFFDC2626),
+                              mainColor: const Color(0xFFDC2626),
                               icon: Icons.delete,
                               title: context.l10n.deleteAccount,
                               subtitle: context.l10n.deleteAccountBody,

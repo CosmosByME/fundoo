@@ -10,9 +10,11 @@ import 'package:fundoo/presentation/home/view/home.dart';
 import 'package:fundoo/presentation/home/view/other/all_activities.dart';
 import 'package:fundoo/presentation/home/view/other/bio.dart';
 import 'package:fundoo/presentation/home/view/other/change_number_otp.dart';
+import 'package:fundoo/presentation/home/view/other/faq_page.dart';
 import 'package:fundoo/presentation/home/view/other/notifications.dart';
 import 'package:fundoo/presentation/home/view/other/personal_info.dart';
 import 'package:fundoo/presentation/home/view/other/phone_number.dart';
+import 'package:fundoo/presentation/home/view/other/support_page.dart';
 import 'package:fundoo/presentation/into/view/intro.dart';
 import 'package:fundoo/presentation/set_goals/view/cost_of_goal.dart';
 import 'package:fundoo/presentation/set_goals/view/current_budget_page.dart';
@@ -62,10 +64,26 @@ final router = GoRouter(
         );
       },
       routes: [
-        GoRoute(path: '/main-page',name: 'main-page', builder: (context, state) => const MainPage()),
-        GoRoute(path: '/statistics',name: 'statistics', builder: (context, state) => const StatisticsPage()),
-        GoRoute(path: '/games',name: 'games', builder: (context, state) => const GamesPage  ()),
-        GoRoute(path: '/profile',name: 'profile', builder: (context, state) => const ProfilePage()),
+        GoRoute(
+          path: '/main-page',
+          name: 'main-page',
+          builder: (context, state) => const MainPage(),
+        ),
+        GoRoute(
+          path: '/statistics',
+          name: 'statistics',
+          builder: (context, state) => const StatisticsPage(),
+        ),
+        GoRoute(
+          path: '/games',
+          name: 'games',
+          builder: (context, state) => const GamesPage(),
+        ),
+        GoRoute(
+          path: '/profile',
+          name: 'profile',
+          builder: (context, state) => const ProfilePage(),
+        ),
       ],
     ),
 
@@ -101,8 +119,11 @@ final router = GoRouter(
                   name: 'personal-info',
                   builder: (context, state) => PersonalInfoPage(),
                   routes: [
-                    GoRoute(path: '/done-page', builder: (context, state) => DonePage()),
-                  ]
+                    GoRoute(
+                      path: '/done-page',
+                      builder: (context, state) => DonePage(),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -110,7 +131,6 @@ final router = GoRouter(
         ),
       ],
     ),
-
 
     GoRoute(
       path: '/name-of-goal',
@@ -145,18 +165,31 @@ final router = GoRouter(
       ],
     ),
 
-
-    GoRoute(path: '/notifications', builder: (context, state) => NotificationsPage()),
-    GoRoute(path: '/phone-changing', builder: (context, state) => PhoneChangingPage()),
-    GoRoute(path: '/change-number-otp', builder: (context, state) => ChangeNumberOpt()),
-    GoRoute(path: '/personal-info-changing', builder: (context, state) => PersonalInfo()),
+    GoRoute(
+      path: '/notifications',
+      builder: (context, state) => NotificationsPage(),
+    ),
+    GoRoute(
+      path: '/phone-changing',
+      builder: (context, state) => PhoneChangingPage(),
+    ),
+    GoRoute(
+      path: '/change-number-otp',
+      builder: (context, state) => ChangeNumberOpt(),
+    ),
+    GoRoute(
+      path: '/personal-info-changing',
+      builder: (context, state) => PersonalInfo(),
+    ),
     GoRoute(path: '/bio', builder: (context, state) => BioChangingPage()),
-    GoRoute(path: '/recent-activity', builder: (context, state) => AllActivities()),
+    GoRoute(path: '/faq', builder: (context, state) => const FaqPage()),
+    GoRoute(path: '/support', builder: (context, state) => const SupportPage()),
+    GoRoute(
+      path: '/recent-activity',
+      builder: (context, state) => AllActivities(),
+    ),
   ],
 );
-
-
-
 
 //This notifier is just for redirecting. Not for external use.
 
