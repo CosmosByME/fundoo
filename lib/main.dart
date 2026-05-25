@@ -1,9 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fundoo/core/l10n/l10n_inherited.dart';
 import 'package:fundoo/core/l10n/outputs/app_localizations.dart';
 import 'package:fundoo/core/router.dart';
+import 'package:fundoo/core/services/firebase_service.dart';
 import 'package:fundoo/core/services/preferences_service.dart';
 import 'package:fundoo/core/theme/inherited_theme.dart';
 import 'package:fundoo/core/theme/themes.dart';
@@ -17,9 +19,14 @@ import 'package:fundoo/presentation/home/bloc/transaction_bloc/transaction_bloc.
 import 'package:fundoo/presentation/into/notifier/inherited_intro.dart';
 import 'package:fundoo/presentation/into/notifier/intro_notifier.dart';
 import 'package:fundoo/presentation/set_goals/bloc/set_goal_bloc.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await FireBaseService().initialize();
+
+
   Bloc.observer = SimpleBlocObserver();
   final isDarkMode = await PreferencesService.getDarkMode();
   final themeMode = isDarkMode == null

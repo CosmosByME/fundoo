@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "439963597148",
+    "project_id": "fundoo-250cd",
+    "storage_bucket": "fundoo-250cd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439963597148:android:b3e4dae58f0da380b6e999",
+        "android_client_info": {
+          "package_name": "com.example.fundoo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHAR3rvDDx8VtPsF3qxZzVSL09uaCnvNQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

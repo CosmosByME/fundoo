@@ -55,20 +55,41 @@ class _PiechartAnalyticsState extends State<PiechartAnalytics> {
           SizedBox(height: 16),
           BlocBuilder<StatisticBloc, StatisticState>(
             builder: (context, state) {
-              if (state.pieData != null) {
-                return IntrinsicHeight(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(child: Pie()),
-                      Expanded(child: PieDataColumn()),
-                    ],
-                  ),
+              if (state.isLoading) {
+                return Container(
+                  alignment: Alignment.center,
+                  child: CircularProgressIndicator(),
                 );
+              }
+
+
+              if (state.pieData != null  ) {
+                if (!state.pieData!.existsButEmpty()) {
+                  return IntrinsicHeight(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(child: Pie()),
+                        Expanded(child: PieDataColumn()),
+                      ],
+                    ),
+                  );
+                } else {
+                  return Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "No expanses recorded in this period",
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                    ),
+                  );
+                }
               } else {
-                return Text(
-                  "No data available",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                return Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "No data available",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  ),
                 );
               }
             },

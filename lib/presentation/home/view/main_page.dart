@@ -67,7 +67,7 @@ class _MainPageState extends State<MainPage> {
                     );
                     context.read<TransactionBloc>().add(
                       LoadTransactionsEvent(
-                        context.read<TransactionBloc>().state.page,
+                        state.page,
                       ),
                     );
                     context.push('/recent-activity');

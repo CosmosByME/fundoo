@@ -32,7 +32,7 @@ class TransactionRepositoryImpl implements TransactionRepository {
   @override
   Future<List<Transaction>> getTransactionsByPage(int page) async {
     try {
-      final response = await dio.get("/api/v1/Transactions", queryParameters: {"pageSize": 10, "page": page});
+      final response = await dio.get("/api/v1/Transactions", queryParameters: {"pageSize": 15, "page": page});
       if (response.statusCode == 200) {
         List data = response.data["data"]["items"] as List;
         return data.map((json) => Transaction.fromJson(json)).toList();

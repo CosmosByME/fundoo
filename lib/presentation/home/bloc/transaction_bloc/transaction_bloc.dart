@@ -39,8 +39,9 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     if (!state.isScrollable) return;
     emit(state.copyWith(isLoading: true, errorMessage: null));
     try {
+
       final transactions = await TransactionUseCase().getTransactionsByPage(
-        event.page,
+        state.page,
       );
       emit(
         state.copyWith(
@@ -59,6 +60,6 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     RefreshTransactionsEvent event,
     Emitter<TransactionState> emit,
   ) async {
-    emit(state.copyWith(isScrollable: true, errorMessage: null, page: 1));
+    emit(state.copyWith(isScrollable: true, errorMessage: null, page: 1, transactions: []));
   }
 }

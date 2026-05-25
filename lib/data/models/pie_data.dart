@@ -31,6 +31,8 @@ class PieData {
     categories: categories ?? this.categories,
   );
 
+  bool existsButEmpty() => totalExpenses == 0 || categories.isEmpty || categories.every((c) => c.amount == 0);
+
   factory PieData.fromJson(Map<String, dynamic> json) => PieData(
     period: json["period"],
     periodName: json["periodName"],

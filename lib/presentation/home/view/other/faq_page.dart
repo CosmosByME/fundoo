@@ -48,6 +48,7 @@ class FaqPage extends StatelessWidget {
               border: Border.all(color: const Color(0xFFE8ECF4)),
             ),
             child: ExpansionTile(
+
               tilePadding: const EdgeInsets.symmetric(
                 horizontal: 16,
                 vertical: 6,

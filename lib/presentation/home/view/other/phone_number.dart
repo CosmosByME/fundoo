@@ -37,12 +37,14 @@ class _PhoneChangingPageState extends State<PhoneChangingPage> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<ProfileBloc, ProfileState>(
+      // listenWhen: ( previous, current) =>
+      //     previous.isOtpSent != current.isOtpSent || previous.newPhoneNumber != current.newPhoneNumber,
       listener: (context, state) {
         if (state.errorMessage != null) {
           showErrorToast(state.errorMessage!);
         }
 
-        if (state.newPhoneNumber != null && context.mounted) {
+        if (state.isOtpSent && context.mounted) {
           context.push('/change-number-otp');
         }
       },
