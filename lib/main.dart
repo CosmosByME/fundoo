@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -13,13 +12,13 @@ import 'package:fundoo/core/widget/on_un_focus.dart';
 import 'package:fundoo/presentation/auth/login/bloc/log_in_bloc.dart';
 import 'package:fundoo/presentation/auth/signup/bloc/sign_up_bloc.dart';
 import 'package:fundoo/presentation/home/bloc/home_bloc/home_bloc.dart';
+import 'package:fundoo/presentation/home/bloc/notification_bloc/notification_bloc.dart';
 import 'package:fundoo/presentation/home/bloc/profile_bloc/profile_bloc.dart';
 import 'package:fundoo/presentation/home/bloc/statistics_bloc/statistic_bloc.dart';
 import 'package:fundoo/presentation/home/bloc/transaction_bloc/transaction_bloc.dart';
 import 'package:fundoo/presentation/into/notifier/inherited_intro.dart';
 import 'package:fundoo/presentation/into/notifier/intro_notifier.dart';
 import 'package:fundoo/presentation/set_goals/bloc/set_goal_bloc.dart';
-import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -62,7 +61,10 @@ void main() async {
                       create: (context) => TransactionBloc(),
                       child: BlocProvider(
                         create: (context) => StatisticBloc(),
-                        child: MyApp(),
+                        child: BlocProvider(
+                          create: (context) => NotificationBloc(),
+                          child: MyApp(),
+                        ),
                       ),
                     ),
                   ),

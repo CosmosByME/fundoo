@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:fundoo/core/services/preferences_service.dart';
+import 'package:fundoo/core/toasts/error_toast.dart';
 
 import '../../firebase_options.dart';
 
@@ -24,7 +26,7 @@ class FireBaseService {
     await initializeMessage();
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
-      print("Foreground notification received");
+      debugPrint("Foreground notification received");
 
       RemoteNotification? notification = message.notification;
       AndroidNotification? android = message.notification?.android;
@@ -51,9 +53,10 @@ class FireBaseService {
 
     try {
       final token = await messaging.getToken();
-      debugPrint("Firebase Messaging Token: $token");
-    } on Exception catch (e) {
-      debugPrint("Error getting Firebase Messaging token: $e");
+      await PreferencesService.setFcpToken(token!);
+      debugPrint("FCM Token: $token");
+    } on Exception {
+      showErrorToast("Failed to get FCM token");
     }
   }
 }

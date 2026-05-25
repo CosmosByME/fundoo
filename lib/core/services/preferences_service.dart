@@ -57,5 +57,16 @@ class PreferencesService {
     final prefs = await futureOfSharedPreferences;
     await prefs.remove("accessToken");
     await prefs.remove("refreshToken");
+    await prefs.remove("fcpToken");
+  }
+  
+  static Future<void> setFcpToken(String fcpToken) async {
+    final prefs = await futureOfSharedPreferences;
+    await prefs.setString("fcpToken", fcpToken);
+  }
+  
+  static Future<String?> getFcpToken() async {
+    final prefs = await futureOfSharedPreferences;
+    return prefs.getString("fcpToken");
   }
 }

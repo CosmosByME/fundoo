@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/services/initialize_everything.dart';
+import 'package:fundoo/core/services/preferences_service.dart';
+import 'package:fundoo/core/toasts/error_toast.dart';
 import 'package:fundoo/core/widget/button_loading_indicator.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
+import 'package:fundoo/domain/repository/fcp_token_register_repository_impl.dart';
 import 'package:fundoo/presentation/auth/widgets/otp_field.dart';
 import 'package:fundoo/presentation/auth/login/bloc/log_in_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -39,9 +42,15 @@ class _SmsVerificationPageState extends State<SmsVerificationPage> {
     return BlocListener<LogInBloc, LogInState>(
       listenWhen: (previous, current) =>
           !previous.isVerified && current.isVerified,
-      listener: (context, state) {
+      listener: (context, state) async {
+        final fcpToken = await PreferencesService.getFcpToken();
 
         if (state.isVerified && context.mounted) {
+          try {
+            FcpTokenRegisterRepositoryImpl().setFcpToken(fcpToken!);
+          } on Exception {
+            showErrorToast("Failed to register FCP token");
+          }
           context.go('/main-page');
           initializeEverything(context);
         }

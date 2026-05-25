@@ -10,6 +10,8 @@ import 'package:fundoo/presentation/home/bloc/home_bloc/home_bloc.dart';
 import 'package:fundoo/presentation/home/bloc/transaction_bloc/transaction_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../bloc/notification_bloc/notification_bloc.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -31,6 +33,12 @@ class _MainPageState extends State<MainPage> {
           NotificationIcon(
             hasNotifications: true,
             onTap: () {
+              context.read<NotificationBloc>().add(
+                RefreshNotificationsEvent(),
+              );
+              context.read<NotificationBloc>().add(
+                LoadNotifications(),
+              );
               context.push('/notifications');
             },
           ),

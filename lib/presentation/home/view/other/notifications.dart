@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fundoo/core/l10n/l10n.dart';
+import 'package:fundoo/data/models/notification.dart';
+
+import '../../bloc/notification_bloc/notification_bloc.dart';
 
 class NotificationsPage extends StatefulWidget {
   const NotificationsPage({super.key});
@@ -9,50 +13,85 @@ class NotificationsPage extends StatefulWidget {
 }
 
 class _NotificationsPageState extends State<NotificationsPage> {
-  List<Widget> notifications = [Notification(), Notification(), Notification()];
+  final controller = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    controller.addListener(() {
+      if (controller.position.pixels >=
+              controller.position.maxScrollExtent - 200 &&
+          !context.read<NotificationBloc>().state.isLoading &&
+          context.read<NotificationBloc>().state.isScrollable) {
+        context.read<NotificationBloc>().add(LoadNotifications());
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          context.l10n.notifications,
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
-        ),
-        actionsPadding: EdgeInsets.only(right: 20),
-      ),
-      body: notifications.isEmpty
-          ? Center(
-              child: Text(
-                context.l10n.noNotifications,
-                style: TextStyle(color: Color(0xFF64748B), fontSize: 14),
-              ),
-            )
-          : ListView.builder(
-              itemCount: notifications.length,
-              itemBuilder: (context, index) {
-                return Dismissible(
-                  key: UniqueKey(),
-                  onDismissed: (direction) {
-                    setState(() {
-                      notifications.removeAt(index);
-                    });
-                  },
-                  background: Container(
-                    color: Colors.red,
-                    alignment: Alignment.centerRight,
-                    padding: EdgeInsets.only(right: 20),
-                    child: Icon(Icons.delete, color: Colors.white),
-                  ),
-                  child: notifications[index],
-                );
-              },
+    return BlocBuilder<NotificationBloc, NotificationState>(
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(
+              context.l10n.notifications,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
             ),
+            actionsPadding: EdgeInsets.only(right: 20),
+          ),
+          body: state.notifications == null || state.notifications!.isEmpty
+              ? Center(
+                  child: Text(
+                    context.l10n.noNotifications,
+                    style: TextStyle(color: Color(0xFF64748B), fontSize: 14),
+                  ),
+                )
+              : ListView.builder(
+                  controller: controller,
+                  itemCount:
+                      state.notifications!.length + (state.isLoading ? 1 : 0),
+                  itemBuilder: (context, index) {
+                    if (index < state.notifications!.length) {
+                      return Dismissible(
+                        key: UniqueKey(),
+                        onDismissed: (direction) {
+                          context.read<NotificationBloc>().add(
+                            MarkNotificationAsRead(
+                              state.notifications![index].id,
+                            ),
+                          );
+                        },
+                        background: Container(
+                          color: Colors.red,
+                          alignment: Alignment.centerRight,
+                          padding: EdgeInsets.only(right: 20),
+                          child: Icon(Icons.delete, color: Colors.white),
+                        ),
+                        child: NotificationTile(
+                          notification: state.notifications![index],
+                        ),
+                      );
+                    } else if (index == state.notifications!.length &&
+                        state.isLoading) {
+                      return Center(
+                        child: CircularProgressIndicator.adaptive(),
+                      );
+                    } else {
+                      return SizedBox();
+                    }
+                  },
+                ),
+        );
+      },
     );
   }
 }
 
-class Notification extends StatelessWidget {
-  const Notification({super.key});
+class NotificationTile extends StatelessWidget {
+  final NotificationModel notification;
+
+  const NotificationTile({super.key, required this.notification});
 
   @override
   Widget build(BuildContext context) {
@@ -82,17 +121,17 @@ class Notification extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Oylik maqsad eslatmasi",
+                  notification.title,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 SizedBox(height: 4),
                 Text(
-                  "Bu oy 800 000 so'm tejashingiz kerak.",
+                  notification.body,
                   style: TextStyle(color: Color(0xFF64748B), fontSize: 13),
                 ),
                 SizedBox(height: 4),
                 Text(
-                  "12.01.2026, 10:00",
+                  "${notification.createdAt.day}.${notification.createdAt.month}.${notification.createdAt.year} ${notification.createdAt.hour}:${notification.createdAt.minute.toString().padLeft(2, '0')}",
                   style: TextStyle(color: Color(0xFF94A3B8), fontSize: 10),
                 ),
               ],

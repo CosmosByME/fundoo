@@ -3,6 +3,10 @@ import 'package:fundoo/core/l10n/l10n.dart';
 import 'package:fundoo/core/widget/custom_button.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/services/preferences_service.dart';
+import '../../../core/toasts/error_toast.dart';
+import '../../../domain/repository/fcp_token_register_repository_impl.dart';
+
 class DonePage extends StatelessWidget {
   const DonePage({super.key});
 
@@ -67,8 +71,17 @@ class DonePage extends StatelessWidget {
                   const SizedBox(height: 40),
                   CustomButton(
                     backgroundColor: Color(0xFF22C55E),
-                    onPressed: (){
-                      context.go('/name-of-goal');
+                    onPressed: () async {
+                      final fcpToken = await PreferencesService.getFcpToken();
+                      try {
+                        FcpTokenRegisterRepositoryImpl().setFcpToken(fcpToken!);
+                      } on Exception {
+                        showErrorToast("Failed to register FCP token");
+                      }
+
+                      if (context.mounted) {
+                        context.go('/name-of-goal');
+                      }
                     },
                     child: Text(
                       context.l10n.setGoal,

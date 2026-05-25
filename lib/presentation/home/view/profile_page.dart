@@ -9,6 +9,7 @@ import 'package:fundoo/core/widget/log_out_button.dart';
 import 'package:fundoo/core/widget/profile_header.dart';
 import 'package:fundoo/core/widget/selection_card.dart';
 import 'package:fundoo/core/widget/toggle_tile.dart';
+import 'package:fundoo/domain/repository/fcp_token_register_repository_impl.dart';
 import 'package:fundoo/presentation/home/view/other/default_waiting_page.dart';
 import 'package:fundoo/presentation/home/view/other/delete_account_dialog.dart';
 import 'package:fundoo/presentation/home/view/other/logout_confirmation.dart';
@@ -77,6 +78,8 @@ class _ProfilePageState extends State<ProfilePage> {
                           context,
                         );
                         if (result) {
+                          await FcpTokenRegisterRepositoryImpl().removeFcpToken();
+                          await Future.delayed(const Duration(milliseconds: 500));
                           await PreferencesService.clearTokens();
                           if (context.mounted) {
                             context.go('/auth');
